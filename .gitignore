@@ -1,0 +1,6 @@
+.DS_Store
+env/
+test/
+*tmp*
+*__pycache__*
+*.sublime-*
