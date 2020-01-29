@@ -7554,14 +7554,6 @@
 					]
 				},
 				{
-					"_type": "UMLPackage",
-					"_id": "AAAAAAFv63izdyL8NK0=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "CustormerInterface"
-				},
-				{
 					"_type": "UMLClass",
 					"_id": "AAAAAAFv615bLnP6xVI=",
 					"_parent": {
