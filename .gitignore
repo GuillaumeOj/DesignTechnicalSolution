@@ -4,3 +4,4 @@ test/
 *tmp*
 *__pycache__*
 *.sublime-*
+*~
