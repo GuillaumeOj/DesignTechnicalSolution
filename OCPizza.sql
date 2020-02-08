@@ -99,7 +99,7 @@ CREATE TABLE customer (
 );
 
 
-CREATE TABLE order (
+CREATE TABLE customer_order (
                 id INT AUTO_INCREMENT NOT NULL,
                 order_date DATETIME NOT NULL,
                 customer_id INT NOT NULL,
@@ -133,13 +133,13 @@ REFERENCES category (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE order ADD CONSTRAINT payment_order_fk
+ALTER TABLE customer_order ADD CONSTRAINT payment_order_fk
 FOREIGN KEY (payment_id)
 REFERENCES payment (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE order ADD CONSTRAINT status_order_fk1
+ALTER TABLE customer_order ADD CONSTRAINT status_order_fk1
 FOREIGN KEY (status_id)
 REFERENCES status (id)
 ON DELETE NO ACTION
@@ -169,7 +169,7 @@ REFERENCES pizza (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE order ADD CONSTRAINT pizzeria_order_fk
+ALTER TABLE customer_order ADD CONSTRAINT pizzeria_order_fk
 FOREIGN KEY (pizzeria_id)
 REFERENCES pizzeria (id)
 ON DELETE NO ACTION
@@ -187,7 +187,7 @@ REFERENCES pizzeria (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE order ADD CONSTRAINT customer_order_fk
+ALTER TABLE customer_order ADD CONSTRAINT customer_order_fk
 FOREIGN KEY (customer_id)
 REFERENCES customer (id)
 ON DELETE NO ACTION
@@ -195,6 +195,6 @@ ON UPDATE NO ACTION;
 
 ALTER TABLE order_line ADD CONSTRAINT order_order_line_fk
 FOREIGN KEY (order_id)
-REFERENCES order (id)
+REFERENCES customer_order (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;

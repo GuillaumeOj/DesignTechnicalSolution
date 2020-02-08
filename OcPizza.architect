@@ -4,7 +4,7 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="PlayPen Database" />
+   <property key="Logical" value="(Target Database)" />
   </data-source>
  </project-data-sources>
  <source-databases>
@@ -54,25 +54,25 @@
     </index>
    </folder>
   </table>
-  <table id="TAB14" populated="true" UUID="7feba2a7-0d79-432d-965f-890a3ae1a7ad" name="order" objectType="TABLE" physicalName="order" >
+  <table id="TAB14" populated="true" UUID="7feba2a7-0d79-432d-965f-890a3ae1a7ad" name="customer_order" objectType="TABLE" physicalName="customer_order" >
    <remarks></remarks>
    <folder id="FOLTAB141" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL15" populated="true" UUID="cb42e748-71cc-45fb-bb98-030bae5c7d0d" autoIncrement="true" autoIncrementSequenceName="order_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL15" populated="true" UUID="cb42e748-71cc-45fb-bb98-030bae5c7d0d" autoIncrement="true" autoIncrementSequenceName="customer_order_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL16" populated="true" UUID="9752c412-28be-48a7-a30d-ab03190d6bd1" autoIncrement="false" autoIncrementSequenceName="order_order_date_seq" defaultValue="" name="order_date" nullable="0" physicalName="order_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+    <column id="COL16" populated="true" UUID="9752c412-28be-48a7-a30d-ab03190d6bd1" autoIncrement="false" autoIncrementSequenceName="customer_order_order_date_seq" defaultValue="" name="order_date" nullable="0" physicalName="order_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
      <remarks></remarks>
     </column>
     <column id="COL17" populated="true" UUID="1eede7b0-3fee-4f3e-8358-32488ae04f98" autoIncrement="false" autoIncrementSequenceName="order_id_seq" defaultValue="" name="customer_id" nullable="0" physicalName="customer_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL18" populated="true" UUID="b82d57f4-39a8-4c98-8908-d6fadfc42eab" autoIncrement="false" autoIncrementSequenceName="order_status_id_seq" defaultValue="" name="status_id" nullable="0" physicalName="status_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL18" populated="true" UUID="b82d57f4-39a8-4c98-8908-d6fadfc42eab" autoIncrement="false" autoIncrementSequenceName="customer_order_status_id_seq" defaultValue="" name="status_id" nullable="0" physicalName="status_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL19" populated="true" UUID="aa5d8697-26f0-450d-9fb4-3b0ed569973c" autoIncrement="false" autoIncrementSequenceName="order_payment_id_seq" defaultValue="" name="payment_id" nullable="0" physicalName="payment_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL19" populated="true" UUID="aa5d8697-26f0-450d-9fb4-3b0ed569973c" autoIncrement="false" autoIncrementSequenceName="customer_order_payment_id_seq" defaultValue="" name="payment_id" nullable="0" physicalName="payment_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL20" populated="true" UUID="48c8c064-5366-4fbf-b4e5-dbd85defc976" autoIncrement="false" autoIncrementSequenceName="order_pizzeria_id_seq" defaultValue="" name="pizzeria_id" nullable="0" physicalName="pizzeria_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL20" populated="true" UUID="48c8c064-5366-4fbf-b4e5-dbd85defc976" autoIncrement="false" autoIncrementSequenceName="customer_order_pizzeria_id_seq" defaultValue="" name="pizzeria_id" nullable="0" physicalName="pizzeria_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
@@ -81,7 +81,7 @@
     <folder id="FOLTAB142" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB144" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX21" populated="true" UUID="bf021f5f-2602-4a06-a0c6-74d57bd0e8fe" clustered="false" name="order_pk" physicalName="order_1_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX21" populated="true" UUID="bf021f5f-2602-4a06-a0c6-74d57bd0e8fe" clustered="false" name="customer_order_pk" physicalName="order_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC22" populated="true" UUID="4987c760-da0b-4b00-985e-341dac62c3f5" ascendingOrDescending="UNSPECIFIED" column-ref="COL15" name="id" physicalName="id" />
     </index>
    </folder>
