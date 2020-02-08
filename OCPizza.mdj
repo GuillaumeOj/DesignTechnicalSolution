@@ -767,7 +767,7 @@
 											"top": 271,
 											"width": 108.75439453125,
 											"height": 13,
-											"text": "Order"
+											"text": "CustomerOrder"
 										},
 										{
 											"_type": "LabelView",
@@ -8442,7 +8442,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Order",
+					"name": "CustomerOrder",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
