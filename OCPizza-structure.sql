@@ -1,3 +1,14 @@
+-- -----------------------------------------------------
+-- DELETE IF EXIST AND CREATE THE OCPIZZA DATABASE
+-- -----------------------------------------------------
+DROP DATABASE IF EXISTS ocpizza;
+CREATE DATABASE ocpizza CHARACTER SET 'utf8mb4';
+USE ocpizza;
+
+-- -----------------------------------------------------
+-- DOWN HERE ALL REQUESTS ARE CREATED BY SQL ARCHITECT
+-- IT'S BASED ON THE ENTITY RELATIONSHIP DIAGRAM
+-- -----------------------------------------------------
 
 CREATE TABLE size (
                 id INT AUTO_INCREMENT NOT NULL,
