@@ -81,7 +81,7 @@
     <folder id="FOLTAB142" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB144" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX21" populated="true" UUID="bf021f5f-2602-4a06-a0c6-74d57bd0e8fe" clustered="false" name="customer_order_pk" physicalName="order_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX21" populated="true" UUID="bf021f5f-2602-4a06-a0c6-74d57bd0e8fe" clustered="false" name="customer_order_pk" physicalName="customer_order_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC22" populated="true" UUID="4987c760-da0b-4b00-985e-341dac62c3f5" ascendingOrDescending="UNSPECIFIED" column-ref="COL15" name="id" physicalName="id" />
     </index>
    </folder>
