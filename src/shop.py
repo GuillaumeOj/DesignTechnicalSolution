@@ -15,7 +15,7 @@ class Shop: # pylint: disable=too-few-public-methods
         self.fake = faker.Faker(lang_code)
 
         # The shop name
-        self.name = self.fake.first_name()
+        self.name = self.fake.company()
 
         # The shop address
         self.address = None
