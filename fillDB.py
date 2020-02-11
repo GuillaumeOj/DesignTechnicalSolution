@@ -2,14 +2,13 @@
     Module for filling and testing the database
 """
 import argparse
-import hashlib
-import uuid
-from random import randrange
-
-import faker
+import random
 
 from settings import * # pylint: disable=wildcard-import
 from src.database import Database
+from src.customer import Customer
+from src.address import Address
+from src.password import Password
 
 
 class App:
@@ -40,36 +39,26 @@ class App:
         else:
             raise Exception('Please specify an argument')
 
-        self.fake = None
-
-    def random_data(self):
+    @staticmethod
+    def random_data():
         """
             Method for generating random data and fill the database
         """
-        self.fake = faker.Faker('fr_FR')
+        # Generate customers
+        customers = list()
 
-        self.random_customer()
-
-    def random_customer(self):
-        """
-            Method for generating a random customer
-        """
-
-        first_name = self.fake.first_name
-        last_name = self.fake.last_name
-
-        mail_domain = self.fake.domain_name()
-        mail = f'{first_name}.{last_name}@{mail_domain}'
-
-        password = self.fake.password(length=15).encode('utf-8')
-        salt = uuid.uuid4().hex.encode('utf-8')
-        hashed_password = hashlib.sha256(password + salt).hexdigest()
-
-        if randrange(0, 1) == 1:
-            street_number = self.fake.building_number()
-            street_name = self.fake.street_name()
-            city = self.fake.city()
-            postal_code = self.fake.postcode()
+        for customer in range(int(random.random() * 100)):
+            customer = Customer(LANG_CODE)
+            customer.address = Address(LANG_CODE, optional_address=True, additional_details=True)
+            customer.password = Password(LANG_CODE)
+            customers.append(customer)
+        
+        # employees = list()
+        # pizzeria = list()
+        # ingredients = list()
+        # sizes = list()
+        # stocks = list()
+        # orders = list()
 
 
 
