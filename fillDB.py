@@ -48,16 +48,16 @@ class App:
         # Generate customers
         customers = list()
 
-        for customer in range(int(random.random() * 100)):
+        for customer in range(random.randrange(20, 100)):
             customer = Customer(LANG_CODE)
             customer.address = Address(LANG_CODE, optional_address=True, additional_details=True)
             customer.password = Password(LANG_CODE)
             customers.append(customer)
 
-        # Generate pizzeria
+        # Generate pizzeria and employees
         pizzeria = list()
 
-        for shop in range(int(random.random() * 100)):
+        for shop in range(random.randrange(3, 10)):
             shop = Shop(LANG_CODE)
             shop.address = Address(LANG_CODE)
             pizzeria.append(shop)
