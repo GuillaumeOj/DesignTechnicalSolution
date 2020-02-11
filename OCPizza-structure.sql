@@ -9,8 +9,6 @@ USE ocpizza;
 -- DOWN HERE ALL REQUESTS ARE CREATED BY SQL ARCHITECT
 -- IT'S BASED ON THE ENTITY RELATIONSHIP DIAGRAM
 -- -----------------------------------------------------
-
-
 CREATE TABLE size (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
@@ -70,10 +68,10 @@ CREATE TABLE pizza_ingredient (
 CREATE TABLE pizzeria (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                adress_street_number VARCHAR(10) NOT NULL,
-                adress_street_name VARCHAR(200) NOT NULL,
-                adress_city_name VARCHAR(100) NOT NULL,
-                adress_postal_code VARCHAR(6) NOT NULL,
+                address_street_number VARCHAR(10) NOT NULL,
+                address_street_name VARCHAR(200) NOT NULL,
+                address_city VARCHAR(100) NOT NULL,
+                address_postal_code VARCHAR(6) NOT NULL,
                 PRIMARY KEY (id)
 );
 
@@ -102,11 +100,11 @@ CREATE TABLE customer (
                 last_name VARCHAR(100) NOT NULL,
                 mail VARCHAR(200) NOT NULL,
                 password CHAR(64) NOT NULL,
-                adress_street_number VARCHAR(10),
-                adress_street_name VARCHAR(200),
-                adress_city_name VARCHAR(100),
-                adress_postal_code VARCHAR(6),
-                adress_additional_details VARCHAR(200),
+                address_street_number VARCHAR(10),
+                address_street_name VARCHAR(200),
+                address_city VARCHAR(100),
+                address_postal_code VARCHAR(6),
+                address_additional_details VARCHAR(200),
                 PRIMARY KEY (id)
 );
 
@@ -114,11 +112,11 @@ CREATE TABLE customer (
 CREATE TABLE customer_order (
                 id INT AUTO_INCREMENT NOT NULL,
                 order_date DATETIME NOT NULL,
-                adress_street_number VARCHAR(10) NOT NULL,
-                adress_street_name VARCHAR(200) NOT NULL,
-                adress_city_name VARCHAR(100) NOT NULL,
-                adress_postal_code VARCHAR(6) NOT NULL,
-                adress_additional_details VARCHAR(200),
+                address_street_number VARCHAR(10) NOT NULL,
+                address_street_name VARCHAR(200) NOT NULL,
+                address_city VARCHAR(100) NOT NULL,
+                address_postal_code VARCHAR(6) NOT NULL,
+                address_additional_details VARCHAR(200),
                 customer_id INT NOT NULL,
                 status_id INT NOT NULL,
                 payment_id INT NOT NULL,

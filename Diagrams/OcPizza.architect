@@ -37,19 +37,19 @@
     <column id="COL6" populated="true" UUID="8d4a2000-b14c-4ed7-9094-7da0824f9d37" autoIncrement="false" autoIncrementSequenceName="customer_password_seq" defaultValue="" name="password" nullable="0" physicalName="password" precision="64" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL7" populated="true" UUID="cb8d6b56-dcb1-4464-b70e-5c1ddf5b6b83" autoIncrement="false" autoIncrementSequenceName="customer_adress_street_number_seq" defaultValue="" name="adress_street_number" nullable="1" physicalName="adress_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL7" populated="true" UUID="cb8d6b56-dcb1-4464-b70e-5c1ddf5b6b83" autoIncrement="false" autoIncrementSequenceName="customer_adress_street_number_seq" defaultValue="" name="address_street_number" nullable="1" physicalName="address_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL8" populated="true" UUID="081d767b-fc7a-4581-bbd2-7ea2bfc3dd74" autoIncrement="false" autoIncrementSequenceName="customer_adress_street_name_seq" defaultValue="" name="adress_street_name" nullable="1" physicalName="adress_street_name" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL8" populated="true" UUID="081d767b-fc7a-4581-bbd2-7ea2bfc3dd74" autoIncrement="false" autoIncrementSequenceName="customer_adress_street_name_seq" defaultValue="" name="address_street_name" nullable="1" physicalName="address_street_name" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL9" populated="true" UUID="6d0f1707-d0d1-4fc1-bbf9-4f2db0500998" autoIncrement="false" autoIncrementSequenceName="customer_adress_place_name_seq" defaultValue="" name="adress_city_name" nullable="1" physicalName="adress_city_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL9" populated="true" UUID="6d0f1707-d0d1-4fc1-bbf9-4f2db0500998" autoIncrement="false" autoIncrementSequenceName="customer_adress_place_name_seq" defaultValue="" name="address_city" nullable="1" physicalName="address_city" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL10" populated="true" UUID="2d0137ba-2c62-47f0-9d95-8cb8e4e9d5b4" autoIncrement="false" autoIncrementSequenceName="customer_adress_zip_code_seq" defaultValue="" name="adress_postal_code" nullable="1" physicalName="adress_postal_code" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL10" populated="true" UUID="2d0137ba-2c62-47f0-9d95-8cb8e4e9d5b4" autoIncrement="false" autoIncrementSequenceName="customer_adress_zip_code_seq" defaultValue="" name="address_postal_code" nullable="1" physicalName="address_postal_code" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL11" populated="true" UUID="a705093f-4674-4867-8040-cc711280b4a7" autoIncrement="false" autoIncrementSequenceName="customer_adress_additional_details_seq" defaultValue="" name="adress_additional_details" nullable="1" physicalName="adress_additional_details" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL11" populated="true" UUID="a705093f-4674-4867-8040-cc711280b4a7" autoIncrement="false" autoIncrementSequenceName="customer_adress_additional_details_seq" defaultValue="" name="address_additional_details" nullable="1" physicalName="address_additional_details" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -72,19 +72,19 @@
     <column id="COL16" populated="true" UUID="9752c412-28be-48a7-a30d-ab03190d6bd1" autoIncrement="false" autoIncrementSequenceName="customer_order_order_date_seq" defaultValue="" name="order_date" nullable="0" physicalName="order_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
      <remarks></remarks>
     </column>
-    <column id="COL17" populated="true" UUID="cf90d6f7-8daf-4fd9-8d71-57c46edda451" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_street_number_seq" defaultValue="" name="adress_street_number" nullable="0" physicalName="adress_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL17" populated="true" UUID="cf90d6f7-8daf-4fd9-8d71-57c46edda451" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_street_number_seq" defaultValue="" name="address_street_number" nullable="0" physicalName="address_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL18" populated="true" UUID="c9c992ac-9697-4022-89c3-77f98fa396cf" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_street_name_seq" defaultValue="" name="adress_street_name" nullable="0" physicalName="adress_street_name" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL18" populated="true" UUID="c9c992ac-9697-4022-89c3-77f98fa396cf" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_street_name_seq" defaultValue="" name="address_street_name" nullable="0" physicalName="address_street_name" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL19" populated="true" UUID="79d08e4c-acd8-4191-a498-a08a419d20ae" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_city_name_seq" defaultValue="" name="adress_city_name" nullable="0" physicalName="adress_city_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL19" populated="true" UUID="79d08e4c-acd8-4191-a498-a08a419d20ae" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_city_name_seq" defaultValue="" name="address_city" nullable="0" physicalName="address_city" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL20" populated="true" UUID="b5b9c1c3-782d-4161-beda-35519f05eda3" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_postal_code_seq" defaultValue="" name="adress_postal_code" nullable="0" physicalName="adress_postal_code" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL20" populated="true" UUID="b5b9c1c3-782d-4161-beda-35519f05eda3" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_postal_code_seq" defaultValue="" name="address_postal_code" nullable="0" physicalName="address_postal_code" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL21" populated="true" UUID="1565a429-fb2f-4574-8471-6e1dd12722aa" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_additional_details_seq" defaultValue="" name="adress_additional_details" nullable="1" physicalName="adress_additional_details" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL21" populated="true" UUID="1565a429-fb2f-4574-8471-6e1dd12722aa" autoIncrement="false" autoIncrementSequenceName="customer_order_adress_additional_details_seq" defaultValue="" name="address_additional_details" nullable="1" physicalName="address_additional_details" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL22" populated="true" UUID="1eede7b0-3fee-4f3e-8358-32488ae04f98" autoIncrement="false" autoIncrementSequenceName="order_id_seq" defaultValue="" name="customer_id" nullable="0" physicalName="customer_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -182,16 +182,16 @@
     <column id="COL49" populated="true" UUID="80ba968e-b4b8-4f27-a39f-c6e9d18c1fe7" autoIncrement="false" autoIncrementSequenceName="pizzeria_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL50" populated="true" UUID="09b7d0fa-46cb-48ed-aa5f-fd13c260dd86" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_number_seq" defaultValue="" name="adress_street_number" nullable="0" physicalName="adress_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL50" populated="true" UUID="09b7d0fa-46cb-48ed-aa5f-fd13c260dd86" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_number_seq" defaultValue="" name="address_street_number" nullable="0" physicalName="address_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL51" populated="true" UUID="fdbb9771-ac6f-429a-a24e-a9a51ba23ec3" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_street_name_seq" defaultValue="" name="adress_street_name" nullable="0" physicalName="adress_street_name" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL51" populated="true" UUID="fdbb9771-ac6f-429a-a24e-a9a51ba23ec3" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_street_name_seq" defaultValue="" name="address_street_name" nullable="0" physicalName="address_street_name" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL52" populated="true" UUID="89a1e8e4-f59c-4201-b685-3b941ab410aa" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_place_name_seq" defaultValue="" name="adress_city_name" nullable="0" physicalName="adress_city_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL52" populated="true" UUID="89a1e8e4-f59c-4201-b685-3b941ab410aa" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_place_name_seq" defaultValue="" name="address_city" nullable="0" physicalName="address_city" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL53" populated="true" UUID="847c4af9-94c8-475d-8f77-48bd57de602a" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_zip_code_seq" defaultValue="" name="adress_postal_code" nullable="0" physicalName="adress_postal_code" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL53" populated="true" UUID="847c4af9-94c8-475d-8f77-48bd57de602a" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_zip_code_seq" defaultValue="" name="address_postal_code" nullable="0" physicalName="address_postal_code" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -436,7 +436,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="ocpizza"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.5946035575013603" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.9999999999999996" viewportX="0" viewportY="130" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="330" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB14" x="331" y="319" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB28" x="332" y="605" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -450,14 +450,14 @@
   <table-pane table-ref="TAB89" x="20" y="531" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB94" x="743" y="793" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB100" x="332" y="793" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL106" pkConnection="0.5018867924528302" fkConnection="0.4217252396166134" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL106" pkConnection="0.5018315018315018" fkConnection="0.4236760124610592" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL124" pkConnection="0.6394230769230769" fkConnection="0.8067632850241546" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
   <table-link relationship-ref="REL126" pkConnection="0.6915422885572139" fkConnection="0.893719806763285" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
   <table-link relationship-ref="REL110" pkConnection="0.49606299212598426" fkConnection="0.30434782608695654" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL112" pkConnection="0.3929712460063898" fkConnection="0.5020080321285141" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL112" pkConnection="0.38317757009345793" fkConnection="0.5020080321285141" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL114" pkConnection="0.30708661417322836" fkConnection="0.4936708860759494" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL120" pkConnection="0.5" fkConnection="0.4833948339483395" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL108" pkConnection="0.49201277955271566" fkConnection="0.498371335504886" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL108" pkConnection="0.4797507788161994" fkConnection="0.498371335504886" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL116" pkConnection="0.35135135135135137" fkConnection="0.4936708860759494" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL122" pkConnection="0.5" fkConnection="0.4797047970479705" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL128" pkConnection="0.5" fkConnection="0.33876221498371334" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
