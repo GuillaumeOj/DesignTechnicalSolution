@@ -9,6 +9,7 @@ from src.database import Database
 from src.customer import Customer
 from src.address import Address
 from src.password import Password
+from src.shop import Shop
 
 
 class App:
@@ -52,9 +53,15 @@ class App:
             customer.address = Address(LANG_CODE, optional_address=True, additional_details=True)
             customer.password = Password(LANG_CODE)
             customers.append(customer)
-        
+
+        # Generate pizzeria
+        pizzeria = list()
+
+        for shop in range(int(random.random() * 100)):
+            shop = Shop(LANG_CODE)
+            shop.address = Address(LANG_CODE)
+            pizzeria.append(shop)
         # employees = list()
-        # pizzeria = list()
         # ingredients = list()
         # sizes = list()
         # stocks = list()
