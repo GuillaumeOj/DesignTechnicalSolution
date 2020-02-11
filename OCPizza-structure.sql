@@ -9,6 +9,7 @@ USE ocpizza;
 -- DOWN HERE ALL REQUESTS ARE CREATED BY SQL ARCHITECT
 -- IT'S BASED ON THE ENTITY RELATIONSHIP DIAGRAM
 -- -----------------------------------------------------
+
 CREATE TABLE size (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
@@ -96,16 +97,16 @@ CREATE TABLE employee (
 
 CREATE TABLE customer (
                 id INT AUTO_INCREMENT NOT NULL,
+                mail VARCHAR(200) NOT NULL,
                 first_name VARCHAR(100) NOT NULL,
                 last_name VARCHAR(100) NOT NULL,
-                mail VARCHAR(200) NOT NULL,
                 password CHAR(64) NOT NULL,
                 address_street_number VARCHAR(10),
                 address_street_name VARCHAR(200),
                 address_city VARCHAR(100),
                 address_postal_code VARCHAR(6),
                 address_additional_details VARCHAR(200),
-                PRIMARY KEY (id)
+                PRIMARY KEY (id, mail)
 );
 
 
@@ -121,6 +122,7 @@ CREATE TABLE customer_order (
                 status_id INT NOT NULL,
                 payment_id INT NOT NULL,
                 pizzeria_id INT NOT NULL,
+                mail VARCHAR(200) NOT NULL,
                 PRIMARY KEY (id)
 );
 
@@ -203,8 +205,8 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE customer_order ADD CONSTRAINT customer_order_fk
-FOREIGN KEY (customer_id)
-REFERENCES customer (id)
+FOREIGN KEY (customer_id, mail)
+REFERENCES customer (id, mail)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
