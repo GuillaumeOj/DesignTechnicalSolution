@@ -8,10 +8,9 @@ from settings import * # pylint: disable=wildcard-import
 from src.database import Database
 from src.person import Customer
 from src.person import Employee
-from src.address import Address
-from src.password import Password
 from src.shop import Shop
-from src.ingredient import Ingredient
+from src.pizza import Ingredient
+from src.pizza import Size
 
 
 class App:
@@ -52,8 +51,6 @@ class App:
 
         for customer in range(random.randrange(20, 100)):
             customer = Customer(LANG_CODE)
-            customer.address = Address(LANG_CODE, optional_address=True, additional_details=True)
-            customer.password = Password(LANG_CODE)
             customers.append(customer)
 
         # Generate pizzeria and employees
@@ -62,14 +59,11 @@ class App:
 
         for shop in range(random.randrange(3, 10)):
             shop = Shop(LANG_CODE)
-            shop.address = Address(LANG_CODE)
             pizzeria.append(shop)
 
             # Generate employees for the current shop
             for employee in range(random.randrange(3, 6)):
-                employee = Employee(LANG_CODE)
-                employee.password = Password(LANG_CODE)
-                employee.shop = shop
+                employee = Employee(LANG_CODE, shop)
                 employees.append(employee)
 
         # Generate ingredients
@@ -78,8 +72,14 @@ class App:
         for ingredient in range(15):
             ingredient = Ingredient(LANG_CODE)
             ingredients.append(ingredient)
+
+        # Generate sizes for pizza
+        sizes = list()
+
+        for size in range(3):
+            size = Size(LANG_CODE)
+            sizes.append(size)
         # pizzas = list()
-        # sizes = list()
         # stocks = list()
         # orders = list()
 

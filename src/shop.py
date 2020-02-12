@@ -3,6 +3,8 @@
 """
 import faker
 
+from src.address import Address
+
 class Shop: # pylint: disable=too-few-public-methods
     """
         Create a shop
@@ -18,7 +20,7 @@ class Shop: # pylint: disable=too-few-public-methods
         self.name = self.fake.company()
 
         # The shop address
-        self.address = None
+        self.address = Address(lang_code)
 
 
 

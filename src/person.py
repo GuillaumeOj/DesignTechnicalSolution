@@ -4,6 +4,9 @@
 import faker
 import unidecode
 
+from src.address import Address
+from src.password import Password
+
 class Customer: # pylint: disable=too-few-public-methods
     """
         Create a customer
@@ -30,10 +33,10 @@ class Customer: # pylint: disable=too-few-public-methods
         self.email = f'{unaccented_first_name}.{unaccented_last_name}@{email_domain}'
 
         # The customer's postal address
-        self.address = None
+        self.address = Address(lang_code, optional_address=True, additional_details=True)
 
         # The customer's password
-        self.password = None
+        self.password = Password(lang_code)
 
 class Employee: # pylint: disable=too-few-public-methods
     """
@@ -44,7 +47,7 @@ class Employee: # pylint: disable=too-few-public-methods
             - hashed_password
             - shop
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, shop):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -53,10 +56,10 @@ class Employee: # pylint: disable=too-few-public-methods
         self.last_name = self.fake.last_name()
 
         # The employee's password
-        self.password = None
+        self.password = Password(lang_code)
 
         # The employee's shop
-        self.shop = None
+        self.shop = shop
 
 
 
