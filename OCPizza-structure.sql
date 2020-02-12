@@ -10,6 +10,17 @@ USE ocpizza;
 -- IT'S BASED ON THE ENTITY RELATIONSHIP DIAGRAM
 -- -----------------------------------------------------
 
+CREATE TABLE vat_rate (
+                id INT AUTO_INCREMENT NOT NULL,
+                vat_rate_100 DECIMAL(6,4) NOT NULL,
+                PRIMARY KEY (id)
+);
+
+
+CREATE UNIQUE INDEX vat_rate_100
+ ON vat_rate
+ ( vat_rate_100 );
+
 CREATE TABLE size (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
@@ -49,12 +60,12 @@ CREATE TABLE ingredient (
 
 
 CREATE TABLE pizza (
-                id INT AUTO_INCREMENT NOT NULL,
+                pizza_id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
                 tax_free_unit_price DECIMAL(10,2) NOT NULL,
-                vat_rate_100 DECIMAL(6,4) NOT NULL,
                 category_id INT NOT NULL,
-                PRIMARY KEY (id)
+                vat_rate_id INT NOT NULL,
+                PRIMARY KEY (pizza_id)
 );
 
 
@@ -135,11 +146,15 @@ CREATE TABLE order_line (
                 pizza_id INT NOT NULL,
                 size_id INT NOT NULL,
                 quantity INT NOT NULL,
-                tax_free_unit_price DECIMAL(10,2) NOT NULL,
-                vat_rate_100 DECIMAL(6,4) NOT NULL,
                 PRIMARY KEY (order_id, pizza_id, size_id)
 );
 
+
+ALTER TABLE pizza ADD CONSTRAINT vat_rate_pizza_fk
+FOREIGN KEY (vat_rate_id)
+REFERENCES vat_rate (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
 
 ALTER TABLE order_line ADD CONSTRAINT size_order_line_fk
 FOREIGN KEY (size_id)
@@ -179,13 +194,13 @@ ON UPDATE NO ACTION;
 
 ALTER TABLE pizza_ingredient ADD CONSTRAINT pizza_pizza_ingredient_fk
 FOREIGN KEY (pizza_id)
-REFERENCES pizza (id)
+REFERENCES pizza (pizza_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE order_line ADD CONSTRAINT pizza_order_line_fk
 FOREIGN KEY (pizza_id)
-REFERENCES pizza (id)
+REFERENCES pizza (pizza_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
