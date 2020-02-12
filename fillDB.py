@@ -11,6 +11,7 @@ from src.person import Employee
 from src.address import Address
 from src.password import Password
 from src.shop import Shop
+from src.ingredient import Ingredient
 
 
 class App:
@@ -70,7 +71,14 @@ class App:
                 employee.password = Password(LANG_CODE)
                 employee.shop = shop
                 employees.append(employee)
-        # ingredients = list()
+
+        # Generate ingredients
+        ingredients = list()
+
+        for ingredient in range(15):
+            ingredient = Ingredient(LANG_CODE)
+            ingredients.append(ingredient)
+        # pizzas = list()
         # sizes = list()
         # stocks = list()
         # orders = list()
