@@ -1,6 +1,8 @@
 """
     Module for creating a fake order
 """
+from random import randrange
+
 import faker
 
 from src.address import Address
@@ -34,6 +36,32 @@ class Order: # pylint: disable=too-few-public-methods
             self.address = self.customer.address
         else:
             self.address = Address(lang_code)
+
+
+class OrderLine: # pylint: disable=too-few-public-methods
+    """
+        Create an order line
+        Attributes:
+            - quantity
+            - order
+            - pizza
+            - size
+    """
+    def __init__(self, lang_code, order, pizzas, sizes):
+        # Initialize the faker generator
+        self.fake = faker.Faker(lang_code)
+
+        # The customer selected quantity
+        self.quantity = self.fake.pyint(min_value=1, max_value=6)
+
+        # The order associated with the line
+        self.order = order
+
+        # The customer selected pizza
+        self.pizza = pizzas[randrange(len(pizzas))]
+
+        # The customer selected size
+        self.size = sizes[randrange(len(sizes))]
 
 
 if __name__ == '__main__':
