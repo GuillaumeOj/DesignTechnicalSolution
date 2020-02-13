@@ -1,10 +1,28 @@
 """
     Module for creating a fake pizza
 """
-
 import faker
 
 
+class Pizza: # pylint: disable=too-few-public-methods
+    """
+        Create a pizza
+        Attributes:
+            - name
+            - ingredient_factor
+    """
+    def __init__(self, lang_code):
+        # Initialize the faker generator
+        self.fake = faker.Faker(lang_code)
+
+        # The size name
+        self.name = self.fake.word()
+
+        # The ingredient factor
+        self.ingredient_factor = self.fake.pyfloat(right_digits=1,
+                                                   positive=True,
+                                                   min_value=1,
+                                                   max_value=3)
 
 class Size: # pylint: disable=too-few-public-methods
     """
