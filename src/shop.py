@@ -43,6 +43,5 @@ class Stock: # pylint: disable=too-few-public-methods
         self.quantity = self.fake.pydecimal(right_digits=2, positive=True)
 
 
-
 if __name__ == '__main__':
     print('Please don\'nt load me alone!')
