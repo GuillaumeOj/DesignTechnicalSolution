@@ -1,8 +1,6 @@
 """
     Module for generate fake addresses
 """
-from random import randrange
-
 import faker
 
 
@@ -28,13 +26,13 @@ class Address: # pylint: disable=too-few-public-methods
         self.postal_code = str()
         self.additional_details = str()
 
-        if (optional_address and randrange(0, 1) == 1) or not optional_address:
+        if (optional_address and self.fake.pybool()) or not optional_address:
             self.street_number = self.fake.building_number()
             self.street_name = self.fake.street_name()
             self.city = self.fake.city()
             self.postal_code = self.fake.postcode()
 
-        if additional_details and randrange(0, 1) == 1:
+        if additional_details and self.fake.pybool():
             self.additional_details = self.fake.paragraph(nb_sentences=2)
 
 
