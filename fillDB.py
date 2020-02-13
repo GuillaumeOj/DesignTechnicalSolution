@@ -84,6 +84,12 @@ class App:
         # Genrerate a Vat Rate
         vat_rate = 0.055
 
+        # Genereate categories for pizza
+        categories = list()
+        for category in range(random.randrange(10, 20)):
+            category = Category(LANG_CODE, categories)
+            categories.append(category)
+
         # Generate pizzas
         pizzas = list()
 

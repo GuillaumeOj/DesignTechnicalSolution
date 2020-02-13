@@ -1,6 +1,8 @@
 """
     Module for creating a fake pizza
 """
+import random
+
 import faker
 
 
@@ -23,6 +25,28 @@ class Pizza: # pylint: disable=too-few-public-methods
                                                    positive=True,
                                                    min_value=1,
                                                    max_value=3)
+
+
+class Category: # pylint: disable=too-few-public-methods
+    """
+        Create a category for the pizza
+        Attribute:
+            - name
+        Optional attribute:
+            - parent_category
+    """
+    def __init__(self, lang_code, categories):
+        # Initialize the faker generator
+        self.fake = faker.Faker(lang_code)
+
+        # The category name
+        self.name = self.fake.word()
+
+        self.parent_category = None
+        # Add randomly a parent category
+        if categories and self.fake.pybool():
+            self.parent_category = categories[random.randrange(len(categories))]
+
 
 class Size: # pylint: disable=too-few-public-methods
     """
