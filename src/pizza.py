@@ -13,7 +13,7 @@ class Pizza: # pylint: disable=too-few-public-methods
             - name
             - ingredient_factor
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, categories):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -25,6 +25,9 @@ class Pizza: # pylint: disable=too-few-public-methods
                                                    positive=True,
                                                    min_value=1,
                                                    max_value=3)
+
+        # Select a category for the pizza
+        self.category = categories[random.randrange(len(categories))]
 
 
 class Category: # pylint: disable=too-few-public-methods

@@ -9,9 +9,10 @@ from src.database import Database
 from src.person import Customer
 from src.person import Employee
 from src.shop import Shop
-from src.pizza import Pizza
 from src.pizza import Ingredient
 from src.pizza import Size
+from src.pizza import Category
+from src.pizza import Pizza
 
 
 class App:
@@ -94,7 +95,7 @@ class App:
         pizzas = list()
 
         for pizza in range(20):
-            pizza = Pizza(LANG_CODE)
+            pizza = Pizza(LANG_CODE, categories)
             pizzas.append(pizza)
         # stocks = list()
         # orders = list()
