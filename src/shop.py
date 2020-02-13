@@ -5,6 +5,7 @@ import faker
 
 from src.address import Address
 
+
 class Shop: # pylint: disable=too-few-public-methods
     """
         Create a shop
@@ -21,6 +22,25 @@ class Shop: # pylint: disable=too-few-public-methods
 
         # The shop address
         self.address = Address(lang_code)
+
+
+class Stock: # pylint: disable=too-few-public-methods
+    """
+        Create a stock_line for a shop
+        Attributes:
+            - shop
+            - ingredient
+            - quantity
+    """
+    def __init__(self, shop, ingredient):
+        # Initialize the faker generator
+        self.fake = faker.Faker()
+
+        self.shop = shop
+        self.ingredient = ingredient
+
+        # The ingredient quantity
+        self.quantity = self.fake.pydecimal(right_digits=2, positive=True)
 
 
 
