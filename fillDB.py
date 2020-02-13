@@ -81,6 +81,9 @@ class App:
             size = Size(LANG_CODE)
             sizes.append(size)
 
+        # Genrerate a Vat Rate
+        vat_rate = 0.055
+
         # Generate pizzas
         pizzas = list()
 
