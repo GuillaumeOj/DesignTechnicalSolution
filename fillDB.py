@@ -17,6 +17,7 @@ from src.pizza import Pizza
 from src.pizza import Recipe
 from src.order import Order
 from src.order import OrderLine
+from src.order import Status
 
 
 class App:  # pylint: disable=too-many-instance-attributes
@@ -41,6 +42,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.recipes = list()
         self.orders = list()
         self.orders_lines = list()
+        self.status = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -63,6 +65,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_recipes()
         self.random_orders()
         self.random_orders_lines()
+        self.random_status()
 
     def random_customers(self):
         """
@@ -195,6 +198,17 @@ class App:  # pylint: disable=too-many-instance-attributes
                 order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
                 print(f'{order_line.pizza.name} => {order_line.size.name} => {order_line.quantity}')
                 self.orders_lines.append(order_line)
+        print('\n')
+
+    def random_status(self):
+        """
+            Genereate random status for the orders
+        """
+        print('==> Generate status')
+        for status in range(4):
+            status = Status(LANG_CODE)
+            print(f'{status.name}')
+            self.status.append(status)
         print('\n')
 
 

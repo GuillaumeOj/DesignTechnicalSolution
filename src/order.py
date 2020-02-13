@@ -64,5 +64,19 @@ class OrderLine: # pylint: disable=too-few-public-methods
         self.size = sizes[randrange(len(sizes))]
 
 
+class Status: # pylint: disable=too-few-public-methods
+    """
+        Create status
+        Attribute:
+            - name
+    """
+    def __init__(self, lang_code):
+        # Initialize the faker generator
+        self.fake = faker.Faker(lang_code)
+
+        # The name of the status
+        self.name = self.fake.word()
+
+
 if __name__ == '__main__':
     print('Please don\'nt load me alone!')
