@@ -54,6 +54,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
         self.random_customers()
         self.random_pizzeria()
+        self.random_employees()
         self.random_ingredients()
         self.random_sizes()
         self.random_categories()
@@ -76,23 +77,26 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_pizzeria(self):
         """
-            Generate random pizzeria and employees
+            Generate random pizzeria
         """
         print('==> Generate pizzeria')
         for shop in range(random.randrange(3, 10)):
             shop = Shop(LANG_CODE)
             print(f'==> Pizzeria name: {shop.name}')
             self.pizzeria.append(shop)
-            print('\n')
+        print('\n')
 
-            # Generate employees for the current shop
+    def random_employees(self):
+        """
+            Generate random employees for each pizzeria
+        """
+        for shop in self.pizzeria:
             print(f'==> Generate employees for {shop.name}')
             for employee in range(random.randrange(3, 6)):
                 employee = Employee(LANG_CODE, shop)
                 print(f'{employee.first_name} {employee.last_name}')
                 self.employees.append(employee)
             print('\n')
-        print('\n')
 
     def random_ingredients(self):
         """
