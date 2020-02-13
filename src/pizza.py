@@ -91,6 +91,30 @@ class Ingredient: # pylint: disable=too-few-public-methods
         self.unit = self.fake.bothify(text='??', letters=letters)
 
 
+class Recipe: # pylint: disable=too-few-public-methods
+    """
+        Create a recipe line for the pizza
+        Attributes:
+            - pizza
+            - ingredient
+            - quantity
+    """
+    def __init__(self, pizza, ingredient):
+        # Initialize the faker generator
+        self.fake = faker.Faker()
+
+        # The pizza
+        self.pizza = pizza
+
+        # The ingredient
+        self.ingredient = ingredient
+
+        # A random quantity
+        self.quantity = self.fake.pyfloat(right_digits=2,
+                                          positive=True,
+                                          min_value=1,
+                                          max_value=3)
+
 
 if __name__ == '__main__':
     print('Please don\'nt load me alone!')

@@ -13,6 +13,7 @@ from src.pizza import Ingredient
 from src.pizza import Size
 from src.pizza import Category
 from src.pizza import Pizza
+from src.pizza import Recipe
 from src.shop import Stock
 
 
@@ -35,6 +36,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.categories = list()
         self.pizzas = list()
         self.stock = list()
+        self.recipes = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -53,6 +55,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_categories()
         self.random_pizzas()
         self.random_stock()
+        self.random_recipes()
 
     def random_customers(self):
         """
@@ -113,8 +116,18 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
         for shop in self.pizzeria:
             for ingredient in self.ingredients:
-                stock_line = Stock(LANG_CODE, shop, ingredient)
+                stock_line = Stock(shop, ingredient)
                 self.stock.append(stock_line)
+
+    def random_recipes(self):
+        """
+            Generating a random recipe for each pizza
+        """
+        for pizza in self.pizzas:
+            for ingredient in self.ingredients:
+                if random.choice([True, False]):
+                    recipe_line = Recipe(pizza, ingredient)
+                    self.recipes.append(recipe_line)
 
 
 if __name__ == '__main__':
