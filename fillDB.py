@@ -15,93 +15,116 @@ from src.pizza import Category
 from src.pizza import Pizza
 
 
-class App:
+class App:  # pylint: disable=too-many-instance-attributes
     """
         Application for filling and testing the database
     """
     def __init__(self):
-        # Add an argument for initialise the database
-        parser = argparse.ArgumentParser()
-        parser.add_argument('-i',
-                            '--initdb',
-                            help='Initialize the database',
-                            action='store_true')
-        parser.add_argument('-r',
-                            '--reset',
-                            help='Reset the data in the database',
-                            action='store_true')
-        arguments = parser.parse_args()
-
         # Connect to the database
         self.database = Database(DB_NAME, DB_USER, DB_HOST, DB_PWD)
         self.database.connect_database()
 
-        if arguments.initdb:
-            self.database.read_sql_file('OCPizza-structure.sql')
-        elif arguments.reset:
-            self.random_data()
-        else:
-            raise Exception('Please specify an argument')
+        # Attributes for generating data
+        self.customers = list()
+        self.pizzeria = list()
+        self.employees = list()
+        self.ingredients = list()
+        self.sizes = list()
+        self.vat_rate = 0.055
+        self.categories = list()
+        self.pizzas = list()
 
-    @staticmethod
-    def random_data():
+    def init_db_structure(self, sql_file):
         """
-            Method for generating random data and fill the database
+            Reset or create the DB structure based on an SQL file
         """
-        # Generate customers
-        customers = list()
+        self.database.read_sql_file(sql_file)
 
+    def random_data(self):
+        """
+            Generating random data for the database
+        """
+        self.random_customers()
+        self.random_pizzeria()
+        self.random_ingredients()
+        self.random_sizes()
+        self.random_categories()
+        self.random_pizzas()
+
+    def random_customers(self):
+        """
+            Generating random customers
+        """
         for customer in range(random.randrange(20, 100)):
             customer = Customer(LANG_CODE)
-            customers.append(customer)
+            self.customers.append(customer)
 
-        # Generate pizzeria and employees
-        pizzeria = list()
-        employees = list()
-
+    def random_pizzeria(self):
+        """
+            Generating random pizzeria and employees
+        """
         for shop in range(random.randrange(3, 10)):
             shop = Shop(LANG_CODE)
-            pizzeria.append(shop)
+            self.pizzeria.append(shop)
 
             # Generate employees for the current shop
             for employee in range(random.randrange(3, 6)):
                 employee = Employee(LANG_CODE, shop)
-                employees.append(employee)
+                self.employees.append(employee)
 
-        # Generate ingredients
-        ingredients = list()
-
+    def random_ingredients(self):
+        """
+            Generating random ingredients
+        """
         for ingredient in range(15):
             ingredient = Ingredient(LANG_CODE)
-            ingredients.append(ingredient)
+            self.ingredients.append(ingredient)
 
-        # Generate sizes for pizza
-        sizes = list()
-
+    def random_sizes(self):
+        """
+            Generating random sizes
+        """
         for size in range(3):
             size = Size(LANG_CODE)
-            sizes.append(size)
+            self.sizes.append(size)
 
-        # Genrerate a Vat Rate
-        vat_rate = 0.055
-
-        # Genereate categories for pizza
-        categories = list()
+    def random_categories(self):
+        """
+            Generating random categories
+        """
         for category in range(random.randrange(10, 20)):
-            category = Category(LANG_CODE, categories)
-            categories.append(category)
+            category = Category(LANG_CODE, self.categories)
+            self.categories.append(category)
 
-        # Generate pizzas
-        pizzas = list()
-
+    def random_pizzas(self):
+        """
+            Generating random pizzas
+        """
         for pizza in range(20):
-            pizza = Pizza(LANG_CODE, categories)
-            pizzas.append(pizza)
-        # stocks = list()
-        # orders = list()
-
-
+            pizza = Pizza(LANG_CODE, self.categories)
+            self.pizzas.append(pizza)
 
 
 if __name__ == '__main__':
-    App()
+    # Add arguments
+    PARSER = argparse.ArgumentParser()
+    PARSER.add_argument('-s',
+                        '--structure',
+                        help='Create or reset the database structure',
+                        action='store_true')
+    PARSER.add_argument('-d',
+                        '--data',
+                        help='Insert or reset the data in the database',
+                        action='store_true')
+    ARGUMENTS = PARSER.parse_args()
+
+    # Initialize the application
+    APP = App()
+
+    # Do operations depend on the argument
+    if ARGUMENTS.structure:
+        APP.init_db_structure(SQL_STRUCTURE)
+    elif ARGUMENTS.data:
+        APP.random_data()
+    else:
+        raise Exception('Please specify an argument')

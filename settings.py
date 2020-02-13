@@ -10,3 +10,6 @@ DB_PWD = 'ocpizza'
 
 # Language code for data
 LANG_CODE = 'fr_FR'
+
+# File for generating the SQL structure
+SQL_STRUCTURE = 'OCPizza-structure.sql'
