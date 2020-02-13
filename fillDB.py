@@ -9,12 +9,13 @@ from src.database import Database
 from src.person import Customer
 from src.person import Employee
 from src.shop import Shop
+from src.shop import Stock
 from src.pizza import Ingredient
 from src.pizza import Size
 from src.pizza import Category
 from src.pizza import Pizza
 from src.pizza import Recipe
-from src.shop import Stock
+from src.order import Order
 
 
 class App:  # pylint: disable=too-many-instance-attributes
@@ -37,6 +38,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.pizzas = list()
         self.stock = list()
         self.recipes = list()
+        self.orders = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -46,7 +48,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_data(self):
         """
-            Generating random data for the database
+            Generate random data for the database
         """
         self.random_customers()
         self.random_pizzeria()
@@ -56,10 +58,11 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_pizzas()
         self.random_stock()
         self.random_recipes()
+        self.random_orders()
 
     def random_customers(self):
         """
-            Generating random customers
+            Generate random customers
         """
         for customer in range(random.randrange(20, 100)):
             customer = Customer(LANG_CODE)
@@ -67,7 +70,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_pizzeria(self):
         """
-            Generating random pizzeria and employees
+            Generate random pizzeria and employees
         """
         for shop in range(random.randrange(3, 10)):
             shop = Shop(LANG_CODE)
@@ -80,7 +83,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_ingredients(self):
         """
-            Generating random ingredients
+            Generate random ingredients
         """
         for ingredient in range(15):
             ingredient = Ingredient(LANG_CODE)
@@ -88,7 +91,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_sizes(self):
         """
-            Generating random sizes
+            Generate random sizes
         """
         for size in range(3):
             size = Size(LANG_CODE)
@@ -96,7 +99,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_categories(self):
         """
-            Generating random categories
+            Generate random categories
         """
         for category in range(random.randrange(10, 20)):
             category = Category(LANG_CODE, self.categories)
@@ -104,7 +107,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_pizzas(self):
         """
-            Generating random pizzas
+            Generate random pizzas
         """
         for pizza in range(20):
             pizza = Pizza(LANG_CODE, self.categories)
@@ -112,7 +115,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_stock(self):
         """
-            Generating a random stock for each pizzeria
+            Generate a random stock for each pizzeria
         """
         for shop in self.pizzeria:
             for ingredient in self.ingredients:
@@ -121,13 +124,22 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_recipes(self):
         """
-            Generating a random recipe for each pizza
+            Generate a random recipe for each pizza
         """
         for pizza in self.pizzas:
             for ingredient in self.ingredients:
                 if random.choice([True, False]):
                     recipe_line = Recipe(pizza, ingredient)
                     self.recipes.append(recipe_line)
+
+    def random_orders(self):
+        """
+            Generate random orders for each customer
+        """
+        for customer in self.customers:
+            for order in range(random.randrange(0, 4)):
+                order = Order(LANG_CODE, customer, self.pizzeria)
+                self.orders.append(order)
 
 
 if __name__ == '__main__':
