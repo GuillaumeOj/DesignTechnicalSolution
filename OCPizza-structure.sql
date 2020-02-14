@@ -39,7 +39,7 @@ CREATE TABLE size (
 CREATE TABLE category (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                parent_category VARCHAR(50),
+                parent_category_id INT NOT NULL,
                 PRIMARY KEY (id)
 );
 
@@ -187,6 +187,12 @@ ON UPDATE NO ACTION;
 
 ALTER TABLE pizza ADD CONSTRAINT category_pizza_fk
 FOREIGN KEY (category_id)
+REFERENCES category (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE category ADD CONSTRAINT category_category_fk
+FOREIGN KEY (parent_category_id)
 REFERENCES category (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;

@@ -345,7 +345,7 @@
     <column id="COL97" populated="true" UUID="b387cb98-4a80-4bf5-9d08-aa1a6d6b4a6a" autoIncrement="false" autoIncrementSequenceName="category_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL98" populated="true" UUID="4610ee67-0385-41e0-8c0b-6efbdd113fa2" autoIncrement="false" autoIncrementSequenceName="category_parent_category_seq" defaultValue="" name="parent_category" nullable="1" physicalName="parent_category" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL98" populated="true" UUID="dc923074-0872-4a4e-8d90-d9c4d8d807b3" autoIncrement="false" autoIncrementSequenceName="category_id_seq" defaultValue="" name="parent_category_id" nullable="0" physicalName="parent_category_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
@@ -494,21 +494,24 @@
    <relationship id="REL152" populated="true" UUID="31a5a8f4-bf9c-44bb-9f79-46a8a8bcbe4e" deferrability="7" deleteRule="3" fk-table-ref="TAB57" fkCardinality="7" identifying="false" name="category_pizza_fk" physicalName="category_pizza_fk" pk-table-ref="TAB95" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP153" populated="true" UUID="9a28bd83-392b-4c22-bd45-1caf682e9a15" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL96" />
    </relationship>
-   <relationship id="REL154" populated="true" UUID="7ba2b349-7967-480a-82de-c06eba0f2d5d" deferrability="7" deleteRule="3" fk-table-ref="TAB31" fkCardinality="7" identifying="true" name="size_order_line_fk" physicalName="size_order_line_fk" pk-table-ref="TAB101" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP155" populated="true" UUID="c7c5e72e-789d-44ad-a5d6-ee9f23b5ae6c" fk-column-ref="COL34" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL102" />
+   <relationship id="REL154" populated="true" UUID="140802e0-dd2e-490c-bfe8-c341335927ae" deferrability="7" deleteRule="3" fk-table-ref="TAB95" fkCardinality="7" identifying="false" name="category_category_fk" physicalName="category_category_fk" pk-table-ref="TAB95" pkCardinality="3" updateRule="3" >
+    <column-mapping id="CMP155" populated="true" UUID="38422805-fd1d-48ee-a1c4-84ae82caeb83" fk-column-ref="COL98" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL96" />
    </relationship>
-   <relationship id="REL156" populated="true" UUID="ff20fd69-07b3-476d-a57c-608d4db1f44e" deferrability="7" deleteRule="3" fk-table-ref="TAB57" fkCardinality="7" identifying="false" name="vat_rate_pizza_fk" physicalName="vat_rate_pizza_fk" pk-table-ref="TAB107" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP157" populated="true" UUID="d841faa2-eade-4505-a735-01483c862f2e" fk-column-ref="COL62" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL108" />
+   <relationship id="REL156" populated="true" UUID="7ba2b349-7967-480a-82de-c06eba0f2d5d" deferrability="7" deleteRule="3" fk-table-ref="TAB31" fkCardinality="7" identifying="true" name="size_order_line_fk" physicalName="size_order_line_fk" pk-table-ref="TAB101" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP157" populated="true" UUID="c7c5e72e-789d-44ad-a5d6-ee9f23b5ae6c" fk-column-ref="COL34" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL102" />
    </relationship>
-   <relationship id="REL158" populated="true" UUID="68a023f8-fdbc-4c1a-a2fe-5096e29fea0a" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="payment_status_customer_order_fk" physicalName="payment_status_customer_order_fk" pk-table-ref="TAB121" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP159" populated="true" UUID="71a2aebb-fa3a-4a57-aac1-51fdf6a6d3e9" fk-column-ref="COL28" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL122" />
+   <relationship id="REL158" populated="true" UUID="ff20fd69-07b3-476d-a57c-608d4db1f44e" deferrability="7" deleteRule="3" fk-table-ref="TAB57" fkCardinality="7" identifying="false" name="vat_rate_pizza_fk" physicalName="vat_rate_pizza_fk" pk-table-ref="TAB107" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP159" populated="true" UUID="d841faa2-eade-4505-a735-01483c862f2e" fk-column-ref="COL62" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL108" />
+   </relationship>
+   <relationship id="REL160" populated="true" UUID="68a023f8-fdbc-4c1a-a2fe-5096e29fea0a" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="payment_status_customer_order_fk" physicalName="payment_status_customer_order_fk" pk-table-ref="TAB121" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP161" populated="true" UUID="71a2aebb-fa3a-4a57-aac1-51fdf6a6d3e9" fk-column-ref="COL28" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL122" />
    </relationship>
   </relationships>
  </target-database>
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="ocpizza"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537141" viewportX="275" viewportY="132" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="179" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="393" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB16" x="393" y="319" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB31" x="393" y="665" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -537,11 +540,12 @@
   <table-link relationship-ref="REL144" pkConnection="0.5" fkConnection="0.3851851851851852" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL152" pkConnection="0.5" fkConnection="0.34210526315789475" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL140" pkConnection="0.42342342342342343" fkConnection="0.49473684210526314" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL154" pkConnection="0.41754385964912283" fkConnection="0.497907949790795" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL156" pkConnection="0.5" fkConnection="0.4934210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL156" pkConnection="0.41754385964912283" fkConnection="0.497907949790795" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL158" pkConnection="0.5" fkConnection="0.4934210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL148" pkConnection="0.5" fkConnection="0.35785953177257523" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL130" pkConnection="0.21630094043887146" fkConnection="0.5684210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
-  <table-link relationship-ref="REL158" pkConnection="0.8701923076923077" fkConnection="0.10344827586206896" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL160" pkConnection="0.8701923076923077" fkConnection="0.10344827586206896" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL154" pkConnection="0.5" fkConnection="0.6582278481012658" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
