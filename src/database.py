@@ -27,7 +27,7 @@ class Database:
 
     def connect_database(self):
         """
-            This method connect the application to the database
+            Connect the application to the database
         """
         try:
             self.connection = mysql.connector.connect(
@@ -46,7 +46,7 @@ class Database:
 
     def select_database(self):
         """
-            This method select the database
+            Select the database
         """
         try:
             self.connection.database = self.db_name
@@ -60,7 +60,7 @@ class Database:
 
     def read_sql_file(self, sql_file):
         """
-            This method read an sql file and execute each commands
+            Read an sql file and execute each commands
         """
         with open(sql_file, 'r') as file:
             # Read all the file as a string
@@ -92,7 +92,7 @@ class Database:
 
     def insert_in_database(self, query, values):
         """
-            This method insert data in the database
+            Insert data in the database
         """
         try:
             if isinstance(values, tuple):
@@ -105,7 +105,7 @@ class Database:
 
     def select_in_database(self, query, values=None):
         """
-            This method select data in the database
+            Select data in the database
         """
         try:
             self.cursor.execute(query, values)
