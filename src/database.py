@@ -128,6 +128,28 @@ class Database:
                    customer.address.additional_details) for customer in customers]
         self.insert_in_database(query, values)
 
+    def insert_pizzeria(self, pizzeria):
+        """
+            Insert pizzeria in the database
+        """
+        print('==> Insert pizzeria in the database')
+        query = ("""INSERT IGNORE INTO pizzeria
+                        (
+                            name,
+                            address_street_number,
+                            address_street_name,
+                            address_city,
+                            address_postal_code
+                        )
+                    VALUES (%s, %s, %s, %s, %s)
+                 """)
+        values = [(shop.name,
+                   shop.address.street_number,
+                   shop.address.street_name,
+                   shop.address.city,
+                   shop.address.postal_code) for shop in pizzeria]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
