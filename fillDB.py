@@ -91,13 +91,13 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random pizzeria
         """
-        print('==> Create pizzeria')
-        for shop in range(random.randrange(3, 10)):
+        progress_bar = 'Create pizzeria'
+        progress_bar = FillingCirclesBar(progress_bar, max=PIZZERIA_COUNT)
         for shop in range(PIZZERIA_COUNT):
             shop = Shop(LANG_CODE)
-            print(f'==> Pizzeria name: {shop.name}')
             self.pizzeria.append(shop)
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_employees(self):
         """
