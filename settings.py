@@ -13,3 +13,7 @@ LANG_CODE = 'fr_FR'
 
 # File for generating the SQL structure
 SQL_STRUCTURE = 'OCPizza-structure.sql'
+
+# Instance count for each object
+CUSTOMERS_COUNT = 67
+PIZZERIA_COUNT = 4
