@@ -104,13 +104,14 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random employees for each pizzeria
         """
+        progress_bar = 'Create employees'
+        progress_bar = FillingCirclesBar(progress_bar, max=len(self.pizzeria))
         for shop in self.pizzeria:
-            print(f'==> Create employees for {shop.name}')
-            for employee in range(random.randrange(3, 6)):
+            for employee in range(random.randrange(EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX)):
                 employee = Employee(LANG_CODE, shop)
-                print(f'{employee.first_name} {employee.last_name}')
                 self.employees.append(employee)
-            print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_ingredients(self):
         """
