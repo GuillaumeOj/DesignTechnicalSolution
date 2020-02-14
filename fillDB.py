@@ -131,12 +131,13 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random sizes
         """
-        print('==> Create sizes')
-        for size in range(3):
+        progress_bar = 'Create sizes'
+        progress_bar = FillingCirclesBar(progress_bar, max=SIZES_COUNT)
+        for size in range(SIZES_COUNT):
             size = Size(LANG_CODE)
-            print(f'{size.name}')
             self.sizes.append(size)
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_categories(self):
         """
