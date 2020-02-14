@@ -18,6 +18,7 @@ from src.pizza import Recipe
 from src.order import Order
 from src.order import OrderLine
 from src.order import Status
+from src.order import StatusHistory
 
 
 class App:  # pylint: disable=too-many-instance-attributes
@@ -43,6 +44,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.orders = list()
         self.orders_lines = list()
         self.status = list()
+        self.status_history = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -63,9 +65,10 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_pizzas()
         self.random_stock()
         self.random_recipes()
+        self.random_status()
         self.random_orders()
         self.random_orders_lines()
-        self.random_status()
+        self.random_status_history()
 
     def random_customers(self):
         """
@@ -76,7 +79,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             customer = Customer(LANG_CODE)
             print(f'{customer.first_name} {customer.last_name}')
             self.customers.append(customer)
-        print('\n')
+        print('')
 
     def random_pizzeria(self):
         """
@@ -87,7 +90,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             shop = Shop(LANG_CODE)
             print(f'==> Pizzeria name: {shop.name}')
             self.pizzeria.append(shop)
-        print('\n')
+        print('')
 
     def random_employees(self):
         """
@@ -99,7 +102,7 @@ class App:  # pylint: disable=too-many-instance-attributes
                 employee = Employee(LANG_CODE, shop)
                 print(f'{employee.first_name} {employee.last_name}')
                 self.employees.append(employee)
-            print('\n')
+            print('')
 
     def random_ingredients(self):
         """
@@ -110,7 +113,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             ingredient = Ingredient(LANG_CODE)
             print(f'{ingredient.name}')
             self.ingredients.append(ingredient)
-        print('\n')
+        print('')
 
     def random_sizes(self):
         """
@@ -121,7 +124,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             size = Size(LANG_CODE)
             print(f'{size.name}')
             self.sizes.append(size)
-        print('\n')
+        print('')
 
     def random_categories(self):
         """
@@ -132,7 +135,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             category = Category(LANG_CODE, self.categories)
             print(f'{category.name}')
             self.categories.append(category)
-        print('\n')
+        print('')
 
     def random_pizzas(self):
         """
@@ -143,7 +146,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             pizza = Pizza(LANG_CODE, self.categories)
             print(f'{pizza.name}')
             self.pizzas.append(pizza)
-        print('\n')
+        print('')
 
     def random_stock(self):
         """
@@ -156,8 +159,8 @@ class App:  # pylint: disable=too-many-instance-attributes
                 stock_line = Stock(shop, ingredient)
                 print(f'{stock_line.ingredient.name} = {stock_line.quantity}')
                 self.stock.append(stock_line)
-            print('\n')
-        print('\n')
+            print('')
+        print('')
 
     def random_recipes(self):
         """
@@ -171,8 +174,19 @@ class App:  # pylint: disable=too-many-instance-attributes
                     recipe_line = Recipe(pizza, ingredient)
                     print(f'{recipe_line.ingredient.name} = {recipe_line.quantity}')
                     self.recipes.append(recipe_line)
-            print('\n')
-        print('\n')
+            print('')
+        print('')
+
+    def random_status(self):
+        """
+            Genereate random status for the orders
+        """
+        print('==> Generate status')
+        for status in range(4):
+            status = Status(LANG_CODE)
+            print(f'{status.name}')
+            self.status.append(status)
+        print('')
 
     def random_orders(self):
         """
@@ -182,11 +196,11 @@ class App:  # pylint: disable=too-many-instance-attributes
         for customer in self.customers:
             print(f'==> Orders from {customer.first_name} {customer.last_name}:')
             for order in range(random.randrange(0, 4)):
-                order = Order(LANG_CODE, customer, self.pizzeria)
+                order = Order(LANG_CODE, customer, self.pizzeria, self.status)
                 print(f'{order.date}')
                 self.orders.append(order)
-            print('\n')
-        print('\n')
+            print('')
+        print('')
 
     def random_orders_lines(self):
         """
@@ -198,18 +212,24 @@ class App:  # pylint: disable=too-many-instance-attributes
                 order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
                 print(f'{order_line.pizza.name} => {order_line.size.name} => {order_line.quantity}')
                 self.orders_lines.append(order_line)
-        print('\n')
+        print('')
 
-    def random_status(self):
+    def random_status_history(self):
         """
-            Genereate random status for the orders
+            Generate random history for status
         """
-        print('==> Generate status')
-        for status in range(4):
-            status = Status(LANG_CODE)
-            print(f'{status.name}')
-            self.status.append(status)
-        print('\n')
+        print('==> Generate random hitory for status')
+        for i, order in enumerate(self.orders):
+            print(f'==> Orders from {order.customer.first_name} {order.customer.last_name}')
+            for status_history in range(random.randrange(1, 3)):
+                status_history = StatusHistory(order)
+                print(f'{status_history.status.name} => {status_history.date}')
+                self.status_history.append(status_history)
+                self.orders[i].random_date()
+                self.orders[i].random_status(self.status)
+            print('')
+        print('')
+
 
 
 if __name__ == '__main__':
