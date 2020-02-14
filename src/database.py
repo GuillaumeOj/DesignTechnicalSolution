@@ -150,6 +150,45 @@ class Database:
                    shop.address.postal_code) for shop in pizzeria]
         self.insert_in_database(query, values)
 
+    def insert_employees(self, employees):
+        """
+            Insert employees in the database
+        """
+        print('==> Insert employees in the database')
+        query = ("""INSERT IGNORE INTO employee
+                        (
+                            first_name,
+                            last_name,
+                            password,
+                            pizzeria_id
+                        )
+                    VALUES
+                        (
+                            %s,
+                            %s,
+                            %s,                        
+                            (
+                                SELECT id
+                                FROM pizzeria
+                                WHERE
+                                    name = %s AND
+                                    address_street_number = %s AND
+                                    address_street_name = %s AND
+                                    address_city = %s AND
+                                    address_postal_code = %s
+                            )
+                        )
+                 """)
+        values = [(employee.first_name,
+                   employee.last_name,
+                   employee.password.hashed_password,
+                   employee.shop.name,
+                   employee.shop.address.street_number,
+                   employee.shop.address.street_name,
+                   employee.shop.address.city,
+                   employee.shop.address.postal_code) for employee in employees]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
