@@ -114,74 +114,34 @@ class Database:
 
         return self.cursor
 
-    def insert_products(self, products):
+    def insert_customers(self, customers):
         """
-            Insert a product in the database
+            Insert customers in the database
         """
-        print('\nInsertion des produits...')
-        query = ("""INSERT IGNORE INTO Products
-                    (code, name, common_name, quantity, ingredients_text, nutriscore_grade, url)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s)
+        print('==> Insert customers in the database')
+        query = ("""INSERT IGNORE INTO customer
+                        (
+                            first_name,
+                            last_name,
+                            email,
+                            password,
+                            address_street_number,
+                            address_street_name,
+                            address_city,
+                            address_postal_code,
+                            address_additional_details
+                        )
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                  """)
-        values = [(product.code,
-                   product.name,
-                   product.common_name,
-                   product.quantity,
-                   product.ingredients_text,
-                   product.nutriscore_grade,
-                   product.url) for product in products]
-        self.insert_in_database(query, values)
-
-        print('Insertion des catégories...')
-        # Insert categories
-        query = ("INSERT IGNORE INTO Categories (name) VALUES (%s)")
-        values = [(category,) for product in products for category in product.categories]
-        self.insert_in_database(query, values)
-
-        print('Insertion des marques...')
-        # Insert brands
-        query = ("INSERT IGNORE INTO Brands (name) VALUES (%s)")
-        values = [(brand,) for product in products for brand in product.brands]
-        self.insert_in_database(query, values)
-
-        print('Insertion des magasins...')
-        # Insert stores
-        query = ("INSERT IGNORE INTO Stores (name) VALUES (%s)")
-        values = [(store,) for product in products for store in product.stores]
-        self.insert_in_database(query, values)
-
-        print('Association des produits et des catégories...')
-        # Insert products categories
-        query = ("""INSERT IGNORE INTO Products_categories (product_id, category_id)
-                    VALUES (
-                        (SELECT id FROM Products WHERE code=%s),
-                        (SELECT id FROM Categories WHERE name=%s)
-                    )
-                 """)
-        values = [(product.code,
-                   category) for product in products for category in product.categories]
-        self.insert_in_database(query, values)
-
-        print('Association des produits et des marques...')
-        # Insert products brands
-        query = ("""INSERT IGNORE INTO Products_brands (product_id, brand_id)
-                    VALUES (
-                        (SELECT id FROM Products WHERE code=%s),
-                        (SELECT id FROM Brands WHERE name=%s)
-                    )
-                 """)
-        values = [(product.code, brand) for product in products for brand in product.brands]
-        self.insert_in_database(query, values)
-
-        print('Association des produits et des magasins...')
-        # Insert products stores
-        query = ("""INSERT IGNORE INTO Products_stores (product_id, store_id)
-                    VALUES (
-                        (SELECT id FROM Products WHERE code=%s),
-                        (SELECT id FROM Stores WHERE name=%s)
-                    )
-                 """)
-        values = [(product.code, store) for product in products for store in product.stores]
+        values = [(customer.first_name,
+                   customer.last_name,
+                   customer.email,
+                   customer.password.hashed_password,
+                   customer.address.street_number,
+                   customer.address.street_name,
+                   customer.address.city,
+                   customer.address.postal_code,
+                   customer.address.additional_details) for customer in customers]
         self.insert_in_database(query, values)
 
     def close_database(self):

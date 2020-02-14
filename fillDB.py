@@ -20,6 +20,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         # Connect to the database
         self.database = Database(DB_NAME, DB_USER, DB_HOST, DB_PWD)
         self.database.connect_database()
+        self.database.select_database()
 
         # Attributes for generating data
         self.customers = list()
@@ -44,6 +45,12 @@ class App:  # pylint: disable=too-many-instance-attributes
             Reset or create the DB structure based on an SQL file
         """
         self.database.read_sql_file(sql_file)
+
+    def insert_data_db(self):
+        """
+            Insert the random data in the database
+        """
+        self.database.insert_customers(self.customers)
 
     def random_data(self):
         """
@@ -274,5 +281,6 @@ if __name__ == '__main__':
         APP.init_db_structure(SQL_STRUCTURE)
     elif ARGUMENTS.data:
         APP.random_data()
+        APP.insert_data_db()
     else:
         raise Exception('Please specify an argument')
