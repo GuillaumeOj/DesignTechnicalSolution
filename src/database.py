@@ -74,22 +74,6 @@ class Database:
             command = command.strip('\n')
             self.cursor.execute(command)
 
-    def check_database(self):
-        """
-            This method check if there is something in the database
-        """
-        try:
-            query = 'SELECT * FROM Products LIMIT 1'
-            self.cursor.execute(query)
-        except mysql.connector.Error as err:
-            if err.errno == errorcode.ER_NO_SUCH_TABLE:
-                message = f'La base de données ne contient aucune table.'
-                message = f'{message} Merci de lancer le script avec l\'option --init.\n{err}'
-                raise Exception(message)
-            raise err
-
-        return self.cursor.fetchone()
-
     def insert_in_database(self, query, values):
         """
             Insert data in the database
