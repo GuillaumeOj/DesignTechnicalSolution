@@ -345,7 +345,7 @@
     <column id="COL97" populated="true" UUID="b387cb98-4a80-4bf5-9d08-aa1a6d6b4a6a" autoIncrement="false" autoIncrementSequenceName="category_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL98" populated="true" UUID="dc923074-0872-4a4e-8d90-d9c4d8d807b3" autoIncrement="false" autoIncrementSequenceName="category_id_seq" defaultValue="" name="parent_category_id" nullable="0" physicalName="parent_category_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL98" populated="true" UUID="dc923074-0872-4a4e-8d90-d9c4d8d807b3" autoIncrement="false" autoIncrementSequenceName="category_id_seq" defaultValue="" name="parent_category_id" nullable="1" physicalName="parent_category_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>

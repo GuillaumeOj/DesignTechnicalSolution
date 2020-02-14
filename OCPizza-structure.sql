@@ -39,7 +39,7 @@ CREATE TABLE size (
 CREATE TABLE category (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                parent_category_id INT NOT NULL,
+                parent_category_id INT,
                 PRIMARY KEY (id)
 );
 
