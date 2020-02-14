@@ -4,6 +4,8 @@
 import argparse
 import random
 
+from progress.bar import FillingCirclesBar
+
 from settings import * # pylint: disable=wildcard-import
 from src.database import Database
 from src.person import Customer, Employee
@@ -76,12 +78,14 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random customers
         """
-        print('==> Create customers')
-        for customer in range(random.randrange(20, 100)):
+        progress_bar = 'Create customers'
+        customers_count = random.randrange(20, 100)
+        progress_bar = FillingCirclesBar(progress_bar, max=customers_count)
+        for customer in range(customers_count):
             customer = Customer(LANG_CODE)
-            print(f'{customer.first_name} {customer.last_name}')
             self.customers.append(customer)
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_pizzeria(self):
         """
