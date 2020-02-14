@@ -6,20 +6,10 @@ import random
 
 from settings import * # pylint: disable=wildcard-import
 from src.database import Database
-from src.person import Customer
-from src.person import Employee
-from src.shop import Shop
-from src.shop import Stock
-from src.pizza import Ingredient
-from src.pizza import Size
-from src.pizza import Category
-from src.pizza import Pizza
-from src.pizza import Recipe
-from src.order import Order
-from src.order import OrderLine
-from src.order import Status
-from src.order import StatusHistory
-from src.order import Payment
+from src.person import Customer, Employee
+from src.shop import Shop, Stock
+from src.pizza import Ingredient, Size, Category, Pizza, Recipe
+from src.order import Order, OrderLine, Status, StatusHistory, Payment, PaymentStatus
 
 
 class App:  # pylint: disable=too-many-instance-attributes
