@@ -202,6 +202,19 @@ class Database:
                    ingredient.unit) for ingredient in ingredients]
         self.insert_in_database(query, values)
 
+    def insert_sizes(self, sizes):
+        """
+            Insert sizes in the database
+        """
+        print('==> Insert sizes in the database')
+        query = ("""INSERT IGNORE INTO size
+                    (name, ingredient_factor)
+                    VALUES (%s, %s)
+                 """)
+        values = [(size.name,
+                   size.ingredient_factor) for size in sizes]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
