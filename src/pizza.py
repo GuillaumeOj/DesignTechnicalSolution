@@ -43,7 +43,11 @@ class Category: # pylint: disable=too-few-public-methods
         self.fake = faker.Faker(lang_code)
 
         # The category name
-        self.name = self.fake.word()
+        categories_names = [category.name for category in categories]
+        while True:
+            self.name = self.fake.word()
+            if self.name not in categories_names:
+                break
 
         self.parent_category = None
         # Add randomly a parent category
