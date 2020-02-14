@@ -118,12 +118,13 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random ingredients
         """
-        print('==> Create ingredients')
-        for ingredient in range(15):
+        progress_bar = 'Create ingredients'
+        progress_bar = FillingCirclesBar(progress_bar, max=INGREDIENTS_COUNT)
+        for ingredient in range(INGREDIENTS_COUNT):
             ingredient = Ingredient(LANG_CODE)
-            print(f'{ingredient.name}')
             self.ingredients.append(ingredient)
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_sizes(self):
         """
