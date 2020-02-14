@@ -189,6 +189,19 @@ class Database:
                    employee.shop.address.postal_code) for employee in employees]
         self.insert_in_database(query, values)
 
+    def insert_ingredients(self, ingredients):
+        """
+            Insert ingredients in the database
+        """
+        print('==> Insert ingredients in the database')
+        query = ("""INSERT IGNORE INTO ingredient
+                    (name, unit)
+                    VALUES (%s, %s)
+                 """)
+        values = [(ingredient.name,
+                   ingredient.unit) for ingredient in ingredients]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
