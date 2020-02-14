@@ -113,7 +113,7 @@
     <column id="COL32" populated="true" UUID="a0ff4a45-3459-4e39-9ce9-950d0b527177" autoIncrement="false" autoIncrementSequenceName="order_id_seq" defaultValue="" name="order_id" nullable="0" physicalName="order_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL33" populated="true" UUID="e45d6168-441d-4b19-b0ae-30a902a79b99" autoIncrement="false" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="pizza_id" nullable="0" physicalName="pizza_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL33" populated="true" UUID="e45d6168-441d-4b19-b0ae-30a902a79b99" autoIncrement="false" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL34" populated="true" UUID="5a4b5d55-808b-4c82-92a4-71563411aa70" autoIncrement="false" autoIncrementSequenceName="size_id_seq" defaultValue="" name="size_id" nullable="0" physicalName="size_id" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -130,7 +130,7 @@
     <folder id="FOLTAB314" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX36" populated="true" UUID="305052e6-4fcc-4b0d-bf06-fa9778fa96fa" clustered="false" name="order_line_pk" physicalName="order_line_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC37" populated="true" UUID="eb0fc85d-49a1-4434-89cd-95537353ff38" ascendingOrDescending="UNSPECIFIED" column-ref="COL32" name="order_id" physicalName="order_id" />
-     <index-column id="IDC38" populated="true" UUID="9a66ca3e-bdde-4958-b30d-1446c66ec757" ascendingOrDescending="UNSPECIFIED" column-ref="COL33" name="pizza_id" physicalName="pizza_id" />
+     <index-column id="IDC38" populated="true" UUID="9a66ca3e-bdde-4958-b30d-1446c66ec757" ascendingOrDescending="UNSPECIFIED" column-ref="COL33" name="id" physicalName="id" />
      <index-column id="IDC39" populated="true" UUID="d8fdbc31-24d8-4ac6-8011-96495d835d77" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="size_id" physicalName="size_id" />
     </index>
    </folder>
@@ -199,7 +199,7 @@
   <table id="TAB57" populated="true" UUID="f1d43d5d-1548-4089-b4e2-f9a534f2acc7" name="pizza" objectType="TABLE" physicalName="pizza" >
    <remarks></remarks>
    <folder id="FOLTAB571" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL58" populated="true" UUID="f1e16200-ae86-4239-aae1-9b56e912876c" autoIncrement="true" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="pizza_id" nullable="0" physicalName="pizza_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL58" populated="true" UUID="f1e16200-ae86-4239-aae1-9b56e912876c" autoIncrement="true" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL59" populated="true" UUID="e4894bae-1450-434f-b846-925b59384591" autoIncrement="false" autoIncrementSequenceName="pizza_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -221,7 +221,7 @@
     </folder>
     <folder id="FOLTAB574" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX63" populated="true" UUID="276b7607-4b01-447e-a8f4-48c172cb53f0" clustered="false" name="pizza_pk" physicalName="pizza_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC64" populated="true" UUID="5d0c004b-51ab-48cb-942e-218a826a26f6" ascendingOrDescending="UNSPECIFIED" column-ref="COL58" name="pizza_id" physicalName="pizza_id" />
+     <index-column id="IDC64" populated="true" UUID="5d0c004b-51ab-48cb-942e-218a826a26f6" ascendingOrDescending="UNSPECIFIED" column-ref="COL58" name="id" physicalName="id" />
     </index>
    </folder>
   </table>
@@ -231,7 +231,7 @@
     <column id="COL66" populated="true" UUID="5a11a605-61bf-4ea9-9bc5-0344ad30ccf4" autoIncrement="false" autoIncrementSequenceName="ingredient_id_seq" defaultValue="" name="ingredient_id" nullable="0" physicalName="ingredient_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL67" populated="true" UUID="5c8e37b5-3c9f-4d24-a08d-bd829b1f58f0" autoIncrement="false" autoIncrementSequenceName="pizza_New Column_seq" defaultValue="" name="pizza_id" nullable="0" physicalName="pizza_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL67" populated="true" UUID="5c8e37b5-3c9f-4d24-a08d-bd829b1f58f0" autoIncrement="false" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="pizza_id" nullable="0" physicalName="pizza_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL68" populated="true" UUID="8621e213-af07-4c80-8139-e6ed4ec8b519" autoIncrement="false" autoIncrementSequenceName="pizza_ingredient_quantity_per_pizza_seq" defaultValue="" name="quantity" nullable="0" physicalName="quantity" precision="10" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
@@ -368,7 +368,7 @@
     <column id="COL103" populated="true" UUID="d2d3eb73-7561-48db-a293-47016a7ff172" autoIncrement="false" autoIncrementSequenceName="size_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL104" populated="true" UUID="189d8eee-9aa7-421f-a1b2-3e84b88aba68" autoIncrement="false" autoIncrementSequenceName="size_ingredient_factor_seq" defaultValue="" name="ingredient_factor" nullable="0" physicalName="ingredient_factor" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL104" populated="true" UUID="189d8eee-9aa7-421f-a1b2-3e84b88aba68" autoIncrement="false" autoIncrementSequenceName="size_ingredient_factor_seq" defaultValue="" name="ingredient_factor" nullable="0" physicalName="ingredient_factor" precision="2" referenceCount="1" scale="1" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
      <remarks></remarks>
     </column>
     </folder>
@@ -508,7 +508,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="ocpizza"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="132" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537141" viewportX="275" viewportY="132" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="393" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB16" x="393" y="319" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB31" x="393" y="665" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -525,21 +525,21 @@
   <table-pane table-ref="TAB107" x="799" y="536" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB114" x="33" y="186" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB121" x="32" y="704" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL126" pkConnection="0.4981684981684982" fkConnection="0.4236760124610592" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL126" pkConnection="0.4981684981684982" fkConnection="0.4263322884012539" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL146" pkConnection="0.6394230769230769" fkConnection="0.8067632850241546" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
   <table-link relationship-ref="REL150" pkConnection="0.6666666666666666" fkConnection="0.8792270531400966" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
-  <table-link relationship-ref="REL132" pkConnection="0.49606299212598426" fkConnection="0.30434782608695654" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL132" pkConnection="0.49606299212598426" fkConnection="0.27802690582959644" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL134" pkConnection="0.3862928348909657" fkConnection="0.4979919678714859" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL136" pkConnection="0.30708661417322836" fkConnection="0.4936708860759494" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL142" pkConnection="0.40384615384615385" fkConnection="0.30996309963099633" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL128" pkConnection="0.37383177570093457" fkConnection="0.5" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL142" pkConnection="0.5" fkConnection="0.3837638376383764" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL128" pkConnection="0.3730407523510972" fkConnection="0.497907949790795" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL138" pkConnection="0.35135135135135137" fkConnection="0.4936708860759494" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL144" pkConnection="0.5" fkConnection="0.3837638376383764" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL152" pkConnection="0.5" fkConnection="0.33876221498371334" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL144" pkConnection="0.5" fkConnection="0.3851851851851852" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL152" pkConnection="0.5" fkConnection="0.34210526315789475" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL140" pkConnection="0.42342342342342343" fkConnection="0.49473684210526314" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL154" pkConnection="0.48" fkConnection="0.5" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL156" pkConnection="0.5" fkConnection="0.48859934853420195" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL148" pkConnection="0.5" fkConnection="0.49740932642487046" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL154" pkConnection="0.41754385964912283" fkConnection="0.497907949790795" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL156" pkConnection="0.5" fkConnection="0.4934210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL148" pkConnection="0.5" fkConnection="0.35785953177257523" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL130" pkConnection="0.21630094043887146" fkConnection="0.5684210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
   <table-link relationship-ref="REL158" pkConnection="0.8701923076923077" fkConnection="0.10344827586206896" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
  </play-pen>

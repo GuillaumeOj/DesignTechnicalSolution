@@ -31,7 +31,7 @@ CREATE UNIQUE INDEX vat_rate_100
 CREATE TABLE size (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                ingredient_factor INT NOT NULL,
+                ingredient_factor DECIMAL(2,1) NOT NULL,
                 PRIMARY KEY (id)
 );
 
