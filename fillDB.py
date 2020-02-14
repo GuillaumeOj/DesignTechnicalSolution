@@ -47,6 +47,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.status = list()
         self.status_history = list()
         self.payment = list()
+        self.payment_status = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -68,10 +69,11 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_stock()
         self.random_recipes()
         self.random_status()
-        self.random_orders()
-        self.random_orders_lines()
         self.random_status_history()
         self.random_payment()
+        self.random_payment_status()
+        self.random_orders()
+        self.random_orders_lines()
 
     def random_customers(self):
         """
@@ -191,32 +193,6 @@ class App:  # pylint: disable=too-many-instance-attributes
             self.status.append(status)
         print('')
 
-    def random_orders(self):
-        """
-            Create random orders for each customer
-        """
-        print('==> Create orders for customers')
-        for customer in self.customers:
-            print(f'==> Orders from {customer.first_name} {customer.last_name}:')
-            for order in range(random.randrange(0, 4)):
-                order = Order(LANG_CODE, customer, self.pizzeria, self.status)
-                print(f'{order.date}')
-                self.orders.append(order)
-            print('')
-        print('')
-
-    def random_orders_lines(self):
-        """
-            Create random orders lines for each order
-        """
-        print('==> Create orders\' lines')
-        for order in self.orders:
-            for order_line in range(random.randrange(1, 6)):
-                order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
-                print(f'{order_line.pizza.name} => {order_line.size.name} => {order_line.quantity}')
-                self.orders_lines.append(order_line)
-        print('')
-
     def random_status_history(self):
         """
             Create random history for status
@@ -242,6 +218,48 @@ class App:  # pylint: disable=too-many-instance-attributes
             payment = Payment(LANG_CODE)
             print(f'{payment.type}')
             self.payment.append(payment)
+        print('')
+
+    def random_payment_status(self):
+        """
+            Create random payment status
+        """
+        print('==> Create payment status')
+        for payment_status in range(2):
+            payment_status = PaymentStatus(LANG_CODE)
+            print(f'{payment_status.name}')
+            self.payment_status.append(payment_status)
+        print('')
+
+    def random_orders(self):
+        """
+            Create random orders for each customer
+        """
+        print('==> Create orders for customers')
+        for customer in self.customers:
+            print(f'==> Orders from {customer.first_name} {customer.last_name}:')
+            for order in range(random.randrange(0, 4)):
+                order = Order(LANG_CODE,
+                              customer,
+                              self.pizzeria,
+                              self.status,
+                              self.payment,
+                              self.payment_status)
+                print(f'{order.date}')
+                self.orders.append(order)
+            print('')
+        print('')
+
+    def random_orders_lines(self):
+        """
+            Create random orders lines for each order
+        """
+        print('==> Create orders\' lines')
+        for order in self.orders:
+            for order_line in range(random.randrange(1, 6)):
+                order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
+                print(f'{order_line.pizza.name} => {order_line.size.name} => {order_line.quantity}')
+                self.orders_lines.append(order_line)
         print('')
 
 

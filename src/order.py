@@ -8,7 +8,7 @@ import faker
 from src.address import Address
 
 
-class Order:
+class Order: # pylint: disable=too-many-instance-attributes
     """
         Create an order
         Attributes:
@@ -17,8 +17,11 @@ class Order:
             - customer
             - pizzeria
             - status
+            - payment
+            - payment_status
     """
-    def __init__(self, lang_code, customer, pizzeria, status):
+    def __init__(self, lang_code, customer, pizzeria, status, payments, payment_status):
+        # pylint: disable=too-many-arguments
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -41,6 +44,12 @@ class Order:
             self.address = self.customer.address
         else:
             self.address = Address(lang_code)
+
+        # The type of payment
+        self.payment = payments[randrange(len(payments))]
+
+        # The status of the payment
+        self.payment_status = payment_status[randrange(len(payment_status))]
 
     def random_date(self):
         """
@@ -140,6 +149,20 @@ class Payment: # pylint: disable=too-few-public-methods
 
         # The type of payment
         self.type = self.fake.word()
+
+
+class PaymentStatus: # pylint: disable=too-few-public-methods
+    """
+        Create payment status
+        Attribute:
+            - name
+    """
+    def __init__(self, lang_code):
+        # Initialize the faker generator
+        self.fake = faker.Faker(lang_code)
+
+        # The name of the payment status
+        self.name = self.fake.word()
 
 
 if __name__ == '__main__':
