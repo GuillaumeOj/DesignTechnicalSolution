@@ -19,6 +19,7 @@ from src.order import Order
 from src.order import OrderLine
 from src.order import Status
 from src.order import StatusHistory
+from src.order import Payment
 
 
 class App:  # pylint: disable=too-many-instance-attributes
@@ -45,6 +46,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.orders_lines = list()
         self.status = list()
         self.status_history = list()
+        self.payment = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -54,7 +56,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_data(self):
         """
-            Generate random data for the database
+            Create random data for the database
         """
         self.random_customers()
         self.random_pizzeria()
@@ -69,12 +71,13 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_orders()
         self.random_orders_lines()
         self.random_status_history()
+        self.random_payment()
 
     def random_customers(self):
         """
-            Generate random customers
+            Create random customers
         """
-        print('==> Generate customers')
+        print('==> Create customers')
         for customer in range(random.randrange(20, 100)):
             customer = Customer(LANG_CODE)
             print(f'{customer.first_name} {customer.last_name}')
@@ -83,9 +86,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_pizzeria(self):
         """
-            Generate random pizzeria
+            Create random pizzeria
         """
-        print('==> Generate pizzeria')
+        print('==> Create pizzeria')
         for shop in range(random.randrange(3, 10)):
             shop = Shop(LANG_CODE)
             print(f'==> Pizzeria name: {shop.name}')
@@ -94,10 +97,10 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_employees(self):
         """
-            Generate random employees for each pizzeria
+            Create random employees for each pizzeria
         """
         for shop in self.pizzeria:
-            print(f'==> Generate employees for {shop.name}')
+            print(f'==> Create employees for {shop.name}')
             for employee in range(random.randrange(3, 6)):
                 employee = Employee(LANG_CODE, shop)
                 print(f'{employee.first_name} {employee.last_name}')
@@ -106,9 +109,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_ingredients(self):
         """
-            Generate random ingredients
+            Create random ingredients
         """
-        print('==> Generate ingredients')
+        print('==> Create ingredients')
         for ingredient in range(15):
             ingredient = Ingredient(LANG_CODE)
             print(f'{ingredient.name}')
@@ -117,9 +120,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_sizes(self):
         """
-            Generate random sizes
+            Create random sizes
         """
-        print('==> Generate sizes')
+        print('==> Create sizes')
         for size in range(3):
             size = Size(LANG_CODE)
             print(f'{size.name}')
@@ -128,9 +131,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_categories(self):
         """
-            Generate random categories
+            Create random categories
         """
-        print('==> Generate categories')
+        print('==> Create categories')
         for category in range(random.randrange(10, 20)):
             category = Category(LANG_CODE, self.categories)
             print(f'{category.name}')
@@ -139,9 +142,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_pizzas(self):
         """
-            Generate random pizzas
+            Create random pizzas
         """
-        print('==> Generate pizzas')
+        print('==> Create pizzas')
         for pizza in range(20):
             pizza = Pizza(LANG_CODE, self.categories)
             print(f'{pizza.name}')
@@ -150,9 +153,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_stock(self):
         """
-            Generate a random stock for each pizzeria
+            Create a random stock for each pizzeria
         """
-        print('==> Generate stocks for each pizzeria')
+        print('==> Create stocks for each pizzeria')
         for shop in self.pizzeria:
             print(f'==> Stock for {shop.name}')
             for ingredient in self.ingredients:
@@ -164,7 +167,7 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_recipes(self):
         """
-            Generate a random recipe for each pizza
+            Create a random recipe for each pizza
         """
         print('==> Genereate recipes for each pizza')
         for pizza in self.pizzas:
@@ -181,7 +184,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Genereate random status for the orders
         """
-        print('==> Generate status')
+        print('==> Create status')
         for status in range(4):
             status = Status(LANG_CODE)
             print(f'{status.name}')
@@ -190,9 +193,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_orders(self):
         """
-            Generate random orders for each customer
+            Create random orders for each customer
         """
-        print('==> Generate orders for customers')
+        print('==> Create orders for customers')
         for customer in self.customers:
             print(f'==> Orders from {customer.first_name} {customer.last_name}:')
             for order in range(random.randrange(0, 4)):
@@ -204,9 +207,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_orders_lines(self):
         """
-            Generate random orders lines for each order
+            Create random orders lines for each order
         """
-        print('==> Generate orders\' lines')
+        print('==> Create orders\' lines')
         for order in self.orders:
             for order_line in range(random.randrange(1, 6)):
                 order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
@@ -216,9 +219,9 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_status_history(self):
         """
-            Generate random history for status
+            Create random history for status
         """
-        print('==> Generate random hitory for status')
+        print('==> Create random hitory for status')
         for i, order in enumerate(self.orders):
             print(f'==> Orders from {order.customer.first_name} {order.customer.last_name}')
             for status_history in range(random.randrange(1, 3)):
@@ -230,6 +233,16 @@ class App:  # pylint: disable=too-many-instance-attributes
             print('')
         print('')
 
+    def random_payment(self):
+        """
+            Create random payment types
+        """
+        print('==> Create payment types')
+        for payment in range(2):
+            payment = Payment(LANG_CODE)
+            print(f'{payment.type}')
+            self.payment.append(payment)
+        print('')
 
 
 if __name__ == '__main__':

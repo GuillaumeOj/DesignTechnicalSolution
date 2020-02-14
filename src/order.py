@@ -44,7 +44,7 @@ class Order:
 
     def random_date(self):
         """
-            Generate a random date for the order
+            Create a random date for the order
         """
         if self.date:
             self.date = self.fake.date_time_between(start_date=self.date)
@@ -54,7 +54,7 @@ class Order:
 
     def random_status(self, status):
         """
-            Generate a random status for the order
+            Create a random status for the order
         """
         if self.status:
             while True:
@@ -109,7 +109,7 @@ class Status: # pylint: disable=too-few-public-methods
 class StatusHistory: # pylint: disable=too-few-public-methods
     """
         Create a status history
-        Attribute:
+        Attributes:
             - date
             - order
             - status
@@ -128,6 +128,18 @@ class StatusHistory: # pylint: disable=too-few-public-methods
         self.date = self.order.date
 
 
+class Payment: # pylint: disable=too-few-public-methods
+    """
+        Create payment
+        Attribute:
+            - type
+    """
+    def __init__(self, lang_code):
+        # Initialize the faker generator
+        self.fake = faker.Faker(lang_code)
+
+        # The type of payment
+        self.type = self.fake.word()
 
 
 if __name__ == '__main__':
