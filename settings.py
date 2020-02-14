@@ -1,5 +1,5 @@
 """
-    Settings file for PurBeurreSubstitute
+    Settings file
 """
 
 # MySQL informations
