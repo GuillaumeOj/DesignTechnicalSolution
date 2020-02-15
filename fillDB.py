@@ -158,12 +158,13 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random pizzas
         """
-        print('==> Create pizzas')
-        for pizza in range(20):
-            pizza = Pizza(LANG_CODE, self.categories)
-            print(f'{pizza.name}')
+        progress_bar = 'Create pizzas'
+        progress_bar = FillingCirclesBar(progress_bar, max=PIZZA_COUNT)
+        for pizza in range(PIZZA_COUNT):
+            pizza = Pizza(LANG_CODE, self.categories, self.vat_rates)
             self.pizzas.append(pizza)
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_stock(self):
         """
