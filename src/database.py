@@ -434,6 +434,44 @@ class Database:
 
         self.insert_in_database(query, values)
 
+    def insert_orders_lines(self, orders_lines):
+        """
+            Insert orders lines in the database
+        """
+        print('==> Insert orders lines in the database')
+        query = ("""INSERT INTO order_line
+                    (order_id, pizza_id, size_id, quantity)
+                    VALUES
+                    (
+                        (
+                            SELECT id
+                            FROM customer_order
+                            WHERE
+                                order_date = %s AND
+                                customer_id = (SELECT id FROM customer WHERE email = %s)
+                        ),
+                        (
+                            SELECT id
+                            FROM pizza
+                            WHERE name = %s
+                        ),
+                        (
+                            SELECT id
+                            FROM size
+                            WHERE name = %s
+                        ),
+                        %s
+                    )
+                 """)
+
+        values = [(order_line.order.date,
+                   order_line.order.customer.email,
+                   order_line.pizza.name,
+                   order_line.size.name,
+                   order_line.quantity) for order_line in orders_lines]
+
+        self.insert_in_database(query, values)
+
     # def insert_statutes_history(self, statutes_history):
     #     """
     #         Insert the history of statutes in the database
