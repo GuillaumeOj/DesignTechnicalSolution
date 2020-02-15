@@ -248,6 +248,36 @@ class Database:
         query = ('INSERT IGNORE INTO vat_rate (vat_rate_100) VALUES (%s)')
         values = [(vat_rate, ) for vat_rate in vat_rates]
         self.insert_in_database(query, values)
+
+    def insert_pizzas(self, pizzas):
+        """
+            Insert pizzas in the database
+        """
+        print('==> Insert pizzas in the database')
+        query = ("""INSERT IGNORE INTO pizza
+                    (name, tax_free_unit_price, category_id, vat_rate_id)
+                    VALUES
+                        (
+                            %s,
+                            %s,
+                            (
+                                SELECT id
+                                FROM category
+                                WHERE name = %s
+                            ),
+                            (
+                                SELECT id
+                                FROM vat_rate
+                                WHERE vat_rate_100 = %s
+                            )
+                        )
+                 """)
+        values = [(pizza.name,
+                   pizza.tax_free_unit_price,
+                   pizza.category.name,
+                   pizza.vat_rate) for pizza in pizzas]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
