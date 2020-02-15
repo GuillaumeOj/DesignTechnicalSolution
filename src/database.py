@@ -170,23 +170,14 @@ class Database: # pylint: disable=too-many-public-methods
                             (
                                 SELECT id
                                 FROM pizzeria
-                                WHERE
-                                    name = %s AND
-                                    address_street_number = %s AND
-                                    address_street_name = %s AND
-                                    address_city = %s AND
-                                    address_postal_code = %s
+                                WHERE name = %s
                             )
                         )
                  """)
         values = [(employee.first_name,
                    employee.last_name,
                    employee.password.hashed_password,
-                   employee.shop.name,
-                   employee.shop.address.street_number,
-                   employee.shop.address.street_name,
-                   employee.shop.address.city,
-                   employee.shop.address.postal_code) for employee in employees]
+                   employee.shop.name) for employee in employees]
         self.insert_in_database(query, values)
 
     def insert_ingredients(self, ingredients):
@@ -481,7 +472,7 @@ class Database: # pylint: disable=too-many-public-methods
     #                 (status_date, status_id, customer_order_id)
     #                 VALUES
     #                     (
-    #                         '%s',
+    #                         %s,
     #                         (
     #                             SELECT id
     #                             FROM status
