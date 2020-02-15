@@ -150,7 +150,7 @@ CREATE TABLE customer_order (
 
 
 CREATE TABLE status_history (
-                id INT NOT NULL,
+                id INT AUTO_INCREMENT NOT NULL,
                 status_date DATETIME NOT NULL,
                 status_id INT NOT NULL,
                 customer_order_id INT NOT NULL,
