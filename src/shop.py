@@ -13,12 +13,16 @@ class Shop: # pylint: disable=too-few-public-methods
             - name
             - address
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, pizzeria):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The shop name
-        self.name = self.fake.company()
+        pizzeria_names = [shop.name for shop in pizzeria]
+        while True:
+            self.name = self.fake.company()
+            if self.name not in pizzeria_names:
+                break
 
         # The shop address
         self.address = Address(lang_code)
