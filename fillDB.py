@@ -62,6 +62,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.database.insert_pizzas(self.pizzas)
         self.database.insert_stock(self.stock)
         self.database.insert_recipes(self.recipes)
+        self.database.insert_statutes(self.statutes)
 
     def random_data(self):
         """

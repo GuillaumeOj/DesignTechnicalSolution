@@ -332,6 +332,15 @@ class Database:
                    recipe.quantity) for recipe in recipes]
         self.insert_in_database(query, values)
 
+    def insert_statutes(self, statutes):
+        """
+            Insert statutes in the database
+        """
+        print('==> Insert statutes in the database')
+        query = ('INSERT INTO status (name) VALUES (%s)')
+        values = [(status.name, ) for status in statutes]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
