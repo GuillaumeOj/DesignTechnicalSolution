@@ -41,7 +41,7 @@ class Order: # pylint: disable=too-many-instance-attributes
         self.customer = customer
 
         # The pizzeria which prepare the order
-        self.pizzeria = pizzeria
+        self.pizzeria = pizzeria[randrange(len(pizzeria))]
 
         # The delivery address
         if self.customer.address.street_number and self.fake.pybool():
