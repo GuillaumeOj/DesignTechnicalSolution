@@ -31,7 +31,7 @@ class Order: # pylint: disable=too-many-instance-attributes
 
         # The order status
         self.status = None
-        self.random_status(status)
+        self.random_status(statutes)
 
         # The customer who order
         self.customer = customer
@@ -61,18 +61,18 @@ class Order: # pylint: disable=too-many-instance-attributes
             self.date = self.fake.date_time_between(start_date='-5y',
                                                     end_date='-2y')
 
-    def random_status(self, status):
+    def random_status(self, statutes):
         """
             Create a random status for the order
         """
         if self.status:
             while True:
-                new_status = status[randrange(len(status))]
+                new_status = statutes[randrange(len(statutes))]
                 if self.status != new_status:
                     self.status = new_status
                     break
         else:
-            self.status = status[randrange(len(status))]
+            self.status = statutes[randrange(len(statutes))]
 
 
 class OrderLine: # pylint: disable=too-few-public-methods
