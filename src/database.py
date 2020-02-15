@@ -359,6 +359,81 @@ class Database:
         values = [(payment_status.name, ) for payment_status in payments_statutes]
         self.insert_in_database(query, values)
 
+    def insert_orders(self, orders):
+        """
+            Insert orders in the database
+        """
+        print('==> Insert orders in the database')
+        query = ("""INSERT INTO customer_order
+                    (
+                        order_date,
+                        address_street_number,
+                        address_street_name,
+                        address_city,
+                        address_postal_code,
+                        address_additional_details,
+                        customer_id,
+                        status_id,
+                        payment_id,
+                        pizzeria_id,
+                        payment_status_id
+                    )
+                    VALUES
+                    (
+                        %s,
+                        %s,
+                        %s,
+                        %s,
+                        %s,
+                        %s,
+                        (
+                            SELECT id
+                            FROM customer
+                            WHERE email = %s
+                        ),
+                        (
+                            SELECT id
+                            FROM status
+                            WHERE name = %s
+                        ),
+                        (
+                            SELECT id
+                            FROM payment
+                            WHERE type = %s
+                        ),
+                        (
+                            SELECT id
+                            FROM pizzeria
+                            WHERE name = %s
+                        ),
+                        (
+                            SELECT id
+                            FROM payment_status
+                            WHERE name = %s
+                        )
+                    )
+                 """)
+
+        values = list()
+        for order in orders:
+            order_address_additional_details = str()
+            if order.address.additional_details:
+                order_address_additional_details = order.address.additional_details
+
+            values.append((order.date,
+                           order.address.street_number,
+                           order.address.street_name,
+                           order.address.city,
+                           order.address.postal_code,
+                           order_address_additional_details,
+                           order.customer.email,
+                           order.status.name,
+                           order.payment.type,
+                           order.pizzeria.name,
+                           order.payment_status.name))
+
+        self.insert_in_database(query, values)
+
     # def insert_statutes_history(self, statutes_history):
     #     """
     #         Insert the history of statutes in the database
