@@ -14,12 +14,16 @@ class Pizza: # pylint: disable=too-few-public-methods
             - tax_free_unit_price
             - category
     """
-    def __init__(self, lang_code, categories, vat_rates):
+    def __init__(self, lang_code, pizzas, categories, vat_rates):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The size name
-        self.name = self.fake.word()
+        pizzas_names = [pizza.name for pizza in pizzas]
+        while True:
+            self.name = self.fake.word()
+            if self.name not in pizzas_names:
+                break
 
         # The unit price without taxes
         self.tax_free_unit_price = self.fake.pyfloat(left_digits=2,

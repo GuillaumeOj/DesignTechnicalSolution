@@ -162,7 +162,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = 'Create pizzas'
         progress_bar = FillingCirclesBar(progress_bar, max=PIZZA_COUNT)
         for pizza in range(PIZZA_COUNT):
-            pizza = Pizza(LANG_CODE, self.categories, self.vat_rates)
+            pizza = Pizza(LANG_CODE, self.pizzas, self.categories, self.vat_rates)
             self.pizzas.append(pizza)
             progress_bar.next()
         progress_bar.finish()
