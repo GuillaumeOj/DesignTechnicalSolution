@@ -88,7 +88,7 @@ class OrderLine: # pylint: disable=too-few-public-methods
             - pizza
             - size
     """
-    def __init__(self, lang_code, order, pizzas, sizes):
+    def __init__(self, lang_code, orders_lines, order, pizzas, sizes):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -99,7 +99,13 @@ class OrderLine: # pylint: disable=too-few-public-methods
         self.order = order
 
         # The customer selected pizza
-        self.pizza = pizzas[randrange(len(pizzas))]
+        pizzas_in_order = [order_line.pizza
+                           for order_line in orders_lines
+                           if order_line.order == self.order]
+        while True:
+            self.pizza = pizzas[randrange(len(pizzas))]
+            if self.pizza not in pizzas_in_order:
+                break
 
         # The customer selected size
         self.size = sizes[randrange(len(sizes))]

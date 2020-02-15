@@ -265,7 +265,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
         for order in self.orders:
             for order_line in range(randrange(ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX)):
-                order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
+                order_line = OrderLine(LANG_CODE, self.orders_lines, order, self.pizzas, self.sizes)
                 self.orders_lines.append(order_line)
             progress_bar.next()
         progress_bar.finish()
