@@ -37,8 +37,8 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.recipes = list()
         self.orders = list()
         self.orders_lines = list()
-        self.status = list()
-        self.status_history = list()
+        self.statutes = list()
+        self.statutes_history = list()
         self.payment = list()
         self.payment_status = list()
 
@@ -76,12 +76,12 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_pizzas()
         self.random_stock()
         self.random_recipes()
-        self.random_status()
-        self.random_status_history()
-        self.random_payment()
-        self.random_payment_status()
-        self.random_orders()
-        self.random_orders_lines()
+        self.random_statutes()
+        # self.random_statutes_history()
+        # self.random_payment()
+        # self.random_payment_status()
+        # self.random_orders()
+        # self.random_orders_lines()
 
     def random_customers(self):
         """
@@ -197,7 +197,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             progress_bar.next()
         progress_bar.finish()
 
-    def random_status(self):
+    def random_statutes(self):
         """
             Genereate random status for the orders
         """
@@ -208,7 +208,7 @@ class App:  # pylint: disable=too-many-instance-attributes
             self.status.append(status)
         print('')
 
-    def random_status_history(self):
+    def random_statutes_history(self):
         """
             Create random history for status
         """
@@ -218,9 +218,9 @@ class App:  # pylint: disable=too-many-instance-attributes
             for status_history in range(random.randrange(1, 3)):
                 status_history = StatusHistory(order)
                 print(f'{status_history.status.name} => {status_history.date}')
-                self.status_history.append(status_history)
+                self.statutes_history.append(status_history)
                 self.orders[i].random_date()
-                self.orders[i].random_status(self.status)
+                self.orders[i].random_status(self.statutes)
             print('')
         print('')
 
@@ -257,7 +257,7 @@ class App:  # pylint: disable=too-many-instance-attributes
                 order = Order(LANG_CODE,
                               customer,
                               self.pizzeria,
-                              self.status,
+                              self.statutes,
                               self.payment,
                               self.payment_status)
                 print(f'{order.date}')
