@@ -78,7 +78,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_stock()
         self.random_recipes()
         self.random_statutes()
-        # self.random_statutes_history()
+        self.random_statutes_history()
         # self.random_payment()
         # self.random_payment_status()
         # self.random_orders()
@@ -214,17 +214,16 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random history for status
         """
-        print('==> Create random hitory for status')
+        progress_bar = 'Create statutes for the orders'
+        progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
         for i, order in enumerate(self.orders):
-            print(f'==> Orders from {order.customer.first_name} {order.customer.last_name}')
-            for status_history in range(randrange(1, 3)):
+            for status_history in range(randrange(STATUTES_HISTORY_MIN, STATUTES_HISTORY_MAX)):
                 status_history = StatusHistory(order)
-                print(f'{status_history.status.name} => {status_history.date}')
                 self.statutes_history.append(status_history)
                 self.orders[i].random_date()
                 self.orders[i].random_status(self.statutes)
-            print('')
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_payment(self):
         """
