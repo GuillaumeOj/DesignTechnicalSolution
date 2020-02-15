@@ -240,6 +240,14 @@ class Database:
                   for category in categories if category.parent_category]
         self.insert_in_database(query, values)
 
+    def insert_vat_rates(self, vat_rates):
+        """
+            Insert vat rates in the database
+        """
+        print('==> Insert vat rates in the database')
+        query = ('INSERT IGNORE INTO vat_rate (vat_rate_100) VALUES (%s)')
+        values = [(vat_rate, ) for vat_rate in vat_rates]
+        self.insert_in_database(query, values)
     def close_database(self):
         """
             Method for closing the connection with the database

@@ -30,7 +30,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.employees = list()
         self.ingredients = list()
         self.sizes = list()
-        self.vat_rate = 0.055
+        self.vat_rates = [0.055]
         self.categories = list()
         self.pizzas = list()
         self.stock = list()
@@ -58,6 +58,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.database.insert_ingredients(self.ingredients)
         self.database.insert_sizes(self.sizes)
         self.database.insert_categories(self.categories)
+        self.database.insert_vat_rates(self.vat_rates)
 
     def random_data(self):
         """
