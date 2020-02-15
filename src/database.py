@@ -341,6 +341,15 @@ class Database:
         values = [(status.name, ) for status in statutes]
         self.insert_in_database(query, values)
 
+    def insert_payments(self, payments):
+        """
+            Insert statutes in the database
+        """
+        print('==> Insert payments types in the database')
+        query = ('INSERT INTO payment (type) VALUES (%s)')
+        values = [(payment.type, ) for payment in payments]
+        self.insert_in_database(query, values)
+
     # def insert_statutes_history(self, statutes_history):
     #     """
     #         Insert the history of statutes in the database
