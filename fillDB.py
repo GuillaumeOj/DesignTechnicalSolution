@@ -199,14 +199,15 @@ class App:  # pylint: disable=too-many-instance-attributes
 
     def random_statutes(self):
         """
-            Genereate random status for the orders
+            Genereate random statutes for the orders
         """
-        print('==> Create status')
-        for status in range(4):
-            status = Status(LANG_CODE)
-            print(f'{status.name}')
-            self.status.append(status)
-        print('')
+        progress_bar = 'Create statutes for the orders'
+        progress_bar = FillingCirclesBar(progress_bar, max=STATUTES_COUNT)
+        for status in range(STATUTES_COUNT):
+            status = Status(LANG_CODE, self.statutes)
+            self.statutes.append(status)
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_statutes_history(self):
         """
