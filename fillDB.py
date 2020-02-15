@@ -171,15 +171,15 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create a random stock for each pizzeria
         """
-        print('==> Create stocks for each pizzeria')
+        progress_bar = 'Create stock for each pizzeria'
+        progress_bar_count = len(self.pizzeria) * len(self.ingredients)
+        progress_bar = FillingCirclesBar(progress_bar, max=progress_bar_count)
         for shop in self.pizzeria:
-            print(f'==> Stock for {shop.name}')
             for ingredient in self.ingredients:
                 stock_line = Stock(shop, ingredient)
-                print(f'{stock_line.ingredient.name} = {stock_line.quantity}')
                 self.stock.append(stock_line)
-            print('')
-        print('')
+                progress_bar.next()
+        progress_bar.finish()
 
     def random_recipes(self):
         """
