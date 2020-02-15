@@ -24,7 +24,9 @@ class Pizza: # pylint: disable=too-few-public-methods
         # The unit price without taxes
         self.tax_free_unit_price = self.fake.pyfloat(left_digits=2,
                                                      right_digits=2,
-                                                     positive=True)
+                                                     positive=True,
+                                                     min_value=10,
+                                                     max_value=20)
 
         # Select a category for the pizza
         self.category = categories[random.randrange(len(categories))]
