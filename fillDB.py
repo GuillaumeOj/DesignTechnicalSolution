@@ -213,21 +213,6 @@ class App:  # pylint: disable=too-many-instance-attributes
             progress_bar.next()
         progress_bar.finish()
 
-    def random_statutes_history(self):
-        """
-            Create random history for status
-        """
-        progress_bar = 'Create statutes history for the orders'
-        progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
-        for i, order in enumerate(self.orders):
-            for status_history in range(randrange(STATUTES_HISTORY_MIN, STATUTES_HISTORY_MAX)):
-                status_history = StatusHistory(order)
-                self.statutes_history.append(status_history)
-                self.orders[i].random_date()
-                self.orders[i].random_status(self.statutes)
-            progress_bar.next()
-        progress_bar.finish()
-
     def random_payments(self):
         """
             Create random payments types
@@ -281,6 +266,21 @@ class App:  # pylint: disable=too-many-instance-attributes
             for order_line in range(randrange(ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX)):
                 order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
                 self.orders_lines.append(order_line)
+            progress_bar.next()
+        progress_bar.finish()
+
+    def random_statutes_history(self):
+        """
+            Create random history for status
+        """
+        progress_bar = 'Create statutes history for the orders'
+        progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
+        for i, order in enumerate(self.orders):
+            for status_history in range(randrange(STATUTES_HISTORY_MIN, STATUTES_HISTORY_MAX)):
+                status_history = StatusHistory(order)
+                self.statutes_history.append(status_history)
+                self.orders[i].random_date()
+                self.orders[i].random_status(self.statutes)
             progress_bar.next()
         progress_bar.finish()
 
