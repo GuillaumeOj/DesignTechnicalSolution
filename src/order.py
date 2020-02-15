@@ -20,14 +20,18 @@ class Order: # pylint: disable=too-many-instance-attributes
             - payment
             - payment_status
     """
-    def __init__(self, lang_code, customer, pizzeria, status, payments, payment_status):
+    def __init__(self, lang_code, orders, customer, pizzeria, statutes, payments, payment_status):
         # pylint: disable=too-many-arguments
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The order date time
-        self.date = None
-        self.random_date()
+        orders_dates = [order.date for order in orders if order.customer == customer]
+        while True:
+            self.date = None
+            self.random_date()
+            if self.date not in orders_dates:
+                break
 
         # The order status
         self.status = None
