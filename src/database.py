@@ -5,7 +5,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 
-class Database:
+class Database: # pylint: disable=too-many-public-methods
     """
         This class manage differents operations with the database like:
             - connection
