@@ -341,6 +341,43 @@ class Database:
         values = [(status.name, ) for status in statutes]
         self.insert_in_database(query, values)
 
+    # def insert_statutes_history(self, statutes_history):
+    #     """
+    #         Insert the history of statutes in the database
+    #     """
+    #     print('==> Insert the history of statutes in the database')
+    #     query = ("""INSERT INTO status_history
+    #                 (status_date, status_id, customer_order_id)
+    #                 VALUES
+    #                     (
+    #                         '%s',
+    #                         (
+    #                             SELECT id
+    #                             FROM status
+    #                             WHERE name = %s
+    #                         ),
+    #                         (
+    #                             SELECT id
+    #                             FROM customer_order
+    #                             WHERE
+    #                                 (
+    #                                     order_date = '%s' AND
+    #                                     customer_id =
+    #                                         (
+    #                                             SELECT id
+    #                                             FROM customer
+    #                                             WHERE email = %s
+    #                                         )
+    #                                 )
+    #                         )
+    #                     )
+    #              """)
+    #     values = [(status_history.date,
+    #                status_history.status.name,
+    #                status_history.order.date,
+    #                status_history.order.customer.email ) for status_history in statutes_history]
+    #     self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
