@@ -151,12 +151,17 @@ class Payment: # pylint: disable=too-few-public-methods
         Attribute:
             - type
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, payments):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The type of payment
-        self.type = self.fake.word()
+        payments_types = [payment.type for payment in payments]
+
+        while True:
+            self.type = self.fake.word()
+            if self.type not in payments_types:
+                break
 
 
 class PaymentStatus: # pylint: disable=too-few-public-methods
