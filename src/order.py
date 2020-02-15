@@ -107,12 +107,16 @@ class Status: # pylint: disable=too-few-public-methods
         Attribute:
             - name
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, statutes):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The name of the status
-        self.name = self.fake.word()
+        statutes_names = [status.name for status in statutes]
+        while True:
+            self.name = self.fake.word()
+            if self.name not in statutes_names:
+                break
 
 
 class StatusHistory: # pylint: disable=too-few-public-methods
