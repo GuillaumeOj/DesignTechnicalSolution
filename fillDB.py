@@ -245,7 +245,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = 'Create payments statutes'
         progress_bar = FillingCirclesBar(progress_bar, max=PAYMENTS_STATUTES_COUNT)
         for payment_status in range(PAYMENTS_STATUTES_COUNT):
-            payment_status = PaymentStatus(LANG_CODE)
+            payment_status = PaymentStatus(LANG_CODE, self.payments_statutes)
             self.payments_statutes.append(payment_status)
             progress_bar.next()
         progress_bar.finish()

@@ -170,12 +170,16 @@ class PaymentStatus: # pylint: disable=too-few-public-methods
         Attribute:
             - name
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, payments_statutes):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The name of the payment status
-        self.name = self.fake.word()
+        payments_statutes_names = [payment_status.name for payment_status in payments_statutes]
+        while True:
+            self.name = self.fake.word()
+            if self.name not in payments_statutes_names:
+                break;
 
 
 if __name__ == '__main__':
