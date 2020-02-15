@@ -511,7 +511,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="ocpizza"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="179" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="49" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="393" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB16" x="393" y="319" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB31" x="393" y="665" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -529,8 +529,8 @@
   <table-pane table-ref="TAB114" x="33" y="186" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB121" x="32" y="704" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL126" pkConnection="0.4981684981684982" fkConnection="0.4263322884012539" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL146" pkConnection="0.6394230769230769" fkConnection="0.8067632850241546" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
-  <table-link relationship-ref="REL150" pkConnection="0.6666666666666666" fkConnection="0.8792270531400966" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
+  <table-link relationship-ref="REL146" pkConnection="0.4603174603174603" fkConnection="0.8067632850241546" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL150" pkConnection="0.572139303482587" fkConnection="0.8792270531400966" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
   <table-link relationship-ref="REL132" pkConnection="0.49606299212598426" fkConnection="0.27802690582959644" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL134" pkConnection="0.3862928348909657" fkConnection="0.4979919678714859" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL136" pkConnection="0.30708661417322836" fkConnection="0.4936708860759494" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
@@ -543,8 +543,8 @@
   <table-link relationship-ref="REL156" pkConnection="0.41754385964912283" fkConnection="0.497907949790795" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL158" pkConnection="0.5" fkConnection="0.4934210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL148" pkConnection="0.5" fkConnection="0.35785953177257523" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL130" pkConnection="0.21630094043887146" fkConnection="0.5684210526315789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
-  <table-link relationship-ref="REL160" pkConnection="0.8701923076923077" fkConnection="0.10344827586206896" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL130" pkConnection="0.13452914798206278" fkConnection="0.9052631578947369" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL160" pkConnection="0.4126984126984127" fkConnection="0.968609865470852" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL154" pkConnection="0.5" fkConnection="0.6582278481012658" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
  </play-pen>
  <critic-manager>
