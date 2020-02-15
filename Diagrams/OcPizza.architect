@@ -113,7 +113,7 @@
     <column id="COL32" populated="true" UUID="a0ff4a45-3459-4e39-9ce9-950d0b527177" autoIncrement="false" autoIncrementSequenceName="order_id_seq" defaultValue="" name="order_id" nullable="0" physicalName="order_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL33" populated="true" UUID="e45d6168-441d-4b19-b0ae-30a902a79b99" autoIncrement="false" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL33" populated="true" UUID="e45d6168-441d-4b19-b0ae-30a902a79b99" autoIncrement="false" autoIncrementSequenceName="pizza_id_seq" defaultValue="" name="pizza_id" nullable="0" physicalName="pizza_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL34" populated="true" UUID="5a4b5d55-808b-4c82-92a4-71563411aa70" autoIncrement="false" autoIncrementSequenceName="size_id_seq" defaultValue="" name="size_id" nullable="0" physicalName="size_id" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -130,7 +130,7 @@
     <folder id="FOLTAB314" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX36" populated="true" UUID="305052e6-4fcc-4b0d-bf06-fa9778fa96fa" clustered="false" name="order_line_pk" physicalName="order_line_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC37" populated="true" UUID="eb0fc85d-49a1-4434-89cd-95537353ff38" ascendingOrDescending="UNSPECIFIED" column-ref="COL32" name="order_id" physicalName="order_id" />
-     <index-column id="IDC38" populated="true" UUID="9a66ca3e-bdde-4958-b30d-1446c66ec757" ascendingOrDescending="UNSPECIFIED" column-ref="COL33" name="id" physicalName="id" />
+     <index-column id="IDC38" populated="true" UUID="9a66ca3e-bdde-4958-b30d-1446c66ec757" ascendingOrDescending="UNSPECIFIED" column-ref="COL33" name="pizza_id" physicalName="pizza_id" />
      <index-column id="IDC39" populated="true" UUID="d8fdbc31-24d8-4ac6-8011-96495d835d77" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="size_id" physicalName="size_id" />
     </index>
    </folder>
@@ -511,7 +511,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="ocpizza"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="49" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="179" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="393" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB16" x="393" y="319" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB31" x="393" y="665" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>

@@ -160,10 +160,10 @@ CREATE TABLE status_history (
 
 CREATE TABLE order_line (
                 order_id INT NOT NULL,
-                id INT NOT NULL,
+                pizza_id INT NOT NULL,
                 size_id INT NOT NULL,
                 quantity INT NOT NULL,
-                PRIMARY KEY (order_id, id, size_id)
+                PRIMARY KEY (order_id, pizza_id, size_id)
 );
 
 
@@ -234,7 +234,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE order_line ADD CONSTRAINT pizza_order_line_fk
-FOREIGN KEY (id)
+FOREIGN KEY (pizza_id)
 REFERENCES pizza (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
