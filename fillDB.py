@@ -186,16 +186,16 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create a random recipe for each pizza
         """
-        print('==> Genereate recipes for each pizza')
+        progress_bar = 'Create a recipe for each pizza'
+        progress_bar_count = len(self.pizzas)
+        progress_bar = FillingCirclesBar(progress_bar, max=progress_bar_count)
         for pizza in self.pizzas:
-            print(f'==> Recipe for the {pizza.name}')
             for ingredient in self.ingredients:
                 if random.choice([True, False]):
                     recipe_line = Recipe(pizza, ingredient)
-                    print(f'{recipe_line.ingredient.name} = {recipe_line.quantity}')
                     self.recipes.append(recipe_line)
-            print('')
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_status(self):
         """
