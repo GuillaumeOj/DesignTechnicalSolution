@@ -11,23 +11,26 @@ class Pizza: # pylint: disable=too-few-public-methods
         Create a pizza
         Attributes:
             - name
-            - ingredient_factor
+            - tax_free_unit_price
+            - category
     """
-    def __init__(self, lang_code, categories):
+    def __init__(self, lang_code, categories, vat_rates):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The size name
         self.name = self.fake.word()
 
-        # The ingredient factor
-        self.ingredient_factor = self.fake.pyfloat(right_digits=1,
-                                                   positive=True,
-                                                   min_value=1,
-                                                   max_value=3)
+        # The unit price without taxes
+        self.tax_free_unit_price = self.fake.pyfloat(left_digits=2,
+                                                     right_digits=2,
+                                                     positive=True)
 
         # Select a category for the pizza
         self.category = categories[random.randrange(len(categories))]
+
+        # Add a vat rate for the pizza
+        self.vat_rate = vat_rates[random.randrange(len(vat_rates))]
 
 
 class Category: # pylint: disable=too-few-public-methods
