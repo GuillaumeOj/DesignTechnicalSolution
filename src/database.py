@@ -215,6 +215,31 @@ class Database:
                    size.ingredient_factor) for size in sizes]
         self.insert_in_database(query, values)
 
+    def insert_categories(self, categories):
+        """
+            Insert categories in the database
+        """
+        print('==> Insert categories in the database')
+        # First insert all categories
+        query = ('INSERT INTO category (name) VALUES (%s)')
+        values = [(category.name, ) for category in categories]
+        self.insert_in_database(query, values)
+
+        # The update each category with the potential parent id
+        query = ("""
+                    UPDATE category AS child
+                    SET child.parent_category_id = 
+                        (
+                            SELECT id
+                            FROM (SELECT id, name FROM category) AS parent_category
+                            WHERE parent_category.name = %s
+                        )
+                    WHERE child.name = %s
+                 """)
+        values = [(category.parent_category.name, category.name)
+                  for category in categories if category.parent_category]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
