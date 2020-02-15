@@ -2,7 +2,7 @@
     Module for filling and testing the database
 """
 import argparse
-import random
+from random import randrange, choice
 
 from progress.bar import FillingCirclesBar
 
@@ -115,7 +115,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = 'Create employees'
         progress_bar = FillingCirclesBar(progress_bar, max=len(self.pizzeria))
         for shop in self.pizzeria:
-            for employee in range(random.randrange(EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX)):
+            for employee in range(randrange(EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX)):
                 employee = Employee(LANG_CODE, shop)
                 self.employees.append(employee)
             progress_bar.next()
@@ -192,7 +192,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = FillingCirclesBar(progress_bar, max=progress_bar_count)
         for pizza in self.pizzas:
             for ingredient in self.ingredients:
-                if random.choice([True, False]):
+                if choice([True, False]):
                     recipe_line = Recipe(pizza, ingredient)
                     self.recipes.append(recipe_line)
             progress_bar.next()
@@ -217,7 +217,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         print('==> Create random hitory for status')
         for i, order in enumerate(self.orders):
             print(f'==> Orders from {order.customer.first_name} {order.customer.last_name}')
-            for status_history in range(random.randrange(1, 3)):
+            for status_history in range(randrange(1, 3)):
                 status_history = StatusHistory(order)
                 print(f'{status_history.status.name} => {status_history.date}')
                 self.statutes_history.append(status_history)
@@ -255,7 +255,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         print('==> Create orders for customers')
         for customer in self.customers:
             print(f'==> Orders from {customer.first_name} {customer.last_name}:')
-            for order in range(random.randrange(0, 4)):
+            for order in range(randrange(0, 4)):
                 order = Order(LANG_CODE,
                               customer,
                               self.pizzeria,
@@ -273,7 +273,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
         print('==> Create orders\' lines')
         for order in self.orders:
-            for order_line in range(random.randrange(1, 6)):
+            for order_line in range(randrange(1, 6)):
                 order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
                 print(f'{order_line.pizza.name} => {order_line.size.name} => {order_line.quantity}')
                 self.orders_lines.append(order_line)
