@@ -305,6 +305,33 @@ class Database:
                    stock_line.quantity) for stock_line in stock]
         self.insert_in_database(query, values)
 
+    def insert_recipes(self, recipes):
+        """
+            Insert recipes in the database
+        """
+        print('==> Insert recipes in the database')
+        query = ("""INSERT INTO pizza_ingredient
+                    (pizza_id, ingredient_id, quantity)
+                    VALUES
+                        (
+                            (
+                                SELECT id
+                                FROM pizza
+                                WHERE name = %s
+                            ),
+                            (
+                                SELECT id
+                                FROM ingredient
+                                WHERE name = %s
+                            ),
+                            %s
+                        )
+                 """)
+        values = [(recipe.pizza.name,
+                   recipe.ingredient.name,
+                   recipe.quantity) for recipe in recipes]
+        self.insert_in_database(query, values)
+
     def close_database(self):
         """
             Method for closing the connection with the database
