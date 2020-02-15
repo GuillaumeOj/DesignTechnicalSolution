@@ -39,8 +39,8 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.orders_lines = list()
         self.statutes = list()
         self.statutes_history = list()
-        self.payment = list()
-        self.payment_status = list()
+        self.payments = list()
+        self.payments_statutes = list()
 
     def init_db_structure(self, sql_file):
         """
@@ -80,11 +80,10 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.random_recipes()
         self.random_statutes()
         self.random_payments()
+        self.random_payments_statutes()
+        self.random_orders()
+        self.random_orders_lines()
         self.random_statutes_history()
-        # self.random_payment()
-        # self.random_payment_status()
-        # self.random_orders()
-        # self.random_orders_lines()
 
     def random_customers(self):
         """
@@ -216,7 +215,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         """
             Create random history for status
         """
-        progress_bar = 'Create statutes for the orders'
+        progress_bar = 'Create statutes history for the orders'
         progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
         for i, order in enumerate(self.orders):
             for status_history in range(randrange(STATUTES_HISTORY_MIN, STATUTES_HISTORY_MAX)):
@@ -227,58 +226,61 @@ class App:  # pylint: disable=too-many-instance-attributes
             progress_bar.next()
         progress_bar.finish()
 
-    def random_payment(self):
+    def random_payments(self):
         """
-            Create random payment types
+            Create random payments types
         """
-        print('==> Create payment types')
-        for payment in range(2):
-            payment = Payment(LANG_CODE)
-            print(f'{payment.type}')
-            self.payment.append(payment)
-        print('')
+        progress_bar = 'Create payments types'
+        progress_bar = FillingCirclesBar(progress_bar, max=PAYMENTS_TYPE_COUNT)
+        for payment in range(PAYMENTS_TYPE_COUNT):
+            payment = Payment(LANG_CODE, self.payments)
+            self.payments.append(payment)
+            progress_bar.next()
+        progress_bar.finish()
 
-    def random_payment_status(self):
+    def random_payments_statutes(self):
         """
-            Create random payment status
+            Create random payment statutes
         """
-        print('==> Create payment status')
-        for payment_status in range(2):
+        progress_bar = 'Create payments statutes'
+        progress_bar = FillingCirclesBar(progress_bar, max=PAYMENTS_STATUTES_COUNT)
+        for payment_status in range(PAYMENTS_STATUTES_COUNT):
             payment_status = PaymentStatus(LANG_CODE)
-            print(f'{payment_status.name}')
-            self.payment_status.append(payment_status)
-        print('')
+            self.payments_statutes.append(payment_status)
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_orders(self):
         """
             Create random orders for each customer
         """
-        print('==> Create orders for customers')
+        progress_bar = 'Create orders for each customer'
+        progress_bar = FillingCirclesBar(progress_bar, max=len(self.customers))
         for customer in self.customers:
-            print(f'==> Orders from {customer.first_name} {customer.last_name}:')
-            for order in range(randrange(0, 4)):
+            for order in range(randrange(ORDERS_COUNT_MIN, ORDERS_COUNT_MAX)):
                 order = Order(LANG_CODE,
+                              self.orders,
                               customer,
                               self.pizzeria,
                               self.statutes,
-                              self.payment,
-                              self.payment_status)
-                print(f'{order.date}')
+                              self.payments,
+                              self.payments_statutes)
                 self.orders.append(order)
-            print('')
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
     def random_orders_lines(self):
         """
             Create random orders lines for each order
         """
-        print('==> Create orders\' lines')
+        progress_bar = 'Create lines of each order'
+        progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
         for order in self.orders:
-            for order_line in range(randrange(1, 6)):
+            for order_line in range(randrange(ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX)):
                 order_line = OrderLine(LANG_CODE, order, self.pizzas, self.sizes)
-                print(f'{order_line.pizza.name} => {order_line.size.name} => {order_line.quantity}')
                 self.orders_lines.append(order_line)
-        print('')
+            progress_bar.next()
+        progress_bar.finish()
 
 
 if __name__ == '__main__':
