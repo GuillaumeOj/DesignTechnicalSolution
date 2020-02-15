@@ -35,12 +35,12 @@ class App:  # pylint: disable=too-many-instance-attributes
         self.pizzas = list()
         self.stock = list()
         self.recipes = list()
-        self.orders = list()
-        self.orders_lines = list()
         self.statutes = list()
-        self.statutes_history = list()
         self.payments = list()
         self.payments_statutes = list()
+        self.orders = list()
+        self.orders_lines = list()
+        self.statutes_history = list()
 
     def init_db_structure(self, sql_file):
         """
