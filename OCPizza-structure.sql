@@ -17,6 +17,10 @@ CREATE TABLE payment_status (
 );
 
 
+CREATE UNIQUE INDEX payment_status_name
+ ON payment_status
+ ( name );
+
 CREATE TABLE vat_rate (
                 id INT AUTO_INCREMENT NOT NULL,
                 vat_rate_100 DECIMAL(6,4) NOT NULL,
@@ -36,6 +40,10 @@ CREATE TABLE size (
 );
 
 
+CREATE UNIQUE INDEX size_name
+ ON size
+ ( name );
+
 CREATE TABLE category (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
@@ -44,12 +52,20 @@ CREATE TABLE category (
 );
 
 
+CREATE UNIQUE INDEX category_name
+ ON category
+ ( name );
+
 CREATE TABLE payment (
                 id INT AUTO_INCREMENT NOT NULL,
                 type VARCHAR(20) NOT NULL,
                 PRIMARY KEY (id)
 );
 
+
+CREATE UNIQUE INDEX payment_type
+ ON payment
+ ( type );
 
 CREATE TABLE status (
                 id INT AUTO_INCREMENT NOT NULL,
@@ -58,6 +74,10 @@ CREATE TABLE status (
 );
 
 
+CREATE UNIQUE INDEX status_name
+ ON status
+ ( name );
+
 CREATE TABLE ingredient (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
@@ -65,6 +85,10 @@ CREATE TABLE ingredient (
                 PRIMARY KEY (id)
 );
 
+
+CREATE UNIQUE INDEX ingredient_name
+ ON ingredient
+ ( name );
 
 CREATE TABLE pizza (
                 id INT AUTO_INCREMENT NOT NULL,
@@ -75,6 +99,10 @@ CREATE TABLE pizza (
                 PRIMARY KEY (id)
 );
 
+
+CREATE UNIQUE INDEX pizza_name
+ ON pizza
+ ( name );
 
 CREATE TABLE pizza_ingredient (
                 ingredient_id INT NOT NULL,
@@ -94,6 +122,10 @@ CREATE TABLE pizzeria (
                 PRIMARY KEY (id)
 );
 
+
+CREATE UNIQUE INDEX pizzeria_name
+ ON pizzeria
+ ( name );
 
 CREATE TABLE stock (
                 pizzeria_id INT NOT NULL,
