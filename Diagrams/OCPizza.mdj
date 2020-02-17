@@ -169,7 +169,7 @@
 											"top": 148,
 											"width": 126.1025390625,
 											"height": 13,
-											"text": "+mail: string",
+											"text": "+email: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2138,6 +2138,23 @@
 										},
 										{
 											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFwU5GtWa+j+g0=",
+											"_parent": {
+												"$ref": "AAAAAAFv64SDVSPC7NY="
+											},
+											"model": {
+												"$ref": "AAAAAAFwU5Gs76+ga80="
+											},
+											"font": "Arial;13;0",
+											"left": 701,
+											"top": 148,
+											"width": 102.24169921875,
+											"height": 13,
+											"text": "+email: string",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
 											"_id": "AAAAAAFv64VXRSQEMrc=",
 											"_parent": {
 												"$ref": "AAAAAAFv64SDVSPC7NY="
@@ -2147,7 +2164,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 701,
-											"top": 148,
+											"top": 163,
 											"width": 102.24169921875,
 											"height": 13,
 											"text": "+password: string",
@@ -2158,7 +2175,7 @@
 									"left": 696,
 									"top": 113,
 									"width": 112.24169921875,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2171,7 +2188,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 696,
-									"top": 166,
+									"top": 181,
 									"width": 112.24169921875,
 									"height": 10
 								},
@@ -2213,7 +2230,7 @@
 							"left": 696,
 							"top": 88,
 							"width": 112.24169921875,
-							"height": 88,
+							"height": 103,
 							"nameCompartment": {
 								"$ref": "AAAAAAFv64SDVSO9Nz4="
 							},
@@ -4914,7 +4931,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 734,
-									"top": 194,
+									"top": 209,
 									"width": 65.0126953125,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -4937,7 +4954,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 770,
-									"top": 197,
+									"top": 212,
 									"width": 18.8017578125,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -4958,7 +4975,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 729,
-									"top": 190,
+									"top": 205,
 									"width": 19.5126953125,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -5070,7 +5087,7 @@
 							"tail": {
 								"$ref": "AAAAAAFv64SDVSO8S6s="
 							},
-							"points": "751:175;751:232;576:232;576:264",
+							"points": "751:190;751:232;576:232;576:264",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFv7J1rLTm2l8c="
@@ -8085,9 +8102,9 @@
 										"$ref": "AAAAAAFwOgFwWYTB4EA="
 									},
 									"font": "Arial;13;0",
-									"left": 505,
+									"left": 504,
 									"top": 468,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -8747,9 +8764,9 @@
 										"$ref": "AAAAAAFwP0Q0NbyKb34="
 									},
 									"font": "Arial;13;0",
-									"left": 264,
+									"left": 263,
 									"top": 236,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.42662766435981725,
 									"distance": 24.166091947189145,
@@ -9287,9 +9304,9 @@
 										"$ref": "AAAAAAFwP1ikn43PQ5o="
 									},
 									"font": "Arial;13;0",
-									"left": 59,
+									"left": 58,
 									"top": 415,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -5.3680848196434585,
 									"distance": 16.401219466856727,
@@ -9472,7 +9489,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFv614sj3PQlRM="
 							},
-							"name": "mail",
+							"name": "email",
 							"type": "string"
 						},
 						{
@@ -9541,6 +9558,15 @@
 								"$ref": "AAAAAAFv64SDVCO6erc="
 							},
 							"name": "lastName",
+							"type": "string"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFwU5Gs76+ga80=",
+							"_parent": {
+								"$ref": "AAAAAAFv64SDVCO6erc="
+							},
+							"name": "email",
 							"type": "string"
 						},
 						{
