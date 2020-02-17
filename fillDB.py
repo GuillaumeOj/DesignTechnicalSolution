@@ -96,7 +96,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = 'Create customers'
         progress_bar = FillingCirclesBar(progress_bar, max=CUSTOMERS_COUNT)
         for customer in range(CUSTOMERS_COUNT):
-            customer = Customer(LANG_CODE)
+            customer = Customer(LANG_CODE, self.customers)
             self.customers.append(customer)
             progress_bar.next()
         progress_bar.finish()

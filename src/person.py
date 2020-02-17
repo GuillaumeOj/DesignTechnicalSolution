@@ -19,7 +19,7 @@ class Customer: # pylint: disable=too-few-public-methods
         Optionnal attributes:
             - address
     """
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, customers):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -28,10 +28,14 @@ class Customer: # pylint: disable=too-few-public-methods
         self.last_name = self.fake.last_name()
 
         # The customer's mail address
-        email_domain = self.fake.domain_name()
-        unaccented_first_name = unidecode.unidecode(self.first_name).lower()
-        unaccented_last_name = unidecode.unidecode(self.last_name).lower()
-        self.email = f'{unaccented_first_name}.{unaccented_last_name}@{email_domain}'
+        customers_emails = [customer.email for customer in customers]
+        while True:
+            email_domain = self.fake.domain_name()
+            unaccented_first_name = unidecode.unidecode(self.first_name).lower()
+            unaccented_last_name = unidecode.unidecode(self.last_name).lower()
+            self.email = f'{unaccented_first_name}.{unaccented_last_name}@{email_domain}'
+            if self.email not in customers_emails:
+                break
 
         # The customer's postal address
         self.address = Address(lang_code, optional_address=True, additional_details=True)
