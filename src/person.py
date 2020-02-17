@@ -2,10 +2,10 @@
     Module for creating a fake customer or employee
 """
 import faker
-import unidecode
 
 from src.address import Address
 from src.password import Password
+from src.email import Email
 
 
 class Customer: # pylint: disable=too-few-public-methods
@@ -30,10 +30,7 @@ class Customer: # pylint: disable=too-few-public-methods
         # The customer's mail address
         customers_emails = [customer.email for customer in customers]
         while True:
-            email_domain = self.fake.domain_name()
-            unaccented_first_name = unidecode.unidecode(self.first_name).lower()
-            unaccented_last_name = unidecode.unidecode(self.last_name).lower()
-            self.email = f'{unaccented_first_name}.{unaccented_last_name}@{email_domain}'
+            self.email = Email(lang_code, self.first_name, self.last_name).email
             if self.email not in customers_emails:
                 break
 
