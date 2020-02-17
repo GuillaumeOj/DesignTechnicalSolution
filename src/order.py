@@ -89,6 +89,7 @@ class OrderLine: # pylint: disable=too-few-public-methods
             - size
     """
     def __init__(self, lang_code, orders_lines, order, pizzas, sizes):
+        # pylint: disable=too-many-arguments
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -185,7 +186,7 @@ class PaymentStatus: # pylint: disable=too-few-public-methods
         while True:
             self.name = self.fake.word()
             if self.name not in payments_statutes_names:
-                break;
+                break
 
 
 if __name__ == '__main__':
