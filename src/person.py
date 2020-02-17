@@ -7,6 +7,7 @@ import unidecode
 from src.address import Address
 from src.password import Password
 
+
 class Customer: # pylint: disable=too-few-public-methods
     """
         Create a customer
@@ -38,6 +39,7 @@ class Customer: # pylint: disable=too-few-public-methods
         # The customer's password
         self.password = Password(lang_code)
 
+
 class Employee: # pylint: disable=too-few-public-methods
     """
         Create an employee
@@ -60,7 +62,6 @@ class Employee: # pylint: disable=too-few-public-methods
 
         # The employee's shop
         self.shop = shop
-
 
 
 if __name__ == '__main__':
