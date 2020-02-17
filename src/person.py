@@ -47,16 +47,24 @@ class Employee: # pylint: disable=too-few-public-methods
         Attributes:
             - first_name
             - last_name
-            - hashed_password
+            - email
+            - password
             - shop
     """
-    def __init__(self, lang_code, shop):
+    def __init__(self, lang_code, shop, employees):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The employee's name
         self.first_name = self.fake.first_name()
         self.last_name = self.fake.last_name()
+
+        # The employee's mail address
+        employees_emails = [employee.email for employee in employees]
+        while True:
+            self.email = Email(lang_code, self.first_name, self.last_name).email
+            if self.email not in employees_emails:
+                break
 
         # The employee's password
         self.password = Password(lang_code)

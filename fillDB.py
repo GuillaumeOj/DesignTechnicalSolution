@@ -121,7 +121,7 @@ class App:  # pylint: disable=too-many-instance-attributes
         progress_bar = FillingCirclesBar(progress_bar, max=len(self.pizzeria))
         for shop in self.pizzeria:
             for employee in range(randrange(EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX)):
-                employee = Employee(LANG_CODE, shop)
+                employee = Employee(LANG_CODE, shop, self.employees)
                 self.employees.append(employee)
             progress_bar.next()
         progress_bar.finish()

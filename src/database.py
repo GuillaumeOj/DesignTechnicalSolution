@@ -159,11 +159,13 @@ class Database: # pylint: disable=too-many-public-methods
                         (
                             first_name,
                             last_name,
+                            email,
                             password,
                             pizzeria_id
                         )
                     VALUES
                         (
+                            %s,
                             %s,
                             %s,
                             %s,                        
@@ -176,6 +178,7 @@ class Database: # pylint: disable=too-many-public-methods
                  """)
         values = [(employee.first_name,
                    employee.last_name,
+                   employee.email,
                    employee.password.hashed_password,
                    employee.shop.name) for employee in employees]
         self.insert_in_database(query, values)
