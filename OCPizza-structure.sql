@@ -10,6 +10,13 @@ USE ocpizza;
 -- IT'S BASED ON THE ENTITY RELATIONSHIP DIAGRAM
 -- -----------------------------------------------------
 
+CREATE TABLE role (
+                id INT AUTO_INCREMENT NOT NULL,
+                name VARCHAR(100) NOT NULL,
+                PRIMARY KEY (id)
+);
+
+
 CREATE TABLE payment_status (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(20) NOT NULL,
@@ -137,6 +144,7 @@ CREATE TABLE stock (
 
 CREATE TABLE employee (
                 id INT AUTO_INCREMENT NOT NULL,
+                role_id INT NOT NULL,
                 first_name VARCHAR(100) NOT NULL,
                 last_name VARCHAR(100) NOT NULL,
                 email VARCHAR(200) NOT NULL,
@@ -203,6 +211,12 @@ CREATE TABLE order_line (
                 PRIMARY KEY (order_id, pizza_id, size_id)
 );
 
+
+ALTER TABLE employee ADD CONSTRAINT role_employee_fk
+FOREIGN KEY (role_id)
+REFERENCES role (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
 
 ALTER TABLE customer_order ADD CONSTRAINT payment_status_customer_order_fk
 FOREIGN KEY (payment_status_id)
