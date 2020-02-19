@@ -23,7 +23,6 @@ class Order: # pylint: disable=too-many-instance-attributes
     orders = list()
 
     def __init__(self, lang_code, customer, *args):
-        # pylint: disable=too-many-arguments
         # Initialize the faker generator
         restaurants, status, payments, payment_status = args
         self.fake = faker.Faker(lang_code)
@@ -44,7 +43,7 @@ class Order: # pylint: disable=too-many-instance-attributes
         self.customer = customer
 
         # The restaurant which prepare the order
-        self.restaurants = restaurants[randrange(len(restaurants))]
+        self.restaurant = restaurants[randrange(len(restaurants))]
 
         # The delivery address
         if self.customer.address.street_number and self.fake.pybool():
