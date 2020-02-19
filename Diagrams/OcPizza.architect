@@ -185,7 +185,7 @@
     <column id="COL55" populated="true" UUID="80ba968e-b4b8-4f27-a39f-c6e9d18c1fe7" autoIncrement="false" autoIncrementSequenceName="pizzeria_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL56" populated="true" UUID="4770d339-4638-46fc-94f1-1bb217ca16df" autoIncrement="false" autoIncrementSequenceName="pizzeria_phone_number_seq" defaultValue="" name="phone_number" nullable="0" physicalName="phone_number" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL56" populated="true" UUID="4770d339-4638-46fc-94f1-1bb217ca16df" autoIncrement="false" autoIncrementSequenceName="pizzeria_phone_number_seq" defaultValue="" name="phone_number" nullable="0" physicalName="phone_number" precision="25" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL57" populated="true" UUID="09b7d0fa-46cb-48ed-aa5f-fd13c260dd86" autoIncrement="false" autoIncrementSequenceName="pizzeria_adress_number_seq" defaultValue="" name="address_street_number" nullable="0" physicalName="address_street_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >

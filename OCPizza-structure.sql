@@ -122,7 +122,7 @@ CREATE TABLE pizza_ingredient (
 CREATE TABLE pizzeria (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                phone_number VARCHAR(15) NOT NULL,
+                phone_number VARCHAR(25) NOT NULL,
                 address_street_number VARCHAR(10) NOT NULL,
                 address_street_name VARCHAR(200) NOT NULL,
                 address_city VARCHAR(100) NOT NULL,
