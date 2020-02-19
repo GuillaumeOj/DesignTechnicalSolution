@@ -15,6 +15,7 @@ class Customer: # pylint: disable=too-few-public-methods
             - first_name
             - last_name
             - email
+            - phone_number
             - hashed_password
         Optionnal attributes:
             - address
@@ -35,6 +36,9 @@ class Customer: # pylint: disable=too-few-public-methods
             self.email = Email(lang_code, self.first_name, self.last_name).email
             if self.email not in customers_emails:
                 break
+
+        # The customer's phone number
+        self.phone_number = self.fake.phone_number()
 
         # The customer's postal address
         self.address = Address(lang_code, optional_address=True, additional_details=True)
