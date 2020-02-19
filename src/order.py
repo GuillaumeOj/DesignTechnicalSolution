@@ -15,18 +15,21 @@ class Order: # pylint: disable=too-many-instance-attributes
             - date
             - address
             - customer
-            - pizzeria
+            - restaurant
             - status
             - payment
             - payment_status
     """
-    def __init__(self, lang_code, orders, customer, pizzeria, statutes, payments, payment_status):
+    orders = list()
+
+    def __init__(self, lang_code, customer, *args):
         # pylint: disable=too-many-arguments
         # Initialize the faker generator
+        restaurants, status, payments, payment_status = args
         self.fake = faker.Faker(lang_code)
 
         # The order date time
-        orders_dates = [order.date for order in orders if order.customer == customer]
+        orders_dates = [order.date for order in Order.orders if order.customer == customer]
         while True:
             self.date = None
             self.random_date()
@@ -35,13 +38,13 @@ class Order: # pylint: disable=too-many-instance-attributes
 
         # The order status
         self.status = None
-        self.random_status(statutes)
+        self.random_status(status)
 
         # The customer who order
         self.customer = customer
 
-        # The pizzeria which prepare the order
-        self.pizzeria = pizzeria[randrange(len(pizzeria))]
+        # The restaurant which prepare the order
+        self.restaurants = restaurants[randrange(len(restaurants))]
 
         # The delivery address
         if self.customer.address.street_number and self.fake.pybool():
@@ -55,6 +58,8 @@ class Order: # pylint: disable=too-many-instance-attributes
         # The status of the payment
         self.payment_status = payment_status[randrange(len(payment_status))]
 
+        Order.orders.append(self)
+
     def random_date(self):
         """
             Create a random date for the order
@@ -65,18 +70,18 @@ class Order: # pylint: disable=too-many-instance-attributes
             self.date = self.fake.date_time_between(start_date='-5y',
                                                     end_date='-2y')
 
-    def random_status(self, statutes):
+    def random_status(self, status):
         """
             Create a random status for the order
         """
         if self.status:
             while True:
-                new_status = statutes[randrange(len(statutes))]
+                new_status = status[randrange(len(status))]
                 if self.status != new_status:
                     self.status = new_status
                     break
         else:
-            self.status = statutes[randrange(len(statutes))]
+            self.status = status[randrange(len(status))]
 
 
 class OrderLine: # pylint: disable=too-few-public-methods
@@ -118,16 +123,20 @@ class Status: # pylint: disable=too-few-public-methods
         Attribute:
             - name
     """
-    def __init__(self, lang_code, statutes):
+    status = list()
+
+    def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The name of the status
-        statutes_names = [status.name for status in statutes]
+        statutes_names = [status.name for status in Status.status]
         while True:
             self.name = self.fake.word()
             if self.name not in statutes_names:
                 break
+
+        Status.status.append(self)
 
 
 class StatusHistory: # pylint: disable=too-few-public-methods
@@ -158,17 +167,21 @@ class Payment: # pylint: disable=too-few-public-methods
         Attribute:
             - type
     """
-    def __init__(self, lang_code, payments):
+    payments = list()
+
+    def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The type of payment
-        payments_types = [payment.type for payment in payments]
+        payments_types = [payment.type for payment in Payment.payments]
 
         while True:
             self.type = self.fake.word()
             if self.type not in payments_types:
                 break
+
+        Payment.payments.append(self)
 
 
 class PaymentStatus: # pylint: disable=too-few-public-methods
@@ -177,16 +190,21 @@ class PaymentStatus: # pylint: disable=too-few-public-methods
         Attribute:
             - name
     """
-    def __init__(self, lang_code, payments_statutes):
+    payments_status = list()
+    def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The name of the payment status
-        payments_statutes_names = [payment_status.name for payment_status in payments_statutes]
+        payments_statutes_names = [payment_status.name
+                                   for payment_status
+                                   in PaymentStatus.payments_status]
         while True:
             self.name = self.fake.word()
             if self.name not in payments_statutes_names:
                 break
+
+        PaymentStatus.payments_status.append(self)
 
 
 if __name__ == '__main__':

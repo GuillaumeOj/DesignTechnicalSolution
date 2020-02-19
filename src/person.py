@@ -19,7 +19,9 @@ class Customer: # pylint: disable=too-few-public-methods
         Optionnal attributes:
             - address
     """
-    def __init__(self, lang_code, customers):
+    customers = list()
+
+    def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -28,7 +30,7 @@ class Customer: # pylint: disable=too-few-public-methods
         self.last_name = self.fake.last_name()
 
         # The customer's mail address
-        customers_emails = [customer.email for customer in customers]
+        customers_emails = [customer.email for customer in Customer.customers]
         while True:
             self.email = Email(lang_code, self.first_name, self.last_name).email
             if self.email not in customers_emails:
@@ -40,6 +42,8 @@ class Customer: # pylint: disable=too-few-public-methods
         # The customer's password
         self.password = Password(lang_code)
 
+        Customer.customers.append(self)
+
 
 class Employee: # pylint: disable=too-few-public-methods
     """
@@ -49,9 +53,11 @@ class Employee: # pylint: disable=too-few-public-methods
             - last_name
             - email
             - password
-            - shop
+            - restaurant
     """
-    def __init__(self, lang_code, shop, employees):
+    employees = list()
+
+    def __init__(self, lang_code, restaurant):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
@@ -60,7 +66,7 @@ class Employee: # pylint: disable=too-few-public-methods
         self.last_name = self.fake.last_name()
 
         # The employee's mail address
-        employees_emails = [employee.email for employee in employees]
+        employees_emails = [employee.email for employee in Employee.employees]
         while True:
             self.email = Email(lang_code, self.first_name, self.last_name).email
             if self.email not in employees_emails:
@@ -70,7 +76,9 @@ class Employee: # pylint: disable=too-few-public-methods
         self.password = Password(lang_code)
 
         # The employee's shop
-        self.shop = shop
+        self.restaurant = restaurant
+
+        Employee.employees.append(self)
 
 
 if __name__ == '__main__':

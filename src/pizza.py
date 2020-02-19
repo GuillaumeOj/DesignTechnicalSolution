@@ -14,12 +14,16 @@ class Pizza: # pylint: disable=too-few-public-methods
             - tax_free_unit_price
             - category
     """
-    def __init__(self, lang_code, pizzas, categories, vat_rates):
+    pizzas = list()
+
+    def __init__(self, lang_code, *args):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
+        categories, vat_rates = args
+
         # The size name
-        pizzas_names = [pizza.name for pizza in pizzas]
+        pizzas_names = [pizza.name for pizza in Pizza.pizzas]
         while True:
             self.name = self.fake.word()
             if self.name not in pizzas_names:
@@ -38,6 +42,8 @@ class Pizza: # pylint: disable=too-few-public-methods
         # Add a vat rate for the pizza
         self.vat_rate = vat_rates[random.randrange(len(vat_rates))]
 
+        Pizza.pizzas.append(self)
+
 
 class Category: # pylint: disable=too-few-public-methods
     """
@@ -47,12 +53,14 @@ class Category: # pylint: disable=too-few-public-methods
         Optional attribute:
             - parent_category
     """
-    def __init__(self, lang_code, categories):
+    categories = list()
+
+    def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
         # The category name
-        categories_names = [category.name for category in categories]
+        categories_names = [category.name for category in Category.categories]
         while True:
             self.name = self.fake.word()
             if self.name not in categories_names:
@@ -60,8 +68,10 @@ class Category: # pylint: disable=too-few-public-methods
 
         self.parent_category = None
         # Add randomly a parent category
-        if categories and self.fake.pybool():
-            self.parent_category = categories[random.randrange(len(categories))]
+        if Category.categories and self.fake.pybool():
+            self.parent_category = Category.categories[random.randrange(len(Category.categories))]
+
+        Category.categories.append(self)
 
 
 class Size: # pylint: disable=too-few-public-methods
@@ -71,6 +81,8 @@ class Size: # pylint: disable=too-few-public-methods
             - name
             - ingredient_factor
     """
+    sizes = list()
+
     def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
@@ -84,6 +96,8 @@ class Size: # pylint: disable=too-few-public-methods
                                                    min_value=1,
                                                    max_value=3)
 
+        Size.sizes.append(self)
+
 
 class Ingredient: # pylint: disable=too-few-public-methods
     """
@@ -92,6 +106,8 @@ class Ingredient: # pylint: disable=too-few-public-methods
             - name
             - unit
     """
+    ingredients = list()
+
     def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
@@ -103,6 +119,8 @@ class Ingredient: # pylint: disable=too-few-public-methods
         letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
         self.unit = self.fake.bothify(text='??', letters=letters)
 
+        Ingredient.ingredients.append(self)
+
 
 class Recipe: # pylint: disable=too-few-public-methods
     """
@@ -112,6 +130,8 @@ class Recipe: # pylint: disable=too-few-public-methods
             - ingredient
             - quantity
     """
+    recipes_lines = list()
+
     def __init__(self, pizza, ingredient):
         # Initialize the faker generator
         self.fake = faker.Faker()
@@ -127,6 +147,8 @@ class Recipe: # pylint: disable=too-few-public-methods
                                           positive=True,
                                           min_value=1,
                                           max_value=3)
+
+        Recipe.recipes_lines.append(self)
 
 
 if __name__ == '__main__':

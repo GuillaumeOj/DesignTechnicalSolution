@@ -128,12 +128,12 @@ class Database: # pylint: disable=too-many-public-methods
                    customer.address.additional_details) for customer in customers]
         self.insert_in_database(query, values)
 
-    def insert_pizzeria(self, pizzeria):
+    def insert_restaurants(self, restaurants):
         """
-            Insert pizzeria in the database
+            Insert restaurants in the database
         """
-        print('==> Insert pizzeria in the database')
-        query = ("""INSERT IGNORE INTO pizzeria
+        print('==> Insert restaurants in the database')
+        query = ("""INSERT IGNORE INTO restaurant
                         (
                             name,
                             address_street_number,
@@ -143,11 +143,11 @@ class Database: # pylint: disable=too-many-public-methods
                         )
                     VALUES (%s, %s, %s, %s, %s)
                  """)
-        values = [(shop.name,
-                   shop.address.street_number,
-                   shop.address.street_name,
-                   shop.address.city,
-                   shop.address.postal_code) for shop in pizzeria]
+        values = [(restaurant.name,
+                   restaurant.address.street_number,
+                   restaurant.address.street_name,
+                   restaurant.address.city,
+                   restaurant.address.postal_code) for restaurant in restaurants]
         self.insert_in_database(query, values)
 
     def insert_employees(self, employees):

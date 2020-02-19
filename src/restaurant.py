@@ -6,41 +6,47 @@ import faker
 from src.address import Address
 
 
-class Shop: # pylint: disable=too-few-public-methods
+class Restaurant: # pylint: disable=too-few-public-methods
     """
-        Create a shop
+        Create a restaurant
         Attributes:
             - name
             - address
     """
-    def __init__(self, lang_code, pizzeria):
+    restaurants = list()
+
+    def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
-        # The shop name
-        pizzeria_names = [shop.name for shop in pizzeria]
+        # The restaurant name
+        restaurants_names = [restaurant.name for restaurant in Restaurant.restaurants]
         while True:
             self.name = self.fake.company()
-            if self.name not in pizzeria_names:
+            if self.name not in restaurants_names:
                 break
 
-        # The shop address
+        # The restaurant address
         self.address = Address(lang_code)
+
+        Restaurant.restaurants.append(self)
 
 
 class Stock: # pylint: disable=too-few-public-methods
     """
-        Create a stock_line for a shop
+        Create a stock_line for a restaurant
         Attributes:
-            - shop
+            - restaurant
             - ingredient
             - quantity
     """
-    def __init__(self, shop, ingredient):
+    stocks = list()
+
+    def __init__(self, restaurant, ingredient):
         # Initialize the faker generator
         self.fake = faker.Faker()
 
-        self.shop = shop
+        self.restaurant = restaurant
         self.ingredient = ingredient
 
         # The ingredient quantity
