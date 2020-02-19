@@ -93,7 +93,7 @@ class App:
                                     Order.orders,
                                     OrderLine,
                                     *(Pizza.pizzas, Size.sizes))
-        # self.random_statutes_history()
+        self.random_status_history()
 
     @staticmethod
     def generate_simple(data_name, count, klass, *args):
@@ -144,18 +144,21 @@ class App:
             progress_bar.next()
         progress_bar.finish()
 
-    def random_statutes_history(self):
+    @staticmethod
+    def random_status_history():
         """
             Create random history for status
         """
         progress_bar = 'Create statutes history for the orders'
-        progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
-        for i, order in enumerate(self.orders):
-            for status_history in range(randrange(STATUTES_HISTORY_MIN, STATUTES_HISTORY_MAX)):
-                status_history = StatusHistory(order)
-                self.statutes_history.append(status_history)
-                self.orders[i].random_date()
-                self.orders[i].random_status(self.statutes)
+        progress_bar = FillingCirclesBar(progress_bar, max=len(Order.orders))
+        for i, order in enumerate(Order.orders):
+            history_count = randrange(STATUS_HISTORY_MIN, STATUS_HISTORY_MAX)
+            i = 0
+            while i < history_count:
+                i += 1
+                StatusHistory(order)
+                Order.orders[i].random_date()
+                Order.orders[i].random_status(Status.status)
             progress_bar.next()
         progress_bar.finish()
 

@@ -153,6 +153,8 @@ class StatusHistory: # pylint: disable=too-few-public-methods
             - order
             - status
     """
+    status_history = list()
+
     def __init__(self, order):
         # Initialize the faker generator
         self.fake = faker.Faker()
@@ -165,6 +167,8 @@ class StatusHistory: # pylint: disable=too-few-public-methods
 
         # The date time of the status' order
         self.date = self.order.date
+
+        StatusHistory.status_history.append(self)
 
 
 class Payment: # pylint: disable=too-few-public-methods
