@@ -11,6 +11,7 @@ class Restaurant: # pylint: disable=too-few-public-methods
         Create a restaurant
         Attributes:
             - name
+            - phone_number
             - address
     """
     restaurants = list()
@@ -19,14 +20,17 @@ class Restaurant: # pylint: disable=too-few-public-methods
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
-        # The restaurant name
+        # The restaurant's name
         restaurants_names = [restaurant.name for restaurant in Restaurant.restaurants]
         while True:
             self.name = self.fake.company()
             if self.name not in restaurants_names:
                 break
 
-        # The restaurant address
+        # The restaurant's phone number
+        self.phone_number = self.fake.phone_number()
+
+        # The restaurant's address
         self.address = Address(lang_code)
 
         Restaurant.restaurants.append(self)
