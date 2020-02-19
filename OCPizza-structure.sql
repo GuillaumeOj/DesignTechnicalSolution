@@ -119,7 +119,7 @@ CREATE TABLE pizza_ingredient (
 );
 
 
-CREATE TABLE pizzeria (
+CREATE TABLE restaurant (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
                 phone_number VARCHAR(25) NOT NULL,
@@ -132,14 +132,14 @@ CREATE TABLE pizzeria (
 
 
 CREATE UNIQUE INDEX pizzeria_name
- ON pizzeria
+ ON restaurant
  ( name );
 
 CREATE TABLE stock (
-                pizzeria_id INT NOT NULL,
+                restaurant_id INT NOT NULL,
                 ingredient_id INT NOT NULL,
                 quantity DECIMAL(10,2) NOT NULL,
-                PRIMARY KEY (pizzeria_id, ingredient_id)
+                PRIMARY KEY (restaurant_id, ingredient_id)
 );
 
 
@@ -150,7 +150,7 @@ CREATE TABLE employee (
                 last_name VARCHAR(100) NOT NULL,
                 email VARCHAR(200) NOT NULL,
                 password CHAR(64) NOT NULL,
-                pizzeria_id INT NOT NULL,
+                restaurant_id INT NOT NULL,
                 PRIMARY KEY (id)
 );
 
@@ -190,7 +190,7 @@ CREATE TABLE customer_order (
                 customer_id INT NOT NULL,
                 status_id INT NOT NULL,
                 payment_id INT NOT NULL,
-                pizzeria_id INT NOT NULL,
+                restaurant_id INT NOT NULL,
                 payment_status_id INT NOT NULL,
                 PRIMARY KEY (id)
 );
@@ -293,20 +293,20 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE customer_order ADD CONSTRAINT pizzeria_order_fk
-FOREIGN KEY (pizzeria_id)
-REFERENCES pizzeria (id)
+FOREIGN KEY (restaurant_id)
+REFERENCES restaurant (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE employee ADD CONSTRAINT pizzeria_employee_fk
-FOREIGN KEY (pizzeria_id)
-REFERENCES pizzeria (id)
+FOREIGN KEY (restaurant_id)
+REFERENCES restaurant (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE stock ADD CONSTRAINT pizzeria_stock_fk
-FOREIGN KEY (pizzeria_id)
-REFERENCES pizzeria (id)
+FOREIGN KEY (restaurant_id)
+REFERENCES restaurant (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
