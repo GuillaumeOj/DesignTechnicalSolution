@@ -93,10 +93,14 @@ class OrderLine: # pylint: disable=too-few-public-methods
             - pizza
             - size
     """
-    def __init__(self, lang_code, orders_lines, order, pizzas, sizes):
+    orders_lines = list()
+
+    def __init__(self, lang_code, order, *args):
         # pylint: disable=too-many-arguments
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
+
+        pizzas, sizes = args
 
         # The customer selected quantity
         self.quantity = self.fake.pyint(min_value=1, max_value=6)
@@ -106,7 +110,7 @@ class OrderLine: # pylint: disable=too-few-public-methods
 
         # The customer selected pizza
         pizzas_in_order = [order_line.pizza
-                           for order_line in orders_lines
+                           for order_line in OrderLine.orders_lines
                            if order_line.order == self.order]
         while True:
             self.pizza = pizzas[randrange(len(pizzas))]
@@ -115,6 +119,8 @@ class OrderLine: # pylint: disable=too-few-public-methods
 
         # The customer selected size
         self.size = sizes[randrange(len(sizes))]
+
+        OrderLine.orders_lines.append(self)
 
 
 class Status: # pylint: disable=too-few-public-methods

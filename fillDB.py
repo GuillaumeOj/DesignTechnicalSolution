@@ -88,7 +88,11 @@ class App:
                                       Status.status,
                                       Payment.payments,
                                       PaymentStatus.payments_status))
-        # self.random_orders_lines()
+        self.generate_complex_while('orders lines for each order',
+                                    (ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX),
+                                    Order.orders,
+                                    OrderLine,
+                                    *(Pizza.pizzas, Size.sizes))
         # self.random_statutes_history()
 
     @staticmethod
@@ -137,55 +141,6 @@ class App:
             while i < child_count:
                 i += 1
                 klass(LANG_CODE, parent, *args)
-            progress_bar.next()
-        progress_bar.finish()
-
-    @staticmethod
-    def random_recipes():
-        """
-            Create a random recipe for each pizza
-        """
-        progress_bar = 'Create a recipe for each pizza'
-        progress_bar_count = len(Pizza.pizzas)
-        progress_bar = FillingCirclesBar(progress_bar, max=progress_bar_count)
-        for pizza in Pizza.pizzas:
-            for ingredient in Ingredient.ingredients:
-                if choice([True, False]):
-                    Recipe(pizza, ingredient)
-            progress_bar.next()
-        progress_bar.finish()
-
-    @staticmethod
-    def random_orders():
-        """
-            Create random orders for each customer
-        """
-        progress_bar = 'Create orders for each customer'
-        progress_bar = FillingCirclesBar(progress_bar, max=len(Customer.customers))
-        for customer in Customer.customers:
-            orders_count = randrange(ORDERS_COUNT_MIN, ORDERS_COUNT_MAX)
-            i = 0
-            while i < orders_count:
-                i += 1
-                Order(LANG_CODE,
-                      (customer,
-                       Restaurant.restaurants,
-                       Status.status,
-                       Payment.payments,
-                       PaymentStatus.payments_status))
-            progress_bar.next()
-        progress_bar.finish()
-
-    def random_orders_lines(self):
-        """
-            Create random orders lines for each order
-        """
-        progress_bar = 'Create lines of each order'
-        progress_bar = FillingCirclesBar(progress_bar, max=len(self.orders))
-        for order in self.orders:
-            for order_line in range(randrange(ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX)):
-                order_line = OrderLine(LANG_CODE, self.orders_lines, order, Pizza.pizzas, self.sizes)
-                self.orders_lines.append(order_line)
             progress_bar.next()
         progress_bar.finish()
 
