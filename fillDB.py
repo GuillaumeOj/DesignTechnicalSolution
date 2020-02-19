@@ -71,10 +71,12 @@ class App:
         self.generate_simple('categories', CATEGORIES_COUNT, Category)
         self.generate_simple('pizzas', PIZZA_COUNT, Pizza, *(Category.categories, self.vat_rates))
         self.generate_complex('stock for each restaurant',
-                              (RESTAURANTS_COUNT * INGREDIENTS_COUNT),
                               (Restaurant.restaurants, Ingredient.ingredients),
                               Stock)
-        self.random_recipes()
+        self.generate_complex('recipes for each pizza',
+                              (Pizza.pizzas, Ingredient.ingredients),
+                              Recipe,
+                              random_choice=True)
         self.generate_simple('status for the orders', STATUS_COUNT, Status)
         self.generate_simple('payments types', PAYMENTS_TYPE_COUNT, Payment)
         self.generate_simple('payments status', PAYMENTS_STATUS_COUNT, PaymentStatus)
@@ -104,17 +106,21 @@ class App:
         progress_bar.finish()
 
     @staticmethod
-    def generate_complex(data_name, count, lists, klass, *args):
+    def generate_complex(data_name, lists, klass, *args, random_choice=False):
         """
             Generate data with a double for loop
         """
         parents, children = lists
         progress_bar = f'Create {data_name}'
-        progress_bar = FillingCirclesBar(progress_bar, max=count)
+        progress_bar = FillingCirclesBar(progress_bar, max=len(parents))
         for parent in parents:
             for child in children:
-                klass(parent, child, *args)
-                progress_bar.next()
+                if random_choice:
+                    if choice([True, False]):
+                        klass(parent, child, *args)
+                else:
+                    klass(parent, child, *args)
+            progress_bar.next()
         progress_bar.finish()
 
     @staticmethod
