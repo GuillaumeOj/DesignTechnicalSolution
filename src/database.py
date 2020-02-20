@@ -103,11 +103,12 @@ class Database: # pylint: disable=too-many-public-methods
             Insert customers in the database
         """
         print('==> Insert customers in the database')
-        query = ("""INSERT IGNORE INTO customer
+        query = ("""INSERT INTO customer
                         (
                             first_name,
                             last_name,
                             email,
+                            phone_number,
                             password,
                             address_street_number,
                             address_street_name,
@@ -115,11 +116,12 @@ class Database: # pylint: disable=too-many-public-methods
                             address_postal_code,
                             address_additional_details
                         )
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                  """)
         values = [(customer.first_name,
                    customer.last_name,
                    customer.email,
+                   customer.phone_number,
                    customer.password.hashed_password,
                    customer.address.street_number,
                    customer.address.street_name,

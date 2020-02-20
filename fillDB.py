@@ -39,7 +39,7 @@ class App:
         """
             Insert the random data in the database
         """
-        # self.database.insert_customers(Customer.customers)
+        self.database.insert_customers(Customer.customers)
         # self.database.insert_restaurants(Restaurant.restaurants)
         # self.database.insert_employees(Employee.employees)
         # self.database.insert_ingredients(Ingredient.ingredients)
@@ -61,39 +61,39 @@ class App:
             Create random data for the database
         """
         self.generate_simple('customers', CUSTOMERS_COUNT, Customer)
-        self.generate_simple('pizzeria', RESTAURANTS_COUNT, Restaurant)
-        self.generate_complex_while('employees for each restaurant',
-                                    (EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX),
-                                    Restaurant.restaurants,
-                                    Employee)
-        self.generate_simple('ingredients', INGREDIENTS_COUNT, Ingredient)
-        self.generate_simple('sizes', SIZES_COUNT, Size)
-        self.generate_simple('categories', CATEGORIES_COUNT, Category)
-        self.generate_simple('pizzas', PIZZA_COUNT, Pizza, *(Category.categories, self.vat_rates))
-        self.generate_complex('stock for each restaurant',
-                              (Restaurant.restaurants, Ingredient.ingredients),
-                              Stock)
-        self.generate_complex('recipes for each pizza',
-                              (Pizza.pizzas, Ingredient.ingredients),
-                              Recipe,
-                              random_choice=True)
-        self.generate_simple('status for the orders', STATUS_COUNT, Status)
-        self.generate_simple('payments types', PAYMENTS_TYPE_COUNT, Payment)
-        self.generate_simple('payments status', PAYMENTS_STATUS_COUNT, PaymentStatus)
-        self.generate_complex_while('order for each customer',
-                                    (ORDERS_COUNT_MIN, ORDERS_COUNT_MAX),
-                                    Customer.customers,
-                                    Order,
-                                    *(Restaurant.restaurants,
-                                      Status.status,
-                                      Payment.payments,
-                                      PaymentStatus.payments_status))
-        self.generate_complex_while('orders lines for each order',
-                                    (ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX),
-                                    Order.orders,
-                                    OrderLine,
-                                    *(Pizza.pizzas, Size.sizes))
-        self.random_status_history()
+        # self.generate_simple('pizzeria', RESTAURANTS_COUNT, Restaurant)
+        # self.generate_complex_while('employees for each restaurant',
+                                    # (EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX),
+                                    # Restaurant.restaurants,
+                                    # Employee)
+        # self.generate_simple('ingredients', INGREDIENTS_COUNT, Ingredient)
+        # self.generate_simple('sizes', SIZES_COUNT, Size)
+        # self.generate_simple('categories', CATEGORIES_COUNT, Category)
+        # self.generate_simple('pizzas', PIZZA_COUNT, Pizza, *(Category.categories, self.vat_rates))
+        # self.generate_complex('stock for each restaurant',
+                              # (Restaurant.restaurants, Ingredient.ingredients),
+                              # Stock)
+        # self.generate_complex('recipes for each pizza',
+                              # (Pizza.pizzas, Ingredient.ingredients),
+                              # Recipe,
+                              # random_choice=True)
+        # self.generate_simple('status for the orders', STATUS_COUNT, Status)
+        # self.generate_simple('payments types', PAYMENTS_TYPE_COUNT, Payment)
+        # self.generate_simple('payments status', PAYMENTS_STATUS_COUNT, PaymentStatus)
+        # self.generate_complex_while('order for each customer',
+                                    # (ORDERS_COUNT_MIN, ORDERS_COUNT_MAX),
+                                    # Customer.customers,
+                                    # Order,
+                                    # *(Restaurant.restaurants,
+                                      # Status.status,
+                                      # Payment.payments,
+                                      # PaymentStatus.payments_status))
+        # self.generate_complex_while('orders lines for each order',
+                                    # (ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX),
+                                    # Order.orders,
+                                    # OrderLine,
+                                    # *(Pizza.pizzas, Size.sizes))
+        # self.random_status_history()
 
     @staticmethod
     def generate_simple(data_name, count, klass, *args):
