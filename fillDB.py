@@ -8,7 +8,7 @@ from progress.bar import FillingCirclesBar
 
 from settings import * # pylint: disable=wildcard-import
 from src.database import Database
-from src.person import Customer, Employee
+from src.person import Customer, Employee, Role
 from src.restaurant import Restaurant, Stock
 from src.pizza import Ingredient, Size, Category, Pizza, Recipe
 from src.order import Order, OrderLine, Status, StatusHistory, Payment, PaymentStatus
@@ -61,11 +61,13 @@ class App:
             Create random data for the database
         """
         self.generate_simple('customers', CUSTOMERS_COUNT, Customer)
-        # self.generate_simple('pizzeria', RESTAURANTS_COUNT, Restaurant)
-        # self.generate_complex_while('employees for each restaurant',
-                                    # (EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX),
-                                    # Restaurant.restaurants,
-                                    # Employee)
+        self.generate_simple('pizzeria', RESTAURANTS_COUNT, Restaurant)
+        self.generate_simple('roles', len(ROLES), Role, *ROLES)
+        self.generate_complex_while('employees for each restaurant',
+                                    (EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX),
+                                    Restaurant.restaurants,
+                                    Employee,
+                                    *(Role.roles, ))
         # self.generate_simple('ingredients', INGREDIENTS_COUNT, Ingredient)
         # self.generate_simple('sizes', SIZES_COUNT, Size)
         # self.generate_simple('categories', CATEGORIES_COUNT, Category)

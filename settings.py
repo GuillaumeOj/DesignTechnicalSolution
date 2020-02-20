@@ -17,6 +17,7 @@ SQL_STRUCTURE = 'OCPizza-structure.sql'
 # Instance count for each object
 CUSTOMERS_COUNT = 67
 RESTAURANTS_COUNT = 4
+ROLES = ['responsable', 'pizzaiolo', 'livreur']
 EMPLOYEES_COUNT_MIN = 3
 EMPLOYEES_COUNT_MAX = 5
 INGREDIENTS_COUNT = 15
