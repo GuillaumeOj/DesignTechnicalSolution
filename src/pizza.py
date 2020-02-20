@@ -4,6 +4,7 @@
 import random
 
 import faker
+import faker_starship
 
 
 class Pizza: # pylint: disable=too-few-public-methods
@@ -19,13 +20,14 @@ class Pizza: # pylint: disable=too-few-public-methods
     def __init__(self, lang_code, *args):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
+        self.fake.add_provider(faker_starship.Provider)
 
         categories, vat_rates = args
 
         # The size name
         pizzas_names = [pizza.name for pizza in Pizza.pizzas]
         while True:
-            self.name = self.fake.word()
+            self.name = self.fake.starship_name()
             if self.name not in pizzas_names:
                 break
 
@@ -86,9 +88,10 @@ class Size: # pylint: disable=too-few-public-methods
     def __init__(self, lang_code):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
+        self.fake.add_provider(faker_starship.Provider)
 
         # The size name
-        self.name = self.fake.word()
+        self.name = self.fake.starship_class()
 
         # The ingredient factor
         self.ingredient_factor = self.fake.pyfloat(right_digits=1,
@@ -108,16 +111,18 @@ class Ingredient: # pylint: disable=too-few-public-methods
     """
     ingredients = list()
 
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, *args):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
+        self.fake.add_provider(faker_starship.Provider)
+
+        units = args
 
         # The ingredient name
-        self.name = self.fake.word()
+        self.name = self.fake.starship_registry()
 
         # The ingredient unit
-        letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        self.unit = self.fake.bothify(text='??', letters=letters)
+        self.unit = self.fake.random_element(elements=units)
 
         Ingredient.ingredients.append(self)
 

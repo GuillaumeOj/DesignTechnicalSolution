@@ -21,6 +21,7 @@ ROLES = ['responsable', 'pizzaiolo', 'livreur']
 EMPLOYEES_COUNT_MIN = 3
 EMPLOYEES_COUNT_MAX = 5
 INGREDIENTS_COUNT = 15
+INGREDIENTS_UNITS = ['kg', 'g', 'l', 'cl', 'l', 'u', 'ml']
 SIZES_COUNT = 3
 CATEGORIES_COUNT = 15
 PIZZA_COUNT = 20
