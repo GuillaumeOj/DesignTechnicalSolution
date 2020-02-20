@@ -44,7 +44,7 @@ class Customer: # pylint: disable=too-few-public-methods
         self.address = Address(lang_code, optional_address=True, additional_details=True)
 
         # The customer's password
-        self.password = Password(lang_code)
+        self.password = Password()
 
         Customer.customers.append(self)
 
@@ -82,9 +82,9 @@ class Employee: # pylint: disable=too-few-public-methods
                 break
 
         # The employee's password
-        self.password = Password(lang_code)
+        self.password = Password()
 
-        # The employee's shop
+        # The employee's restaurant
         self.restaurant = restaurant
 
         Employee.employees.append(self)

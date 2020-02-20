@@ -13,9 +13,9 @@ class Password: # pylint: disable=too-few-public-methods
             - hashed_password
     """
 
-    def __init__(self, lang_code):
+    def __init__(self):
         # Initialize the faker generator
-        self.fake = faker.Faker(lang_code)
+        self.fake = faker.Faker()
 
         # Generate a random password
         self.password = self.fake.password(length=15).encode('utf-8')
