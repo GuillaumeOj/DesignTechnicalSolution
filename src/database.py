@@ -152,6 +152,16 @@ class Database: # pylint: disable=too-many-public-methods
                    restaurant.address.postal_code) for restaurant in restaurants]
         self.insert_in_database(query, values)
 
+    def insert_roles(self, roles):
+        """
+            Insert roles in the database
+        """
+        print('==> Insert roles in the database')
+        query = ('INSERT INTO roles (name) VALUES %s')
+
+        values = [(role.name, ) for role in roles]
+        self.insert_in_database(query, values)
+
     def insert_employees(self, employees):
         """
             Insert employees in the database
