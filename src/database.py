@@ -389,7 +389,7 @@ class Database: # pylint: disable=too-many-public-methods
                         customer_id,
                         status_id,
                         payment_id,
-                        pizzeria_id,
+                        restaurant_id,
                         payment_status_id
                     )
                     VALUES
@@ -417,7 +417,7 @@ class Database: # pylint: disable=too-many-public-methods
                         ),
                         (
                             SELECT id
-                            FROM pizzeria
+                            FROM restaurant
                             WHERE name = %s
                         ),
                         (
@@ -443,7 +443,7 @@ class Database: # pylint: disable=too-many-public-methods
                            order.customer.email,
                            order.status.name,
                            order.payment.type,
-                           order.pizzeria.name,
+                           order.restaurant.name,
                            order.payment_status.name))
 
         self.insert_in_database(query, values)
