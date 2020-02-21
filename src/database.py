@@ -200,7 +200,7 @@ class Database: # pylint: disable=too-many-public-methods
                    employee.last_name,
                    employee.email,
                    employee.password.hashed_password,
-                   employee.shop.name,
+                   employee.restaurant.name,
                    employee.role.name) for employee in employees]
         self.insert_in_database(query, values)
 
