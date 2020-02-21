@@ -91,12 +91,12 @@ class App:
                                       Status.status,
                                       Payment.payments,
                                       PaymentStatus.payments_status))
+        self.random_status_history()
         self.generate_complex_while('orders lines for each order',
                                     (ORDERS_LINES_COUNT_MIN, ORDERS_LINES_COUNT_MAX),
                                     Order.orders,
                                     OrderLine,
                                     *(Pizza.pizzas, Size.sizes))
-        self.random_status_history()
 
     @staticmethod
     def generate_simple(data_name, count, klass, *args):
@@ -152,7 +152,7 @@ class App:
         """
             Create random history for status
         """
-        progress_bar = 'Create statutes history for the orders'
+        progress_bar = 'Create status histories for the orders'
         progress_bar = FillingCirclesBar(progress_bar, max=len(Order.orders))
         for i, order in enumerate(Order.orders):
             history_count = randrange(STATUS_HISTORY_MIN, STATUS_HISTORY_MAX)
