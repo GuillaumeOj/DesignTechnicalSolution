@@ -13,7 +13,6 @@ USE ocpizza;
 CREATE TABLE role (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(100) NOT NULL,
-                parent_role_id INT NOT NULL,
                 PRIMARY KEY (id)
 );
 
@@ -217,12 +216,6 @@ CREATE TABLE order_line (
 
 ALTER TABLE employee ADD CONSTRAINT role_employee_fk
 FOREIGN KEY (role_id)
-REFERENCES role (id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
-
-ALTER TABLE role ADD CONSTRAINT role_role_fk
-FOREIGN KEY (parent_role_id)
 REFERENCES role (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
