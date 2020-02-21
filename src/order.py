@@ -2,6 +2,7 @@
     Module for creating a fake order
 """
 from random import randrange
+import datetime
 
 import faker
 
@@ -64,10 +65,11 @@ class Order: # pylint: disable=too-many-instance-attributes
             Create a random date for the order
         """
         if self.date:
-            self.date = self.fake.date_time_between(start_date=self.date)
+            minutes_to_add = self.fake.random_int(min=10, max=35)
+            minutes_to_add = datetime.timedelta(minutes=minutes_to_add)
+            self.date += minutes_to_add
         else:
-            self.date = self.fake.date_time_between(start_date='-5y',
-                                                    end_date='-2y')
+            self.date = self.fake.date_time_between(start_date='-5y')
 
     def random_status(self, status):
         """
