@@ -41,6 +41,7 @@ class App:
         """
         self.database.insert_customers(Customer.customers)
         self.database.insert_restaurants(Restaurant.restaurants)
+        self.database.insert_roles(Role.roles)
         self.database.insert_employees(Employee.employees)
         self.database.insert_ingredients(Ingredient.ingredients)
         self.database.insert_sizes(Size.sizes)
