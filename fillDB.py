@@ -39,22 +39,22 @@ class App:
         """
             Insert the random data in the database
         """
-        # self.database.insert_customers(Customer.customers)
-        # self.database.insert_restaurants(Restaurant.restaurants)
-        # self.database.insert_employees(Employee.employees)
-        # self.database.insert_ingredients(Ingredient.ingredients)
-        # self.database.insert_sizes(Size.sizes)
-        # self.database.insert_categories(Category.categories)
-        # self.database.insert_vat_rates(self.vat_rates)
-        # self.database.insert_pizzas(Pizza.pizzas)
-        # self.database.insert_stock(Stock.stocks)
-        # self.database.insert_recipes(Recipe.recipes_lines)
-        # self.database.insert_statutes(Status.status)
-        # self.database.insert_payments(Payment.payments)
-        # self.database.insert_payments_statutes(PaymentStatus.payments_status)
-        # self.database.insert_orders(Order.orders)
-        # self.database.insert_orders_lines(self.orders_lines)
-        # self.database.insert_statutes_history(self.statutes_history)
+        self.database.insert_customers(Customer.customers)
+        self.database.insert_restaurants(Restaurant.restaurants)
+        self.database.insert_employees(Employee.employees)
+        self.database.insert_ingredients(Ingredient.ingredients)
+        self.database.insert_sizes(Size.sizes)
+        self.database.insert_categories(Category.categories)
+        self.database.insert_vat_rates(self.vat_rates)
+        self.database.insert_pizzas(Pizza.pizzas)
+        self.database.insert_stock(Stock.stocks)
+        self.database.insert_recipes(Recipe.recipes_lines)
+        self.database.insert_status(Status.status)
+        self.database.insert_payments(Payment.payments)
+        self.database.insert_payments_status(PaymentStatus.payments_status)
+        self.database.insert_orders(Order.orders)
+        self.database.insert_orders_lines(OrderLine.orders_lines)
+        self.database.insert_status_history(StatusHistory.status_history)
 
     def random_data(self):
         """
