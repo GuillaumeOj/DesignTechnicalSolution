@@ -116,7 +116,7 @@ class Ingredient: # pylint: disable=too-few-public-methods
         self.fake = faker.Faker(lang_code)
         self.fake.add_provider(faker_starship.Provider)
 
-        units = args
+        units, = args
 
         # The ingredient name
         self.name = self.fake.starship_registry()
