@@ -175,7 +175,7 @@ class Database: # pylint: disable=too-many-public-methods
                             last_name,
                             email,
                             password,
-                            pizzeria_id,
+                            restaurant_id,
                             role_id
                         )
                     VALUES
@@ -186,7 +186,7 @@ class Database: # pylint: disable=too-many-public-methods
                             %s,                        
                             (
                                 SELECT id
-                                FROM pizzeria
+                                FROM restaurant
                                 WHERE name = %s
                             ),
                             (
