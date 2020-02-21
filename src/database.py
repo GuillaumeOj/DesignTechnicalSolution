@@ -241,8 +241,7 @@ class Database: # pylint: disable=too-many-public-methods
         self.insert_in_database(query, values)
 
         # The update each category with the potential parent id
-        query = ("""
-                    UPDATE category AS child
+        query = ("""UPDATE category AS child
                     SET child.parent_category_id = 
                         (
                             SELECT id
@@ -347,31 +346,31 @@ class Database: # pylint: disable=too-many-public-methods
                    recipe.quantity) for recipe in recipes]
         self.insert_in_database(query, values)
 
-    def insert_statutes(self, statutes):
+    def insert_status(self, status):
         """
-            Insert statutes in the database
+            Insert status in the database
         """
-        print('==> Insert statutes in the database')
+        print('==> Insert status in the database')
         query = ('INSERT INTO status (name) VALUES (%s)')
-        values = [(status.name, ) for status in statutes]
+        values = [(status.name, ) for status in status]
         self.insert_in_database(query, values)
 
     def insert_payments(self, payments):
         """
-            Insert statutes in the database
+            Insert payments in the database
         """
         print('==> Insert payments types in the database')
         query = ('INSERT INTO payment (type) VALUES (%s)')
         values = [(payment.type, ) for payment in payments]
         self.insert_in_database(query, values)
 
-    def insert_payments_statutes(self, payments_statutes):
+    def insert_payments_status(self, payments_status):
         """
-            Insert payments statutes in the database
+            Insert payments status in the database
         """
         print('==> Insert payments statutes in the database')
         query = ('INSERT INTO payment_status (name) VALUES (%s)')
-        values = [(payment_status.name, ) for payment_status in payments_statutes]
+        values = [(payment_status.name, ) for payment_status in payments_status]
         self.insert_in_database(query, values)
 
     def insert_orders(self, orders):
@@ -487,11 +486,11 @@ class Database: # pylint: disable=too-many-public-methods
 
         self.insert_in_database(query, values)
 
-    def insert_statutes_history(self, statutes_history):
+    def insert_status_history(self, status_histories):
         """
-            Insert the history of statutes in the database
+            Insert the history of status in the database
         """
-        print('==> Insert the history of statutes in the database')
+        print('==> Insert the history of status in the database')
         query = ("""INSERT INTO status_history
                     (status_date, status_id, customer_order_id)
                     VALUES
@@ -514,7 +513,7 @@ class Database: # pylint: disable=too-many-public-methods
         values = [(status_history.date,
                    status_history.status.name,
                    status_history.order.date,
-                   status_history.order.customer.email) for status_history in statutes_history]
+                   status_history.order.customer.email) for status_history in status_histories]
         self.insert_in_database(query, values)
 
     def close_database(self):
