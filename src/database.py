@@ -159,7 +159,7 @@ class Database: # pylint: disable=too-many-public-methods
             Insert roles in the database
         """
         print('==> Insert roles in the database')
-        query = ('INSERT INTO roles (name) VALUES %s')
+        query = ('INSERT INTO role (name) VALUES (%s)')
 
         values = [(role.name, ) for role in roles]
         self.insert_in_database(query, values)
