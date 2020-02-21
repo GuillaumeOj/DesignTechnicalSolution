@@ -135,17 +135,19 @@ class Database: # pylint: disable=too-many-public-methods
             Insert restaurants in the database
         """
         print('==> Insert restaurants in the database')
-        query = ("""INSERT IGNORE INTO restaurant
+        query = ("""INSERT INTO restaurant
                         (
                             name,
+                            phone_number,
                             address_street_number,
                             address_street_name,
                             address_city,
                             address_postal_code
                         )
-                    VALUES (%s, %s, %s, %s, %s)
+                    VALUES (%s, %s, %s, %s, %s, %s)
                  """)
         values = [(restaurant.name,
+                   restaurant.phone_number,
                    restaurant.address.street_number,
                    restaurant.address.street_name,
                    restaurant.address.city,
