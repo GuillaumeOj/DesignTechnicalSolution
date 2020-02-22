@@ -29,9 +29,8 @@ CREATE UNIQUE INDEX payment_status_name
  ( name );
 
 CREATE TABLE vat_rate (
-                id INT AUTO_INCREMENT NOT NULL,
                 vat_rate_100 DECIMAL(6,4) NOT NULL,
-                PRIMARY KEY (id)
+                PRIMARY KEY (vat_rate_100)
 );
 
 
@@ -102,7 +101,7 @@ CREATE TABLE pizza (
                 name VARCHAR(50) NOT NULL,
                 tax_free_unit_price DECIMAL(10,2) NOT NULL,
                 category_id INT NOT NULL,
-                vat_rate_id INT NOT NULL,
+                vat_rate_100 DECIMAL(6,4) NOT NULL,
                 PRIMARY KEY (id)
 );
 
@@ -210,6 +209,8 @@ CREATE TABLE order_line (
                 pizza_id INT NOT NULL,
                 size_id INT NOT NULL,
                 quantity INT NOT NULL,
+                tax_free_unit_price DECIMAL(6,4) NOT NULL,
+                vat_rate_100 DECIMAL(6,4) NOT NULL,
                 PRIMARY KEY (order_id, pizza_id, size_id)
 );
 
@@ -227,8 +228,14 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE pizza ADD CONSTRAINT vat_rate_pizza_fk
-FOREIGN KEY (vat_rate_id)
-REFERENCES vat_rate (id)
+FOREIGN KEY (vat_rate_100)
+REFERENCES vat_rate (vat_rate_100)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE order_line ADD CONSTRAINT vat_rate_order_line_fk
+FOREIGN KEY (vat_rate_100)
+REFERENCES vat_rate (vat_rate_100)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
