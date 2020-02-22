@@ -68,8 +68,8 @@ class App:
                                     (EMPLOYEES_COUNT_MIN, EMPLOYEES_COUNT_MAX),
                                     Restaurant.restaurants,
                                     Employee,
-                                    *(Role.roles, ))
-        self.generate_simple('ingredients', INGREDIENTS_COUNT, Ingredient, *(INGREDIENTS_UNITS, ))
+                                    *Role.roles)
+        self.generate_simple('ingredients', INGREDIENTS_COUNT, Ingredient, *INGREDIENTS_UNITS)
         self.generate_simple('sizes', SIZES_COUNT, Size)
         self.generate_simple('categories', CATEGORIES_COUNT, Category)
         self.generate_simple('pizzas', PIZZA_COUNT, Pizza, *(Category.categories, self.vat_rates))
@@ -80,7 +80,7 @@ class App:
                               (Pizza.pizzas, Ingredient.ingredients),
                               Recipe,
                               random_choice=True)
-        self.generate_simple('status for the orders', STATUS_COUNT, Status)
+        self.generate_simple('status for the orders', len(STATUS), Status, *STATUS)
         self.generate_simple('payments types', PAYMENTS_TYPE_COUNT, Payment)
         self.generate_simple('payments status', PAYMENTS_STATUS_COUNT, PaymentStatus)
         self.generate_complex_while('order for each customer',
@@ -155,10 +155,10 @@ class App:
         progress_bar = 'Create status histories for the orders'
         progress_bar = FillingCirclesBar(progress_bar, max=len(Order.orders))
         for i, order in enumerate(Order.orders):
-            history_count = randrange(STATUS_HISTORY_MIN, STATUS_HISTORY_MAX)
-            i = 0
-            while i < history_count:
-                i += 1
+            history_count = randrange(0, (len(STATUS) - 1))
+            j = 0
+            while j < history_count:
+                j += 1
                 StatusHistory(order)
                 Order.orders[i].random_date()
                 Order.orders[i].random_status(Status.status)

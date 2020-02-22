@@ -269,7 +269,7 @@ class Database: # pylint: disable=too-many-public-methods
         """
         print('==> Insert pizzas in the database')
         query = ("""INSERT IGNORE INTO pizza
-                    (name, tax_free_unit_price, category_id, vat_rate_id)
+                    (name, tax_free_unit_price, category_id, vat_rate_100)
                     VALUES
                         (
                             %s,
@@ -279,11 +279,7 @@ class Database: # pylint: disable=too-many-public-methods
                                 FROM category
                                 WHERE name = %s
                             ),
-                            (
-                                SELECT id
-                                FROM vat_rate
-                                WHERE vat_rate_100 = %s
-                            )
+                            %s
                         )
                  """)
         values = [(pizza.name,
@@ -454,7 +450,7 @@ class Database: # pylint: disable=too-many-public-methods
         """
         print('==> Insert orders lines in the database')
         query = ("""INSERT INTO order_line
-                    (order_id, pizza_id, size_id, quantity)
+                    (order_id, pizza_id, size_id, quantity, tax_free_unit_price, vat_rate_100)
                     VALUES
                     (
                         (
@@ -474,6 +470,8 @@ class Database: # pylint: disable=too-many-public-methods
                             FROM size
                             WHERE name = %s
                         ),
+                        %s,
+                        %s,
                         %s
                     )
                  """)
@@ -482,7 +480,9 @@ class Database: # pylint: disable=too-many-public-methods
                    order_line.order.customer.email,
                    order_line.pizza.name,
                    order_line.size.name,
-                   order_line.quantity) for order_line in orders_lines]
+                   order_line.quantity,
+                   order_line.pizza.tax_free_unit_price,
+                   order_line.pizza.vat_rate) for order_line in orders_lines]
 
         self.insert_in_database(query, values)
 

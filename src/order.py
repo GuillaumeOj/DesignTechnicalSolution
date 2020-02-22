@@ -73,16 +73,14 @@ class Order: # pylint: disable=too-many-instance-attributes
 
     def random_status(self, status):
         """
-            Create a random status for the order
+            Create a status for the order
         """
         if self.status:
-            while True:
-                new_status = status[randrange(len(status))]
-                if self.status != new_status:
-                    self.status = new_status
-                    break
+            status_names = [each_status.name for each_status in status]
+            i = status_names.index(self.status.name)
+            self.status = status[i + 1]
         else:
-            self.status = status[randrange(len(status))]
+            self.status = status[0]
 
 
 class OrderLine: # pylint: disable=too-few-public-methods
@@ -132,14 +130,16 @@ class Status: # pylint: disable=too-few-public-methods
     """
     status = list()
 
-    def __init__(self, lang_code):
+    def __init__(self, lang_code, *args):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
+        status = args
+
         # The name of the status
         statutes_names = [status.name for status in Status.status]
-        while True:
-            self.name = self.fake.word()
+        for name in status:
+            self.name = name
             if self.name not in statutes_names:
                 break
 

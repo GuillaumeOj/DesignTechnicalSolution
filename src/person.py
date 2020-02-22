@@ -65,7 +65,7 @@ class Employee: # pylint: disable=too-few-public-methods
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
 
-        roles, = args
+        roles = args
 
         # The employee's role
         self.role = self.fake.random_element(elements=roles)
