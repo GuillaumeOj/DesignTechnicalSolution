@@ -42,6 +42,7 @@ CREATE TABLE size (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) NOT NULL,
                 ingredient_factor DECIMAL(2,1) NOT NULL,
+                extra_price DECIMAL(10,2) NOT NULL,
                 PRIMARY KEY (id)
 );
 
