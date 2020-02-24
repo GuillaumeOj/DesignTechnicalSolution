@@ -102,7 +102,7 @@ class OrderLine: # pylint: disable=too-few-public-methods
         pizzas, sizes = args
 
         # The customer selected quantity
-        self.quantity = self.fake.pyint(min_value=1, max_value=6)
+        self.quantity = self.fake.pyint(min_value=1, max_value=2)
 
         # The order associated with the line
         self.order = order
