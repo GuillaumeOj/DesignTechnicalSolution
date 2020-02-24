@@ -99,6 +99,9 @@ class Size: # pylint: disable=too-few-public-methods
                                                    min_value=1,
                                                    max_value=3)
 
+        # The extra price
+        self.extra_price = round(self.ingredient_factor * 2)
+
         Size.sizes.append(self)
 
 

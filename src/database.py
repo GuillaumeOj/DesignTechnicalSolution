@@ -223,11 +223,12 @@ class Database: # pylint: disable=too-many-public-methods
         """
         print('==> Insert sizes in the database')
         query = ("""INSERT IGNORE INTO size
-                    (name, ingredient_factor)
-                    VALUES (%s, %s)
+                    (name, ingredient_factor, extra_price)
+                    VALUES (%s, %s, %s)
                  """)
         values = [(size.name,
-                   size.ingredient_factor) for size in sizes]
+                   size.ingredient_factor,
+                   size.extra_price) for size in sizes]
         self.insert_in_database(query, values)
 
     def insert_categories(self, categories):
@@ -481,7 +482,7 @@ class Database: # pylint: disable=too-many-public-methods
                    order_line.pizza.name,
                    order_line.size.name,
                    order_line.quantity,
-                   order_line.pizza.tax_free_unit_price,
+                   (order_line.pizza.tax_free_unit_price + order_line.size.extra_price),
                    order_line.pizza.vat_rate) for order_line in orders_lines]
 
         self.insert_in_database(query, values)
