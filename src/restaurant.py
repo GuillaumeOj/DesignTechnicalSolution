@@ -54,7 +54,10 @@ class Stock: # pylint: disable=too-few-public-methods
         self.ingredient = ingredient
 
         # The ingredient quantity
-        self.quantity = self.fake.pydecimal(left_digits=5, right_digits=2, positive=True)
+        self.quantity = self.fake.pydecimal(right_digits=2,
+                                            min_value=0,
+                                            max_value=70,
+                                            positive=True)
 
         Stock.stocks.append(self)
 
