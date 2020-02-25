@@ -105,3 +105,15 @@ JOIN status ON status.id = customer_order.status_id
 WHERE
     customer.email = 'emmanuelle.gros@arnaud.fr' AND
     customer.address_street_name != customer_order.address_street_name;
+--
+-- Select recipe for each pizza
+--
+SELECT
+    ingredient.name AS 'Ingrendient name',
+    COUNT(pizza_ingredient.quantity),
+    ingredient.unit
+FROM pizza
+LEFT JOIN pizza_ingredient ON pizza_ingredient.pizza_id = pizza.id
+LEFT JOIN ingredient ON ingredient.id = pizza_ingredient.ingredient_id
+GROUP BY ingredient.name
+ORDER BY ingredient.name;
