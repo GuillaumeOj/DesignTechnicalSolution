@@ -7,7 +7,7 @@ WHERE
         (
             SELECT id
             FROM customer
-            WHERE email = 'stephanie.ledoux@bonnet.net'
+            WHERE email = 'daniel.cousin@raynaud.net'
         );
 
 --
@@ -23,7 +23,7 @@ WHERE
                     (
                         SELECT id
                         FROM customer
-                        WHERE email = 'laurence.ferrand@blanc.fr'
+                        WHERE email = 'daniel.cousin@raynaud.net'
                     )
             LIMIT 1
         );
@@ -52,7 +52,7 @@ WHERE
                     (
                         SELECT id
                         FROM customer
-                        WHERE email = 'laurence.ferrand@blanc.fr'
+                        WHERE email = 'daniel.cousin@raynaud.net'
                     )
             LIMIT 1
         );
@@ -68,7 +68,7 @@ JOIN customer ON customer.id = customer_order.customer_id
 JOIN status ON status.id = customer_order.status_id
 JOIN restaurant ON restaurant.id = customer_order.restaurant_id
 WHERE
-    restaurant.name = 'Levy SARL' AND
+    restaurant.name = 'Gerard' AND
     status.name = 'attente';
 --
 -- Select the orders from a customer where status is 'pending'
