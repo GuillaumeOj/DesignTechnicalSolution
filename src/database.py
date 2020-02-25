@@ -295,12 +295,12 @@ class Database: # pylint: disable=too-many-public-methods
         """
         print('==> Insert stock in the database')
         query = ("""INSERT INTO stock
-                    (pizzeria_id, ingredient_id, quantity)
+                    (restaurant_id, ingredient_id, quantity)
                     VALUES
                         (
                             (
                                 SELECT id
-                                FROM pizzeria
+                                FROM restaurant
                                 WHERE name = %s
                             ),
                             (
@@ -311,7 +311,7 @@ class Database: # pylint: disable=too-many-public-methods
                             %s
                         )
                  """)
-        values = [(stock_line.shop.name,
+        values = [(stock_line.restaurant.name,
                    stock_line.ingredient.name,
                    stock_line.quantity) for stock_line in stock]
         self.insert_in_database(query, values)

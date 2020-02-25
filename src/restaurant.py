@@ -56,6 +56,8 @@ class Stock: # pylint: disable=too-few-public-methods
         # The ingredient quantity
         self.quantity = self.fake.pydecimal(left_digits=5, right_digits=2, positive=True)
 
+        Stock.stocks.append(self)
+
 
 if __name__ == '__main__':
     print('Please don\'nt load me alone!')
