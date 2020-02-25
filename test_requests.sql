@@ -1,13 +1,19 @@
 --
 -- Select orders from a customer
 --
-SELECT * FROM customer_order
+SELECT
+    customer.email,
+    customer_order.order_date,
+    status.name
+FROM customer_order
+JOIN customer ON customer.id = customer_order.customer_id
+JOIN status ON status.id = customer_order.status_id
 WHERE 
     customer_id = 
         (
             SELECT id
             FROM customer
-            WHERE email = 'daniel.cousin@raynaud.net'
+            WHERE email = 'eugene.auger@berthelot.fr'
         );
 
 --
@@ -23,7 +29,7 @@ WHERE
                     (
                         SELECT id
                         FROM customer
-                        WHERE email = 'daniel.cousin@raynaud.net'
+                        WHERE email = 'eugene.auger@berthelot.fr'
                     )
             LIMIT 1
         );
@@ -52,7 +58,7 @@ WHERE
                     (
                         SELECT id
                         FROM customer
-                        WHERE email = 'daniel.cousin@raynaud.net'
+                        WHERE email = 'eugene.auger@berthelot.fr'
                     )
             LIMIT 1
         );
@@ -68,7 +74,7 @@ JOIN customer ON customer.id = customer_order.customer_id
 JOIN status ON status.id = customer_order.status_id
 JOIN restaurant ON restaurant.id = customer_order.restaurant_id
 WHERE
-    restaurant.name = 'Gerard' AND
+    restaurant.name = 'Faure' AND
     status.name = 'attente';
 --
 -- Select the delivery address for an order even if the customer have change her·his own
@@ -97,5 +103,5 @@ FROM customer_order
 JOIN customer ON customer.id = customer_order.customer_id
 JOIN status ON status.id = customer_order.status_id
 WHERE
-    customer.email = 'anouk.descamps@chevallier.fr' AND
+    customer.email = 'emmanuelle.gros@arnaud.fr' AND
     customer.address_street_name != customer_order.address_street_name;
