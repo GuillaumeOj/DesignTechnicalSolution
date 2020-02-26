@@ -25,7 +25,7 @@ class App:
         self.database.select_database()
 
         # Attributes for generating data
-        self.vat_rates = [0.055]
+        self.vat_rates = VAT_RATES
         self.orders_lines = list()
         self.statutes_history = list()
 

@@ -24,6 +24,7 @@ INGREDIENTS_COUNT = 15
 INGREDIENTS_UNITS = ['kg', 'g', 'l', 'cl', 'l', 'u', 'ml']
 SIZES_COUNT = 3
 CATEGORIES_COUNT = 15
+VAT_RATES = [0.055]
 PIZZA_COUNT = 20
 STATUS = ['attente', 'préparation', 'prête', 'livraison', 'livrée']
 PAYMENTS_TYPE_COUNT = 2
