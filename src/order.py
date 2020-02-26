@@ -23,9 +23,9 @@ class Order: # pylint: disable=too-many-instance-attributes
     """
     orders = list()
 
-    def __init__(self, lang_code, customer, *args):
+    def __init__(self, lang_code, customer, restaurants, status, payments, payment_status):
+        # pylint: disable=too-many-arguments
         # Initialize the faker generator
-        restaurants, status, payments, payment_status = args
         self.fake = faker.Faker(lang_code)
 
         # The order date time
@@ -94,12 +94,9 @@ class OrderLine: # pylint: disable=too-few-public-methods
     """
     orders_lines = list()
 
-    def __init__(self, lang_code, order, *args):
-        # pylint: disable=too-many-arguments
+    def __init__(self, lang_code, order, pizzas, sizes):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
-
-        pizzas, sizes = args
 
         # The customer selected quantity
         self.quantity = self.fake.pyint(min_value=1, max_value=2)
@@ -130,11 +127,9 @@ class Status: # pylint: disable=too-few-public-methods
     """
     status = list()
 
-    def __init__(self, lang_code, *args):
+    def __init__(self, lang_code, status):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
-
-        status = args
 
         # The name of the status
         statutes_names = [status.name for status in Status.status]

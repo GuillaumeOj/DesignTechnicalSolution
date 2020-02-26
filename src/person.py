@@ -61,11 +61,9 @@ class Employee: # pylint: disable=too-few-public-methods
     """
     employees = list()
 
-    def __init__(self, lang_code, restaurant, *args):
+    def __init__(self, lang_code, restaurant, roles):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
-
-        roles = args
 
         # The employee's role
         self.role = self.fake.random_element(elements=roles)
@@ -98,11 +96,9 @@ class Role: # pylint: disable=too-few-public-methods
     """
     roles = list()
 
-    def __init__(self, lang_code, *args):
+    def __init__(self, lang_code, given_roles):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
-
-        given_roles = args
 
         # The role's name
         roles_names = [role.name for role in Role.roles]

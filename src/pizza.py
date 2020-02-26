@@ -17,12 +17,10 @@ class Pizza: # pylint: disable=too-few-public-methods
     """
     pizzas = list()
 
-    def __init__(self, lang_code, *args):
+    def __init__(self, lang_code, categories, vat_rates):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
         self.fake.add_provider(faker_starship.Provider)
-
-        categories, vat_rates = args
 
         # The size name
         pizzas_names = [pizza.name for pizza in Pizza.pizzas]
@@ -114,12 +112,10 @@ class Ingredient: # pylint: disable=too-few-public-methods
     """
     ingredients = list()
 
-    def __init__(self, lang_code, *args):
+    def __init__(self, lang_code, units):
         # Initialize the faker generator
         self.fake = faker.Faker(lang_code)
         self.fake.add_provider(faker_starship.Provider)
-
-        units = args
 
         # The ingredient name
         self.name = self.fake.starship_registry()
