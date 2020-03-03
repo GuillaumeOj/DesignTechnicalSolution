@@ -19,3 +19,82 @@ Pour cela, nous avons :
 - identifié les composants de ce système par le biais d'un diagramme de composants,
 - définie le déploiement de ces différents composants dans un diagramme de déploiement,
 - puis élaboré un schéma de la base de données avec un modèle physique de données.
+
+\pagebreak
+# II. Spécifications techniques
+## II.1. Domaine fonctionnel
+
+![Diagramme de classe](../Diagrams/Class_diagram.png)
+
+Le diagramme de classe se lit de la manière suivante.
+Il y a en premier les classes définies par des tableaux à une colonne.
+
+1. En en-tête, nous avons le nom de la classe.
+2. Dans les lignes du tableau, nous avons les attributs de la classe.
+
+![Détail d'une classe](../Diagrams/Class_diagram_class_solo.png)
+\
+
+Ensuite nous avons les associations de classes matérialisées par un segment entre deux classes.
+Ces associations peuvent être complétée par des multiplicitées représentées à chaque extrémité de l'association. Ces multiplicitées permettent de déterminer combien d'instances d'une classe peuvent être lièes avec une instance de l'autre classe.
+Les multiplicitées utlisées dans ce projet sont les suivantes :
+
+- aucune ou une seul instance -> `0..1`,
+- exactement une instance -> `1`,
+- au moins une instance -> `1..*`,
+- aucune, une ou plusieurs instances -> `*`.
+
+![Détail d'une association](../Diagrams/Class_diagram_classes_association.png)
+\
+
+Le diagramme de classe peut être décomposé en quatre catégories de classes distinctes :
+
+- le client (classe de couleur grise),
+- la commande (classes de couleur jaune),
+- la pizza (classes de couleur rouge),
+- le restaurant (classes de couleur verte).
+
+Les classes sans couleurs, sont dites transverses car utilisées par une catégorie ou un autre. Elles sont au nombre de deux :
+
+- la classe `Address`,
+- la classe `VatRate`.
+
+La classe `Customer` permet de créer un profil client composé d'informations permettant son identification (prénom, nom, email, numéro de téléphone, etc.)
+Cette classe est en lien avec la classe `Adress` permettant au client de rentrer dans son profil une adresse principale (falcutative)
+
+La classe `CustomerOrder` permet au client de créer une commande identifiée par une date.
+Elle est associée aux classes suivantes :
+
+- `PaymentStatus` qui permet de définir les statuts de payement,
+- `Payment` qui permet de définir les différents types de payements possibles,
+- `Status` qui définie les différents status de commande,
+- `StatusHistory` qui permet de créer un historique des status de commande,
+- `OrderLine` qui décompose la commande en un ensemble de ligne (un ligne = une pizza),
+- `Address` utilisée pour définir l'adresse de livraison de la commande
+- `Restaurant` pour déterminer le restaurant en charge de la préparation de la commande.
+
+Une ligne de commande (classe `OrderLine`) permet de préciser plusieurs informations concernant la pizza commandée :
+
+- la quantité désirée grâce à l'attribut `quantity`,
+- le prix unitaire hors taxe "figé" par le biais de l'attribut `taxFreeUnitPrice`,
+- la taille de la pizza -> classe `Size`,
+- la pizza choisie par le client -> classe `Pizza`.
+
+La classe `Pizza` permettra de définir les caractéristique du produit :
+
+- son nom avec l'attribut `name`,
+- son prix unitaire hors taxe grâce à l'attribut `taxFreeUnitPrice`,
+- sa catégorie avec la classe associée `Category`,
+- sa recette avec la classe `PizzaIngredient`.
+
+La pizzeria définie grâce à la classe `Restaurant` contiendra les informations suivantes :
+
+- son nom avec l'attribut `name`,
+- le numéro de téléphone grâce à l'attribut `phoneNumber`,
+- l'association avec la classe `Address` permettra de définir l'adresse postale du point de vente,
+- les employées du point de vente seront définies par la classe `Employee`,
+- chaque restaurant pourra avoir un stock définie grâce à la classe `Stock`.
+
+Les ingrédients utilisées pour les recettes sont définis avec la classe `Ingredient`. Elle est associé aux classes `PizzaIngredient` et `Stock`.
+
+Pour finir, la classe `Employee` permettra la création d'employés rattaché à un restaurant en particulier. Les informations contenues dans la classe sont similaires à celles d'un client. Cependant, une classe `Role` est aussi associée pour que chaque employé puisse avoir un rôle défini (responsable, pizzaiolo, livreur, etc.)
