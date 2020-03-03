@@ -22,7 +22,10 @@ Pour cela, nous avons :
 
 \pagebreak
 # II. Spécifications techniques
+
 ## II.1. Domaine fonctionnel
+
+### II.1.1 Généralités
 
 ![Diagramme de classe](../Diagrams/Class_diagram.png)
 
@@ -33,7 +36,6 @@ Il y a en premier les classes définies par des tableaux à une colonne.
 2. Dans les lignes du tableau, nous avons les attributs de la classe.
 
 ![Détail d'une classe](../Diagrams/Class_diagram_class_solo.png)
-\
 
 Ensuite nous avons les associations de classes matérialisées par un segment entre deux classes.
 Ces associations peuvent être complétée par des multiplicitées représentées à chaque extrémité de l'association. Ces multiplicitées permettent de déterminer combien d'instances d'une classe peuvent être lièes avec une instance de l'autre classe.
@@ -45,22 +47,25 @@ Les multiplicitées utlisées dans ce projet sont les suivantes :
 - aucune, une ou plusieurs instances -> `*`.
 
 ![Détail d'une association](../Diagrams/Class_diagram_classes_association.png)
-\
 
-Le diagramme de classe peut être décomposé en quatre catégories de classes distinctes :
+### II.1.2 Détails
 
-- le client (classe de couleur grise),
+Dans le cadre de notre projet, le diagramme de classe peut être décomposé en quatre catégories de classes distinctes :
+
+- le client d'OC pizza (classe de couleur grise),
 - la commande (classes de couleur jaune),
 - la pizza (classes de couleur rouge),
 - le restaurant (classes de couleur verte).
 
-Les classes sans couleurs, sont dites transverses car utilisées par une catégorie ou un autre. Elles sont au nombre de deux :
+Les classes sans couleurs, sont dites transverses car utilisées par plusieurs catégories de classe. Dans ce projet, elles sont au nombre de deux :
 
 - la classe `Address`,
 - la classe `VatRate`.
 
 La classe `Customer` permet de créer un profil client composé d'informations permettant son identification (prénom, nom, email, numéro de téléphone, etc.)
-Cette classe est en lien avec la classe `Adress` permettant au client de rentrer dans son profil une adresse principale (falcutative)
+Cette classe est en lien avec la classe `Adress` permettant au client de rentrer dans son profil une adresse principale (falcutative).
+
+![Classe Customer](../Diagrams/Class_diagram_Customer.png){ width=60% }
 
 La classe `CustomerOrder` permet au client de créer une commande identifiée par une date.
 Elle est associée aux classes suivantes :
@@ -87,6 +92,10 @@ La classe `Pizza` permettra de définir les caractéristique du produit :
 - sa catégorie avec la classe associée `Category`,
 - sa recette avec la classe `PizzaIngredient`.
 
+Les ingrédients utilisées pour les recettes sont définis avec la classe `Ingredient`. Elle est associé aux classes `PizzaIngredient` et `Stock`.
+
+![Classe Pizza](../Diagrams/Class_diagram_Pizza.png){ width=60% }
+
 La pizzeria définie grâce à la classe `Restaurant` contiendra les informations suivantes :
 
 - son nom avec l'attribut `name`,
@@ -95,6 +104,6 @@ La pizzeria définie grâce à la classe `Restaurant` contiendra les information
 - les employées du point de vente seront définies par la classe `Employee`,
 - chaque restaurant pourra avoir un stock définie grâce à la classe `Stock`.
 
-Les ingrédients utilisées pour les recettes sont définis avec la classe `Ingredient`. Elle est associé aux classes `PizzaIngredient` et `Stock`.
-
 Pour finir, la classe `Employee` permettra la création d'employés rattaché à un restaurant en particulier. Les informations contenues dans la classe sont similaires à celles d'un client. Cependant, une classe `Role` est aussi associée pour que chaque employé puisse avoir un rôle défini (responsable, pizzaiolo, livreur, etc.)
+
+![Classe Restaurant](../Diagrams/Class_diagram_Restaurant.png){ width=60% }
