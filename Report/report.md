@@ -126,3 +126,8 @@ Les ports sur les classeurs sont volontairement non représentées en raison d'u
 ## II.3 Organisation physique des composants
 
 ![Diagramme de déploiement](../Diagrams/Deployment_diagram.png)
+
+\pagebreak
+# III. Modèle physique de données
+
+![Modèle physique de données](../Diagrams/Entity_relationship_diagram.pdf)
