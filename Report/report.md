@@ -106,3 +106,18 @@ La pizzeria définie grâce à la classe `Restaurant` contiendra les information
 Pour finir, la classe `Employee` permet la création d'employés rattaché à un restaurant en particulier. Les informations contenues dans la classe sont similaires à celles d'un client. Cependant, une classe `Role` est aussi associée pour que chaque employé puisse avoir un rôle défini (responsable, pizzaiolo, livreur, etc.)
 
 ![Classe Restaurant](../Diagrams/Class_diagram_Restaurant.png){ width=60% }
+
+\pagebreak
+## II.2. Composants de la solution
+
+![Diagramme de composants](../Diagrams/Components_diagram.png){ width=60% }
+
+### II.2.1 Généralités
+
+Le diagramme de composant permet de décrire le système sous forme de composants réutilisables tout en mettant en évidence les relations de dépendances entre chacun de ces composants.
+Il existe différents formalisme pour la représentation d'un composant. Ici nous avons choisie l'utilisation d'une représentation sous forme de classeur.
+Les interfaces requises et offerte du composant sont représentées sous la forme respective d'un demi-cercle et d'un cercle.
+
+![Composant et interfaces](../Diagrams/Components_diagram_Component_interfaces.png){ width=20% }
+
+Les ports sur les classeurs sont volontairement non représentées en raison d'une limitation du logiciel utlisé pour la réalisation du diagramme.
