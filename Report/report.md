@@ -35,7 +35,7 @@ Les classes sont représentées par des rectangles décomposés, ici, en deux pa
 1. En premier nous avons le nom de la classe.
 2. En deuxième nous avons les attributs de la classe.
 
-![Détail d'une classe](../Diagrams/Class_diagram_class_solo.png)
+![Détail d'une classe](../Diagrams/Class_diagram_class_solo.png){ width=20% }
 
 Ensuite les classes sont reliées entre elles par des association, matérialisées par un segment.
 Ces associations sont complétées par des multiplicitées représentées à chaque extrémité de l'association. Ces multiplicitées permettent de déterminer combien d'instances d'une classe peuvent être lièes avec une instance de l'autre classe.
@@ -46,53 +46,52 @@ Les multiplicitées utlisées dans ce projet sont les suivantes :
 - au moins une instance -> `1..*`,
 - aucune, une ou plusieurs instances -> `*`.
 
-![Détail d'une association](../Diagrams/Class_diagram_classes_association.png)
+![Détail d'une association](../Diagrams/Class_diagram_classes_association.png){ width=50% }
 
 ### II.1.2 Détails
 
-Dans le cadre de notre projet, le diagramme de classe peut être décomposé en quatre catégories de classes distinctes :
+Dans le cadre de notre projet, le diagramme de classe est découpé en cinq catégories de classes :
 
 - le client d'OC pizza (classe de couleur grise),
 - la commande (classes de couleur jaune),
 - la pizza (classes de couleur rouge),
-- le restaurant (classes de couleur verte).
-
-Les classes sans couleurs, sont dites transverses car utilisées par plusieurs catégories de classe. Dans ce projet, elles sont au nombre de deux :
-
-- la classe `Address`,
-- la classe `VatRate`.
+- le restaurant (classes de couleur verte),
+- sans catégorie (classes sans couleur)
 
 La classe `Customer` permet de créer un profil client composé d'informations permettant son identification (prénom, nom, email, numéro de téléphone, etc.)
-Cette classe est en lien avec la classe `Adress` permettant au client de rentrer dans son profil une adresse principale (falcutative).
+Cette classe est associée à la classe `Address` permettant au client de renseigner dans son profil une adresse principale (falcutative).
 
-![Classe Customer](../Diagrams/Class_diagram_Customer.png){ width=60% }
+![Classe Customer](../Diagrams/Class_diagram_Customer.png){ width=50% }
 
 La classe `CustomerOrder` permet au client de créer une commande identifiée par une date.
 Elle est associée aux classes suivantes :
 
-- `PaymentStatus` qui permet de définir les statuts de payement,
-- `Payment` qui permet de définir les différents types de payements possibles,
-- `Status` qui définie les différents status de commande,
-- `StatusHistory` qui permet de créer un historique des status de commande,
-- `OrderLine` qui décompose la commande en un ensemble de ligne (un ligne = une pizza),
-- `Address` utilisée pour définir l'adresse de livraison de la commande
-- `Restaurant` pour déterminer le restaurant en charge de la préparation de la commande.
+- `PaymentStatus` qui définit les statuts de payement,
+- `Payment` qui définit les différents types de payements,
+- `Status` qui définit les status possible de commande,
+- `StatusHistory` qui créée un historique des status de commande,
+- `OrderLine` qui décompose la commande en un ensemble de ligne (une ligne = une pizza),
+- `Address` utilisée pour définir l'adresse de livraison de la commande,
+- `Restaurant` pour déterminer le restaurant en charge de la préparation de la commande,
+- et `Customer` qui associe le client à l'origine de la commande.
 
 Une ligne de commande (classe `OrderLine`) permet de préciser plusieurs informations concernant la pizza commandée :
 
 - la quantité désirée grâce à l'attribut `quantity`,
-- le prix unitaire hors taxe "figé" par le biais de l'attribut `taxFreeUnitPrice`,
-- la taille de la pizza -> classe `Size`,
-- la pizza choisie par le client -> classe `Pizza`.
+- le prix unitaire hors taxe "figé" avec l'attribut `taxFreeUnitPrice`,
+- la taille de la pizza en association avec la classe `Size`,
+- et la pizza choisie par le client grâce à la classe `Pizza`.
+
+![Classe OrderLine](../Diagrams/Class_diagram_Order_line.png){ width=50% }
 
 La classe `Pizza` permettra de définir les caractéristique du produit :
 
 - son nom avec l'attribut `name`,
 - son prix unitaire hors taxe grâce à l'attribut `taxFreeUnitPrice`,
 - sa catégorie avec la classe associée `Category`,
-- sa recette avec la classe `PizzaIngredient`.
+- et sa recette avec la classe `PizzaIngredient`.
 
-Les ingrédients utilisées pour les recettes sont définis avec la classe `Ingredient`. Elle est associé aux classes `PizzaIngredient` et `Stock`.
+Les ingrédients utilisés pour les recettes sont définis avec la classe `Ingredient`. Elle est associé aux classes `PizzaIngredient` (qui permet de créer les recettes de pizzas) et `Stock` (qui permet de gérer les stocks de chaque restaurant).
 
 ![Classe Pizza](../Diagrams/Class_diagram_Pizza.png){ width=60% }
 
@@ -100,10 +99,10 @@ La pizzeria définie grâce à la classe `Restaurant` contiendra les information
 
 - son nom avec l'attribut `name`,
 - le numéro de téléphone grâce à l'attribut `phoneNumber`,
-- l'association avec la classe `Address` permettra de définir l'adresse postale du point de vente,
-- les employées du point de vente seront définies par la classe `Employee`,
-- chaque restaurant pourra avoir un stock définie grâce à la classe `Stock`.
+- une adresse en association avec la classe `Address`,
+- les employées définis par la classe `Employee`,
+- et le stock d'ingrédients grâce à la classe `Stock`.
 
-Pour finir, la classe `Employee` permettra la création d'employés rattaché à un restaurant en particulier. Les informations contenues dans la classe sont similaires à celles d'un client. Cependant, une classe `Role` est aussi associée pour que chaque employé puisse avoir un rôle défini (responsable, pizzaiolo, livreur, etc.)
+Pour finir, la classe `Employee` permet la création d'employés rattaché à un restaurant en particulier. Les informations contenues dans la classe sont similaires à celles d'un client. Cependant, une classe `Role` est aussi associée pour que chaque employé puisse avoir un rôle défini (responsable, pizzaiolo, livreur, etc.)
 
 ![Classe Restaurant](../Diagrams/Class_diagram_Restaurant.png){ width=60% }
