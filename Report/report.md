@@ -30,15 +30,15 @@ Pour cela, nous avons :
 ![Diagramme de classe](../Diagrams/Class_diagram.png)
 
 Le diagramme de classe se lit de la manière suivante.
-Il y a en premier les classes définies par des tableaux à une colonne.
+Les classes sont représentées par des rectangles décomposés, ici, en deux parties:
 
-1. En en-tête, nous avons le nom de la classe.
-2. Dans les lignes du tableau, nous avons les attributs de la classe.
+1. En premier nous avons le nom de la classe.
+2. En deuxième nous avons les attributs de la classe.
 
 ![Détail d'une classe](../Diagrams/Class_diagram_class_solo.png)
 
-Ensuite nous avons les associations de classes matérialisées par un segment entre deux classes.
-Ces associations peuvent être complétée par des multiplicitées représentées à chaque extrémité de l'association. Ces multiplicitées permettent de déterminer combien d'instances d'une classe peuvent être lièes avec une instance de l'autre classe.
+Ensuite les classes sont reliées entre elles par des association, matérialisées par un segment.
+Ces associations sont complétées par des multiplicitées représentées à chaque extrémité de l'association. Ces multiplicitées permettent de déterminer combien d'instances d'une classe peuvent être lièes avec une instance de l'autre classe.
 Les multiplicitées utlisées dans ce projet sont les suivantes :
 
 - aucune ou une seul instance -> `0..1`,
