@@ -121,3 +121,8 @@ Les interfaces requises et offerte du composant sont représentées sous la form
 ![Composant et interfaces](../Diagrams/Components_diagram_Component_interfaces.png){ width=20% }
 
 Les ports sur les classeurs sont volontairement non représentées en raison d'une limitation du logiciel utlisé pour la réalisation du diagramme.
+
+\pagebreak
+## II.3 Organisation physique des composants
+
+![Diagramme de déploiement](../Diagrams/Deployment_diagram.png)
