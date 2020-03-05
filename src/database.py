@@ -321,7 +321,7 @@ class Database: # pylint: disable=too-many-public-methods
             Insert recipes in the database
         """
         print('==> Insert recipes in the database')
-        query = ("""INSERT INTO pizza_ingredient
+        query = ("""INSERT INTO recipe
                     (pizza_id, ingredient_id, quantity)
                     VALUES
                         (

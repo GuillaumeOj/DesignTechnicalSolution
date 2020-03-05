@@ -110,11 +110,11 @@ WHERE
 --
 SELECT
     ingredient.name AS 'Ingrendient name',
-    COUNT(pizza_ingredient.quantity),
+    COUNT(recipe.quantity),
     ingredient.unit
 FROM pizza
-LEFT JOIN pizza_ingredient ON pizza_ingredient.pizza_id = pizza.id
-LEFT JOIN ingredient ON ingredient.id = pizza_ingredient.ingredient_id
+LEFT JOIN recipe ON recipe.pizza_id = pizza.id
+LEFT JOIN ingredient ON ingredient.id = recipe.ingredient_id
 GROUP BY ingredient.name
 ORDER BY ingredient.name;
 --

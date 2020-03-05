@@ -111,7 +111,7 @@ CREATE UNIQUE INDEX pizza_name
  ON pizza
  ( name );
 
-CREATE TABLE pizza_ingredient (
+CREATE TABLE recipe (
                 ingredient_id INT NOT NULL,
                 pizza_id INT NOT NULL,
                 quantity DECIMAL(10,2) NOT NULL,
@@ -282,13 +282,13 @@ REFERENCES ingredient (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE pizza_ingredient ADD CONSTRAINT ingredient_pizza_ingredient_fk
+ALTER TABLE recipe ADD CONSTRAINT ingredient_pizza_ingredient_fk
 FOREIGN KEY (ingredient_id)
 REFERENCES ingredient (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE pizza_ingredient ADD CONSTRAINT pizza_pizza_ingredient_fk
+ALTER TABLE recipe ADD CONSTRAINT pizza_pizza_ingredient_fk
 FOREIGN KEY (pizza_id)
 REFERENCES pizza (id)
 ON DELETE NO ACTION
