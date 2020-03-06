@@ -25,6 +25,7 @@ Pour cela, nous avons :
 
 ![Diagramme de classe](../Diagrams/Class_diagram.png)
 
+\pagebreak
 # III. Relations entre les classes
 
 Le but des descriptions ci-après est d'expliquer les liaisons entre les différentes classes du diagramme de classes.
@@ -164,3 +165,29 @@ Le restaurant est associé à exactement une adresse. Une adresse est associée 
 - `Role` représente le rôle de l'employé·e au sein du restaurant (pizzaiolo, livreur·se, etc).
 
 Un·e employé·e est associé·e à exactement un rôle. Un rôle est associé à zéro, un·e ou plusieurs employé·e·s.
+
+\pagebreak
+# IV. Composants du système
+
+![Diagramme de composants](../Diagrams/Components_diagram.png)
+
+Le diagramme ci-dessus décrit les composant du système ainsi que les composants externes utilisés.
+
+## `Authentification`
+
+Composant permettant l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connection un rôle lui sera attribué. Ce rôle lui permettra d'avoir la permission de faire certaines opérations sur l'application.
+
+## `User`
+
+Composant permettant la gestion des informations de l'utilisateur·rice.
+Si l'utilisateur·rice est un responsable de restaurant il·elle pourra gérer les information des employé·es de son restaurant.
+
+## `Pizza`
+
+Composant la gestion des pizzas (nom, recettes, tailles) proposées par OC pizza. Ce composant est consulté lors que le·a client·e fait une recherche.
+Pour toujours proposer des produits disponibles, le composant consulte l'état du stock du restaurant chargé de la confection de la commande.
+
+## `Stock`
+
+Ce composant va permetttre la gestion des ingrédients disponibles dans chaque restaurant.
+Le·a responsable du restaurant pourra en plus gérer le stock (mettre à jour suite aux livraisons, surveiller les quantités, etc.)
