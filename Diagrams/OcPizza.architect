@@ -270,7 +270,7 @@
     <folder id="FOLTAB772" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB774" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX81" populated="true" UUID="e88c6647-c19a-467b-b252-dc11a8fcc8d8" clustered="false" name="recipe_pk" physicalName="pizza_ingredient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX81" populated="true" UUID="e88c6647-c19a-467b-b252-dc11a8fcc8d8" clustered="false" name="recipe_pk" physicalName="recipe_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC82" populated="true" UUID="ff5ad2ee-baca-47b5-8904-c0b4b3d83476" ascendingOrDescending="UNSPECIFIED" column-ref="COL78" name="ingredient_id" physicalName="ingredient_id" />
      <index-column id="IDC83" populated="true" UUID="ee7f5633-894c-47cb-8b7c-0d4657c8e453" ascendingOrDescending="UNSPECIFIED" column-ref="COL79" name="pizza_id" physicalName="pizza_id" />
     </index>
@@ -579,10 +579,10 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true" target-catalog="ocpizza"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="ocpizza"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.8408964152537141" viewportX="275" viewportY="179" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537141" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="393" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB17" x="393" y="319" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB32" x="393" y="665" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
