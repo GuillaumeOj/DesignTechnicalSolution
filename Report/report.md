@@ -224,3 +224,8 @@ La solution est déployée sur un serveur physique contenant trois serveurs virt
 - L'application sera déployée sur un serveur utilisant `Gunicorn`. Cette application sera réalisée à l'aide du framework Django.
 - Le troisième serveur sera la base de données relationnelles MySQL qui communiquera uniquement avec le serveur d'application.
 
+
+\pagebreak
+# VI. Modèle physique de données
+
+![Modèle physique de données](../Diagrams/Entity_relationship_diagram.png)
