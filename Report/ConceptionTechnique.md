@@ -72,7 +72,7 @@ Une commande est associée à une ou plusieurs lignes de commande. Une ligne de 
 ## `CustomerOrder` - `Payment`
 
 - `CustomerOrder` représente la commande passée par le·a client·e.
-- `Payment` représente le type de payement utilisé par le·a client·e (CB à la livraison, en ligne, en espéces, etc.).
+- `Payment` représente le type de payement utilisé par le·a client·e (CB à la livraison, en ligne, en espèces, etc.).
 
 Une commande est associée à exactement un type de payement. Un payement est associé à zéro, une ou plusieurs commandes.
 
@@ -86,7 +86,7 @@ Une commande est associée à un seul statut de payement. Un statut de payement 
 ## `CustomerOrder` - `StatusHistory` - `Status`
 
 - `CustomerOrder` représente la commande passée par le·a client·e.
-- `Status` représente le statut de la commande (en attente, en prépration, en livraison, etc.).
+- `Status` représente le statut de la commande (en attente, en préparation, en livraison, etc.).
 - `StatusHistory` représente l'historique des statuts de commande.
 
 Une commande est associée à exactement un statut. Un statut est associé à zéro, une ou plusieurs commandes.
@@ -109,14 +109,14 @@ Une ligne de commande est associée à exactement une taille de pizza. Une taill
 ## `OrderLine` - `VatRate`
 
 - `OrderLine` représente une ligne détaillée de la commande.
-- `VatRate` représente le taux de TVA appliquable à la ligne de commande.
+- `VatRate` représente le taux de TVA applicable à la ligne de commande.
 
 Une ligne de commande est associée à exactement un taux de TVA. Un taux de TVA est associé à zéro, une ou plusieurs lignes de commandes.
 
 ## `Pizza` - `VatRate`
 
 - `Pizza` représente une pizza.
-- `VatRate` représente le taux de TVA appliquable à la ligne de commande.
+- `VatRate` représente le taux de TVA applicable à la ligne de commande.
 
 Une pizza est associée à exactement un taux de TVA. Un taux de TVA est associé à zéro, une ou plusieurs pizzas.
 
@@ -178,7 +178,7 @@ Le diagramme ci-dessus décrit les composant du système ainsi que les composant
 
 ## `Authentification`
 
-Composant pour l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connection un rôle lui sera attribué. Ce rôle lui permettra d'avoir la permission de faire certaines opérations sur l'application.
+Composant pour l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connexion un rôle lui sera attribué. Ce rôle lui permettra d'avoir la permission de faire certaines opérations sur l'application.
 
 ## `User`
 
@@ -207,7 +207,7 @@ Composant pour créer et gérer un panier avant de passer la commande.
 
 ## `Search pizza`
 
-Composant pour rechercher une pizza parmis la liste des pizzas proposées.
+Composant pour rechercher une pizza parmi la liste des pizzas proposées.
 
 ## `Payment API`
 
@@ -220,7 +220,7 @@ Composant pour gérer les paiements en ligne. Ce composant est un composant exte
 
 La solution est déployée sur un serveur physique contenant trois serveurs virtuels.
 
-- Les utilisateur·rice·s interagiront avec un serveur utlisant `Nginx`.
+- Les utilisateur·rice·s interagiront avec un serveur utilisant `Nginx`.
 - L'application sera déployée sur un serveur utilisant `Gunicorn`. Cette application sera réalisée à l'aide du framework Django.
 - Le troisième serveur sera la base de données relationnelles MySQL qui communiquera uniquement avec le serveur d'application.
 
