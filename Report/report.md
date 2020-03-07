@@ -175,19 +175,38 @@ Le diagramme ci-dessus décrit les composant du système ainsi que les composant
 
 ## `Authentification`
 
-Composant permettant l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connection un rôle lui sera attribué. Ce rôle lui permettra d'avoir la permission de faire certaines opérations sur l'application.
+Composant pour l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connection un rôle lui sera attribué. Ce rôle lui permettra d'avoir la permission de faire certaines opérations sur l'application.
 
 ## `User`
 
-Composant permettant la gestion des informations de l'utilisateur·rice.
+Composant pour la gestion des informations de l'utilisateur·rice.
 Si l'utilisateur·rice est un responsable de restaurant il·elle pourra gérer les information des employé·es de son restaurant.
 
 ## `Pizza`
 
-Composant la gestion des pizzas (nom, recettes, tailles) proposées par OC pizza. Ce composant est consulté lors que le·a client·e fait une recherche.
+Composant pour la gestion des pizzas (nom, recettes, tailles) proposées par OC pizza. Ce composant est consulté lors que le·a client·e fait une recherche.
 Pour toujours proposer des produits disponibles, le composant consulte l'état du stock du restaurant chargé de la confection de la commande.
 
 ## `Stock`
 
-Ce composant va permetttre la gestion des ingrédients disponibles dans chaque restaurant.
+Composant pour la gestion des ingrédients disponibles dans chaque restaurant.
 Le·a responsable du restaurant pourra en plus gérer le stock (mettre à jour suite aux livraisons, surveiller les quantités, etc.)
+
+## `Order`
+
+Composant pour gérer la ou les commande·s du ou de la client·e. Le·a client·e pourra visualiser l'historique de ses commandes et modifier, si elle est en attente de préparation, sa commande.
+Les employé·es du restaurant pourront visualiser les commandes en attente dans le restaurant et les gérer (pour la préparation, la livraison, etc.)
+C'est grâce à ce composant que l'adresse de livraison sera renseignée.
+
+## `Shopping cart`
+
+Composant pour créer et gérer un panier avant de passer la commande.
+
+## `Search pizza`
+
+Composant pour rechercher une pizza parmis la liste des pizzas proposées.
+
+## `Payment API`
+
+Composant pour gérer les paiements en ligne. Ce composant est un composant externe fournis par un prestataire spécialisé (par exemple : **[PayZen by Lyra](https://payzen.eu/api-rest/))**
+
