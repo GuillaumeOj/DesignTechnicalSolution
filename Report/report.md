@@ -7,7 +7,10 @@ author:
   - 'Mentor évaluateur : En attente'
 geometry: margin=1.5cm
 ---
+\renewcommand{\contentsname}{Sommaire}
+\tableofcontents
 
+\pagebreak
 # I. Contexte
 
 Notre client OC Pizza souhaite mettre en place un système informatique déployé pour l'ensemble de ses pizzeria actuelles et futures.
