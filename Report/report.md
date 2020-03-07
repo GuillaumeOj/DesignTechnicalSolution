@@ -213,3 +213,14 @@ Composant pour rechercher une pizza parmis la liste des pizzas proposées.
 
 Composant pour gérer les paiements en ligne. Ce composant est un composant externe fournis par un prestataire spécialisé (par exemple : **[PayZen by Lyra](https://payzen.eu/api-rest/))**
 
+\pagebreak
+# V. Organisation des composants
+
+![Diagramme de déploiement](../Diagrams/Deployment_diagram.png)
+
+La solution est déployée sur un serveur physique contenant trois serveurs virtuels.
+
+- Les utilisateur·rice·s interagiront avec un serveur utlisant `Nginx`.
+- L'application sera déployée sur un serveur utilisant `Gunicorn`. Cette application sera réalisée à l'aide du framework Django.
+- Le troisième serveur sera la base de données relationnelles MySQL qui communiquera uniquement avec le serveur d'application.
+
