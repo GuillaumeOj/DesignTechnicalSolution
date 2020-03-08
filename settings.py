@@ -12,7 +12,7 @@ DB_PWD = 'ocpizza'
 LANG_CODE = 'fr_FR'
 
 # File for generating the SQL structure
-SQL_STRUCTURE = 'OCPizza-structure.sql'
+SQL_STRUCTURE = 'ocpizza.sql'
 
 # Instance count for each object
 CUSTOMERS_COUNT = 67
