@@ -16,7 +16,7 @@ Be sure MySQL is installed and works.
 Create a user with all privileges:
 ```SQL
 CREATE USER 'ocpizza'@'host' IDENTIFIED BY 'ocpizza' -- Replace 'host' by the host name on your server
-GRANT ALL ON *.* TO 'ocpizza'@'ocpizza';            -- Don't forget to replace 'host'
+GRANT ALL ON *.* TO 'ocpizza'@'ocpizza';             -- Don't forget to replace 'host'
 ```
 
 Clone this current repository on your computer. Run :
