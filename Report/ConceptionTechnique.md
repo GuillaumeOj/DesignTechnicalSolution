@@ -13,15 +13,17 @@ geometry: margin=1.5cm
 \pagebreak
 # I. Contexte
 
-Notre client OC Pizza souhaite mettre en place un système informatique déployé pour l'ensemble de ses pizzeria actuelles et futures.
+Notre client OC Pizza souhaite mettre en place un système informatique déployé pour l'ensemble de ses pizzérias actuelles et futures.
 
 Le but de ce projet est de définir le domaine fonctionnel de ce futur système mais aussi de concevoir l'architecture technique de la solution.
 Pour cela, nous avons :
 
-- modélisé les objets du domaine fonctionnel grâce à un diagramme de classe UML,
-- identifié les composants de ce système par le biais d'un diagramme de composants,
-- définie le déploiement de ces différents composants dans un diagramme de déploiement,
-- puis élaboré un schéma de la base de données avec un modèle physique de données.
+- décrit le domaine fonctionnel avec un diagramme de classe UML,
+- identifié les composants du système dans un diagramme de composants,
+- réalisé une diagramme de déploiement de ces composants,
+- puis élaboré un modèle physique de données.
+
+L'ensemble des documents de la conception est disponible à l'adresse suivante : https://github.com/GuillaumeOj/DesignTechnicalSolution
 
 \pagebreak
 # II. Description du domaine fonctionnel
