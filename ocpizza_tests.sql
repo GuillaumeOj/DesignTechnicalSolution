@@ -118,7 +118,7 @@ LEFT JOIN ingredient ON ingredient.id = recipe.ingredient_id
 GROUP BY ingredient.name
 ORDER BY ingredient.name;
 --
--- Select all pending orders
+-- Select all pending orders for a restaurant
 --
 SELECT
     restaurant.name AS restaurant_name,
@@ -129,7 +129,36 @@ JOIN customer_order ON customer_order.id = order_line.order_id
 JOIN restaurant ON restaurant.id = customer_order.restaurant_id
 JOIN status ON status.id = customer_order.status_id
 JOIN pizza ON pizza.id = order_line.pizza_id
-WHERE status.name = 'attente'
+WHERE
+    status.name = 'attente'
+    AND
+    restaurant.name = 'Faure'
+GROUP BY restaurant.name, pizza.name
+ORDER BY restaurant.name, pizza.name;
+--
+-- Select all ingredients for a restaurant
+--
+SELECT
+    ingredient.name AS 'Stock for Faure\'s restaurant',
+    stock.quantity,
+    ingredient.unit
+FROM restaurant
+JOIN stock ON stock.restaurant_id = restaurant.id
+JOIN ingredient ON ingredient.id = stock.ingredient_id
+WHERE restaurant.name = 'Faure'
+ORDER BY restaurant.name, ingredient.name;
+--
+-- Select pizza with not enought ingredient in a restaurant
+--
+SELECT
+    restaurant.name AS restaurant_name,
+    pizza.name AS pizza_name
+FROM restaurant
+JOIN stock ON stock.restaurant_id = restaurant.id
+JOIN ingredient ON ingredient.id = stock.ingredient_id
+JOIN recipe ON recipe.ingredient_id = ingredient.id
+JOIN pizza ON pizza.id = recipe.pizza_id
+WHERE (stock.quantity - recipe.quantity) <= 0
 GROUP BY restaurant.name, pizza.name
 ORDER BY restaurant.name, pizza.name;
 
