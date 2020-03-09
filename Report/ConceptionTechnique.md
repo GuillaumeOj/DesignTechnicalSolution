@@ -23,7 +23,9 @@ Pour cela, nous avons :
 - réalisé une diagramme de déploiement de ces composants,
 - puis élaboré un modèle physique de données.
 
-L'ensemble des documents de la conception est disponible à l'adresse suivante : https://github.com/GuillaumeOj/DesignTechnicalSolution
+L'ensemble des documents de la conception est disponible à l'adresse suivante :
+
+    => https://github.com/GuillaumeOj/DesignTechnicalSolution
 
 \pagebreak
 # II. Description du domaine fonctionnel
@@ -33,13 +35,13 @@ L'ensemble des documents de la conception est disponible à l'adresse suivante :
 \pagebreak
 # III. Relations entre les classes
 
-Le but des descriptions ci-après est d'expliquer les liaisons entre les différentes classes du diagramme de classes.
-A noté que pour une uniformisation par la suite avec le modèle physique de données, les noms des classes ainsi que leurs attributs sont décrits en anglais.
+Le but des descriptions ci-après est d'expliquer les liaisons entre les différentes classes du diagramme.
+Il est important de noter que pour une uniformisation avec le modèle physique de données, les noms des classes ainsi que leurs attributs sont en anglais.
 
 ## `Customer` - `Address`
 
 - `Customer` représente un·e client·e du site OC Pizza.
-- `Address` représente l'adresse postale du / de la client·e.
+- `Address` représente l'adresse postale du ou de la client·e.
 
 Le·a client·e est associé·e à zéro ou une adresse. Une adresse est associée à zéro, un·e ou plusieurs client·e·s.
 
@@ -53,9 +55,9 @@ Un·e client·e est associé·e à zéro, une ou plusieurs commandes. Une comman
 ## `CustomerOrder` - `Address`
 
 - `CustomerOrder` représente la commande passée par le·a client·e.
-- `Address` représente l'adresse postale de livraison.
+- `Address` représente l'adresse postale de livraison de la commande.
 
-Une commande est associée à une seule adresse de livraison. Une adresse est associée à zéro, une ou plusieurs commandes.
+Une commande est associée à une seule adresse de livraison. Une adresse de livraison est associée à zéro, une ou plusieurs commandes.
 
 ## `CustomerOrder` - `Restaurant`
 
@@ -67,23 +69,23 @@ Une commande est associée à exactement un restaurant. Un restaurant est associ
 ## `CustomerOrder` - `OrderLine`
 
 - `CustomerOrder` représente la commande passée par le·a client·e.
-- `OrderLine` représente une ligne détaillée de la commande.
+- `OrderLine` représente une ligne contenant le détail de la commande.
 
 Une commande est associée à une ou plusieurs lignes de commande. Une ligne de commande est associée à exactement une commande.
 
 ## `CustomerOrder` - `Payment`
 
 - `CustomerOrder` représente la commande passée par le·a client·e.
-- `Payment` représente le type de payement utilisé par le·a client·e (CB à la livraison, en ligne, en espèces, etc.).
+- `Payment` représente le type de payement utilisé par le·a client·e (CB à la livraison, en ligne, espèces, etc.).
 
-Une commande est associée à exactement un type de payement. Un payement est associé à zéro, une ou plusieurs commandes.
+Une commande est associée à exactement un type de payement. Un type de payement est associé à zéro, une ou plusieurs commandes.
 
 ## `CustomerOrder` - `PaymentStatus`
 
 - `CustomerOrder` représente la commande passée par le·a client·e.
 - `PaymentStatus` représente le statut du payement de la commande (en attente, payée, etc.).
 
-Une commande est associée à un seul statut de payement. Un statut de payement pourra être associé à zéro, une ou plusieurs commandes.
+Une commande est associée à exactement un statut de payement. Un statut de payement est associé à zéro, une ou plusieurs commandes.
 
 ## `CustomerOrder` - `StatusHistory` - `Status`
 
@@ -92,25 +94,25 @@ Une commande est associée à un seul statut de payement. Un statut de payement 
 - `StatusHistory` représente l'historique des statuts de commande.
 
 Une commande est associée à exactement un statut. Un statut est associé à zéro, une ou plusieurs commandes.
-L'historique des statuts de commande est une classe d'association qui permet d'ajouter un attribut à l'association entre la commande et le statut de la commande.
+L'historique des statuts de commande est une classe d'association qui permet d'ajouter un historique à l'association entre la commande et le statut de la commande.
 
 ## `OrderLine` - `Pizza`
 
-- `OrderLine` représente une ligne détaillée de la commande.
+- `OrderLine` représente une ligne contenant le détail de la commande.
 - `Pizza` représente une pizza.
 
-Une ligne de commande est associée à exactement une statut. Une pizza est associée à zéro, une ou plusieurs lignes de commandes.
+Une ligne de commande est associée à exactement une pizza. Une pizza est associée à zéro, une ou plusieurs lignes de commandes.
 
 ## `OrderLine` - `Size`
 
-- `OrderLine` représente une ligne détaillée de la commande.
+- `OrderLine` représente une ligne contenant le détail de la commande.
 - `Size` représente une taille de pizza.
 
 Une ligne de commande est associée à exactement une taille de pizza. Une taille de pizza est associée à zéro, une ou plusieurs lignes de commandes.
 
 ## `OrderLine` - `VatRate`
 
-- `OrderLine` représente une ligne détaillée de la commande.
+- `OrderLine` représente une ligne contenant le détail de la commande.
 - `VatRate` représente le taux de TVA applicable à la ligne de commande.
 
 Une ligne de commande est associée à exactement un taux de TVA. Un taux de TVA est associé à zéro, une ou plusieurs lignes de commandes.
@@ -135,7 +137,7 @@ Ainsi une sous-catégorie est associée à zéro ou une catégorie parente. Une 
 ## `Pizza` - `Recipe` - `Ingredient`
 
 - `Pizza` représente une pizza.
-- `Ingredient` représente un ingrédient utilisable dans une pizza.
+- `Ingredient` représente un ingrédient.
 - `Recipe` représente une quantité nécessaire pour une pizza et un ingrédient donné.
 
 Une pizza est associée à un ou plusieurs ingrédients. Un ingrédient est associé à une ou plusieurs pizzas.
@@ -144,7 +146,7 @@ La recette est une classe d'association qui permet d'ajouter un attribut à l'as
 ## `Restaurant` - `Stock` - `Ingredient`
 
 - `Restaurant` représente un restaurant.
-- `Ingredient` représente un ingrédient utilisable dans une pizza.
+- `Ingredient` représente un ingrédient.
 - `Stock` représente une quantité en stock pour un restaurant et un ingrédient donné.
 
 Un restaurant est associé à un ou plusieurs ingrédients. Un ingrédient est associé à un ou plusieurs restaurants.
@@ -162,7 +164,7 @@ Un restaurant est associé à un·e ou plusieurs employé·e·s. Un·e employé�
 - `Restaurant` représente un restaurant.
 - `Address` représente l'adresse postale du restaurant.
 
-Le restaurant est associé à exactement une adresse. Une adresse est associée à zéro, un ou plusieurs restaurants.
+Le restaurant est associé à exactement une adresse. Une adresse est associée à zéro ou un restaurant.
 
 ## `Employee` - `Role`
 
@@ -180,17 +182,19 @@ Le diagramme ci-dessus décrit les composant du système ainsi que les composant
 
 ## `Authentification`
 
-Composant pour l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connexion un rôle lui sera attribué. Ce rôle lui permettra d'avoir la permission de faire certaines opérations sur l'application.
+Composant pour l'authentification des utilisateur·rice·s (client·e ou employé·e). Au moment de cette connexion un rôle lui sera attribué. Ce rôle lui permettra d'avoir les droits nécessaires pour réaliser certaines opérations sur l'application.
 
 ## `User`
 
 Composant pour la gestion des informations de l'utilisateur·rice.
-Si l'utilisateur·rice est un responsable de restaurant il·elle pourra gérer les information des employé·es de son restaurant.
+Le·a client·e ainsi que l'employé·e pourra éditer ses informations personnelles.
+Le·a responsable de restaurant pourra modifier le rôle de ses employé·e·s.
 
 ## `Pizza`
 
-Composant pour la gestion des pizzas (nom, recettes, tailles) proposées par OC pizza. Ce composant est consulté lors que le·a client·e fait une recherche.
-Pour toujours proposer des produits disponibles, le composant consulte l'état du stock du restaurant chargé de la confection de la commande.
+Composant pour la gestion des pizzas (nom, recettes, tailles) proposées par OC pizza.
+Ce composant est consulté lors que le·a client·e fait une recherche.
+Ce composant permet de modifier les pizzas proposées aux client·e·s.
 
 ## `Stock`
 
